@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  {% block head %}{% endblock %}
+  {% block css %}{% endblock %}
+</head>
+<body>
+  {% include "widgets/header.html" %}
+  {% block body %}{% endblock %}
+  {% block js %}{% endblock %}
+</body>
+</html>

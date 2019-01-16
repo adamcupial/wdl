@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="preload" href="{{ 'page-homepage.css' | manifest_asset('legacy') }}" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+
+{% endblock %}
+{% block js %}
+<script type="module" src="{{ 'page-homepage.js' | manifest_asset('modern') }}"></script>
+<script nomodule src="{{ 'page-homepage.js' | manifest_asset('legacy') }}"></script>
+{% endblock %}
