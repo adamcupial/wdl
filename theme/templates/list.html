@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style>
+{{ 'page-list.css' | manifest_asset | fetch }}
+</style>
+{% endblock %}
+
+{% block js %}
+    <script>
+        {{ 'page-list.js' | manifest_asset | fetch }}
+    </script>
+{% endblock %}
+
+{% block content %}
+<section class="card-list">
+  {% for article in articles_page.object_list %}
+      {% include "includes/card.html" %}
+  {% endfor %}
+  <footer>
+    {% include "widgets/paginator.html" %}
+  </footer>
+</section>
+{% endblock %}

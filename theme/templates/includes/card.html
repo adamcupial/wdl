@@ -1,0 +1,24 @@
+<article class="article-card{% if special %} article-card--featured{% endif %}">
+  <header class="article-card__header">
+    <time
+      class="article-card__date"
+      data-format="timeago"
+      datetime="{{ article.date.isoformat() }}"
+    >
+      {{ article.locale_date }}
+    </time>&nbsp;<span class="article-card__category">in&nbsp;<a href="{{ article.category.url }}" rel="tag" title="See more articles in '{{ article.category.name }}'">{{ article.category.name }}</a></span>
+    <h2 class="article-card__title">
+      <a
+        href="{{ SITE_URL }}/{{ article.url }}"
+        title="permalink for '{{ article.title | striptags }}'"
+        rel="bookmark"
+        >
+        {{ article.title }}
+      </a>
+    </h2>
+  </header>
+  <div class="article-card__excerpt">
+    {{ article.summary|striptags }}
+    <a class="article-card__readmore" href="{{ SITE_URL }}/{{ article.url }}" title="Read more about '{{ article.title | striptags }}'">Read more</a>
+  </div>
+</article>

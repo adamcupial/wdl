@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style>
+{{ 'page-search.css' | manifest_asset | fetch }}
+</style>
+{% endblock %}
+
+{% block js %}
+    <script>
+        {{ 'page-search.js' | manifest_asset | fetch }}
+    </script>
+{% endblock %}
+
+{% block content %}
+<section class="search-form">
+<form id="search-form" action="/search" method="GET">
+    <input type="search" name="q" required minlength="3" placeholder="search keyword">
+    <button type="submit">Search</button>
+</form>
+</section>
+<section class="search-results">
+<ul id="search-results">
+
+</ul>
+</section>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}

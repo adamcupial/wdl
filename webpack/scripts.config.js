@@ -1,13 +1,13 @@
 const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 
-module.exports = (settings, buildType) => ({
+module.exports = (settings) => ({
   resolve: {
     extensions: ['.ts', '.js', '.js-next', '.json'],
   },
   output: {
-    filename: path.join(settings.scripts.outputPath, `[name]-${buildType}.[chunkhash].js`),
-    chunkFilename: path.join(settings.scripts.outputPath, 'chunks', `[name]-${buildType}.[chunkhash].js`),
+    filename: path.join(settings.scripts.outputPath, `[name].[chunkhash].js`),
+    chunkFilename: path.join(settings.scripts.outputPath, 'chunks', `[name].[chunkhash].js`),
   },
   optimization: {
     minimizer: [
@@ -31,7 +31,7 @@ module.exports = (settings, buildType) => ({
                   modules: false,
                   useBuiltIns: 'entry',
                   targets: {
-                    browsers: settings.browserslist[buildType],
+                    browsers: settings.browserslist,
                   },
                 },
               ],

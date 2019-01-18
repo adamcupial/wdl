@@ -1,1 +1,22 @@
 {% extends "base.html" %}
+
+{% block css %}
+<style>
+{{ 'page-article.css' | manifest_asset | fetch }}
+</style>
+
+{% endblock %}
+{% block js %}
+<script>
+{{ 'page-article.js' | manifest_asset | fetch }}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="article">
+    <h1 class="page-title">{{ article.title }}</h1>
+    <div class="article__body">
+        {{ article.content }}
+    </div>
+</article>
+{% endblock %}

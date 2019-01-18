@@ -1,0 +1,100 @@
+@import '~normalize-scss/sass/normalize';
+@import '~sass-rem/_rem.scss';
+@import '~include-media/dist/_include-media.scss';
+@import 'styles/variables.scss';
+
+$base-font-family: 'Segoe UI', Tahoma, sans-serif;
+$base-unit: 'rem';
+@include normalize($exclude: (forms embedded interactive scripting hidden));
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  &.wf-opensans-n4-active {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  &.no-scroll {
+    overflow: hidden;
+
+    body {
+      overflow: hidden;
+    }
+  }
+}
+
+body {
+  min-height: 100%;
+  color: $color-text;
+  background-color: $color-body;
+}
+
+
+.page-body {
+  background-color: $color-bg;
+  display: grid;
+  grid-template-columns:
+  [body] 1fr;
+  grid-column-gap: rem(10px);
+  max-width: $content-max-width;
+  margin: 0 auto;
+
+  @include media('>=desktop') {
+    grid-template-columns:
+      [body] 1fr
+      [sidebar] 320px;
+  }
+}
+
+main {
+  position: relative;
+  grid-column: body;
+  z-index: 1;
+  padding: rem(16px 16px);
+
+  @include media('>=tablet') {
+    padding: rem(16px 32px);
+  }
+}
+
+.sidebar {
+  grid-column: sidebar;
+  position: relative;
+  z-index: 1;
+  background: $color-bg;
+
+  box-shadow: $shadow-default;
+  display: none;
+
+  padding: rem(16px 16px);
+
+  @include media('>=tablet') {
+    padding: rem(16px 32px);
+  }
+
+  @include media('>=desktop') {
+    display: block;
+  }
+}
+
+.page-title {
+  font-size: rem(32px);
+  color: $color-text-accent;
+  margin: rem(16px 0 48px 0);
+  line-height: 1.2;
+
+  @include media('>=desktop') {
+    font-size: rem(56px);
+  }
+}
+
+.section-title {
+  border-bottom: 1px solid $color-border;
+  padding: rem(0 8px);
+  margin: rem(0 0 8px 0);
+  font-size: rem(18px);
+}

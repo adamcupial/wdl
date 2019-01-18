@@ -4,11 +4,7 @@ const imageminOptipng = require('imagemin-optipng');
 const imageminSvgo = require('imagemin-svgo');
 const path = require('path');
 
-module.exports = (settings, buildType) => {
-  if (buildType === 'modern') {
-    return {};
-  }
-
+module.exports = (settings) => {
   return {
     module: {
       rules: [

@@ -1,0 +1,50 @@
+@import '~sass-rem/_rem.scss';
+@import 'styles/variables.scss';
+
+.taglist {
+
+  &__cloud {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+  }
+
+  &__all-tags {
+    text-decoration: none;
+    color: $color-text-accent;
+  }
+
+  &__tag {
+    text-decoration: none;
+    color: $color-text;
+    display: inline-block;
+    margin: rem(6px);
+    border-bottom: 1px dotted transparent;
+    line-height: 1;
+
+    &:hover {
+      color: $color-text-accent;
+      border-bottom-color: $color-text-accent;
+    }
+
+    &--group-1 {
+      font-size: rem(22px);
+      font-weight: 700;
+    }
+
+    &--group-2 {
+      font-size: rem(20px);
+    }
+
+    &--group-3 {
+      font-size: rem(16px);
+    }
+
+    &--group-4 {
+      font-size: rem(14px);
+    }
+  }
+}

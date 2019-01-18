@@ -1,0 +1,12 @@
+{% extends "list.html" %}
+
+{% block content %}
+<h1 class="page-title">Articles tagged "{{ tag.name }}"</h1>
+  {{ super() }}
+{% endblock %}
+
+{% block sidebar %}
+  {% with articlelist=articles %}
+    {% include "widgets/taglist.html" %}
+  {% endwith %}
+{% endblock %}

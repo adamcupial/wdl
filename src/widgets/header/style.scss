@@ -1,0 +1,275 @@
+@import '~sass-rem/_rem.scss';
+@import '~include-media/dist/_include-media.scss';
+@import 'styles/variables.scss';
+
+$site-header-height-desktop: rem(100px);
+$site-header-height-mobile: rem(50px);
+$site-nav-height-desktop: rem(92px);
+$site-nav-height-mobile: rem(42px);
+
+@mixin topline($color: $color-text-accent) {
+  &::before {
+    background-color: $color;
+    content: '';
+    height: 5px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.site-header {
+  box-sizing: border-box;
+  background-color: $color-bg;
+  box-shadow: $shadow-default;
+  color: $color-text-lighter;
+  display: flex;
+  height: $site-header-height-mobile;
+  z-index: 2;
+  top: 0;
+  padding: rem(0 10px);
+  max-width: $content-max-width;
+  margin: 0 auto;
+  position: relative;
+
+  @include media('>tablet') {
+    padding: rem(0 40px);
+    height: $site-header-height-desktop;
+  }
+
+  .svg-inline--fa {
+    height: rem(30px);
+    width: rem(30px);
+
+    @include media('>tablet') {
+    height: rem(40px);
+    width: rem(40px);
+    }
+  }
+
+  &__logo-area {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    position: relative;
+    padding-right: rem(10px);
+
+    @include media('>tablet') {
+      flex: 0;
+      padding-right: rem(40px);
+    }
+  }
+
+  &__logo {
+    align-items: center;
+    display: flex;
+    white-space: nowrap;
+
+    @include media('>tablet') {
+      &.active {
+        @include topline;
+      }
+    }
+
+    &:hover img {
+      opacity: .75;
+    }
+  }
+
+  &__middle-area {
+    flex: 1 1 100%;
+
+    @include media('<=tablet') {
+      order: 2;
+      flex: 0;
+      align-self: center;
+      justify-self: flex-end;
+      padding-left: rem(10px);
+    }
+
+    .navigation-button {
+      cursor: pointer;
+
+      @include media('>tablet') {
+        display: none;
+      }
+
+      &.active {
+        color: $color-text-accent;
+      }
+    }
+  }
+
+  &__sections {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__section {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @include media('<=tablet') {
+    &__navigation {
+      position: fixed;
+      right: 0;
+      top: $site-header-height-mobile - rem(1px);
+      bottom: 0;
+      z-index: 2;
+      background-color: $color-bg;
+      transform: translateX(110%);
+      width: rem(240px);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+      .navigation-button.active + & {
+        transition: transform 350ms ease-in;
+        transform: translateX(0);
+      }
+
+      .svg-inline--fa {
+        display: none;
+      }
+    }
+
+    &__section {
+      border-bottom: 1px solid $color-border;
+      border-left: 5px solid transparent;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      @each $section in map-keys($brand-colors) {
+        $color: map-get($brand-colors, $section);
+
+        &--#{$section} {
+          &.active {
+            border-left: 5px solid $color;
+
+            a {
+              color: $color;
+            }
+          }
+        }
+      }
+
+      a {
+        display: block;
+        line-height: 1.1;
+        text-decoration: none;
+        padding: rem(10px);
+        color: $color-text-lighter;
+        font-size: rem(16px);
+      }
+    }
+  }
+
+
+  @include media('>tablet') {
+
+    &__sections {
+      display: flex;
+    }
+
+    &__section {
+      flex: 1;
+      position: relative;
+      padding-top: ($site-header-height-mobile - $site-nav-height-mobile) / 2;
+
+      @include media('>=tablet') {
+        padding-top: ($site-header-height-desktop - $site-nav-height-desktop) / 2;
+      }
+
+      &:first-child {
+        border-left: 1px solid $color-border;
+      }
+
+      a {
+        align-items: center;
+        border-right: 1px solid $color-border;
+        color: $color-text-lighter;
+        display: flex;
+        flex-direction: column;
+        font-size: rem(14px);
+        height: $site-nav-height-mobile;
+        justify-content: center;
+        padding: rem(0 10px);
+        text-align: center;
+        text-decoration: none;
+        transition: color 200ms ease-out;
+
+        @include media('>=tablet') {
+          height: $site-nav-height-desktop;
+        }
+
+        .svg-inline--fa {
+          margin: (0 auto 8px);
+        }
+      }
+
+      @each $section in map-keys($brand-colors) {
+        $color: map-get($brand-colors, $section);
+
+        &--#{$section} {
+          &.active,
+          &:hover {
+            a {
+              color: $color;
+            }
+          }
+
+          &.active {
+            @include topline($color);
+          }
+        }
+      }
+    }
+  }
+
+  &__search-area {
+    align-items: center;
+    display: flex;
+    flex: 1 1 0;
+    justify-content: center;
+    padding-left: rem(10px);
+    transition: width 200ms ease-in;
+
+    svg {
+      cursor: pointer;
+
+      &:hover {
+        path {
+          fill: $color-text-accent;
+        }
+      }
+    }
+
+    .form {
+      display: none;
+
+      input {
+        border: 2px solid $color-text-accent;
+        height: rem(40px);
+        width: rem(200px);
+        margin-right: rem(20px);
+        outline: 0;
+        padding: rem(5px);
+        font-size: rem(20px);
+      }
+
+      &.visible {
+        display: block;
+      }
+    }
+
+    @include media('>tablet') {
+      padding-left: rem(40px);
+    }
+  }
+}

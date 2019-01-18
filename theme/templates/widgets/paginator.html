@@ -1,0 +1,19 @@
+{% if articles_page.has_previous() or articles_page.has_next() %}
+<ul class="paginator" data-module="paginator" data-module-style-only="true">
+  {% if articles_page.has_previous() %}
+    {% if articles_page.previous_page_number() == 1 %}
+    <li class="paginator__previous"><a href="{{ SITEURL }}/">Previous</a></li>
+    {% else %}
+    <li class="paginator__previous"><a href="{{ SITEURL }}/{{ articles_page.previous_page_number() }}/">Previous</a></li>
+    {% endif %}
+  {% else %}
+  <li class="paginator__previous paginator__previous--disabled"><span>Previous</span></li>
+  {% endif %}
+
+  {% if articles_page.has_next() %}
+  <li class="paginator__next"><a href="{{ SITEURL }}/{{ articles_page.next_page_number() }}/">Next</a></li>
+  {% else %}
+  <li class="paginator__next paginator__next--disabled"><span>Next</span></li>
+  {% endif %}
+</ul>
+{% endif %}

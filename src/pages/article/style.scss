@@ -1,0 +1,31 @@
+@import '~sass-rem/_rem.scss';
+@import 'styles/base.scss';
+@import 'styles/variables.scss';
+@import 'styles/mixins/link.scss';
+
+.article {
+  &__body {
+    p {
+      margin: rem(0 0 16px 0);
+      line-height: 1.6;
+      font-size: rem(18px);
+    }
+
+    a {
+      @include link;
+    }
+
+    .highlight {
+      margin-bottom: rem(16px);
+    }
+  }
+
+  .section {
+    margin: rem(16px 0);
+
+    h2 {
+      line-height: 1.2;
+      margin: rem(0 0 16px 0);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import 'colors.scss';
+@import '~sass-rem/_rem.scss';
+
+$shadow-default: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+$breakpoints: (
+  phone: rem(320px),
+  tablet: rem(768px),
+  desktop: rem(1024px),
+);
+
+$content-max-width: 1440px;

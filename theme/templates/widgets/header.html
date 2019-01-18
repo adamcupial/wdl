@@ -1,33 +1,33 @@
-
 <header class="site-header" data-module="header">
   <div class="site-header__logo-area">
-    <a class="site-header__logo{% if true %} active{% endif %}" href="/">
-      <img src="/assets/img/logo.svg" alt="webdesign-log.pl logo" title="webdesign-log.pl"/>
+    <a class="site-header__logo{% if 'css,html,javascript,python' | tags_not_present(tag, article, category) %} active{% endif %}" href="/">
+      <img src="/theme/images/blank.gif" data-lazy-src="/theme/images/logo.svg" alt="webdesign-log.pl logo" title="webdesign-log.pl"/>
     </a>
   </div>
   <div class="site-header__middle-area">
+    <div class="navigation-button"> <i class="fas fa-bars"></i> </div>
     <nav class="site-header__navigation">
       <ul class="site-header__sections">
-        <li class="site-header__section site-header__section--css{% if false %} active{% endif %}">
-          <a href="">
+        <li class="site-header__section site-header__section--css{% if 'css' | tag_present(tag, article, category) %} active{% endif %}">
+            <a href="/category/css">
             <i class="fab fa-css3-alt"></i>
             <span>CSS</span>
           </a>
         </li>
-        <li class="site-header__section site-header__section--html{% if false %} active{% endif %}">
-          <a href="">
+        <li class="site-header__section site-header__section--html{% if 'html' | tag_present(tag, article, category) %} active{% endif %}">
+          <a href="/category/html">
             <i class="fab fa-html5"></i>
             <span>HTML</span>
           </a>
         </li>
-        <li class="site-header__section site-header__section--javascript{% if false %} active{% endif %}">
-          <a href="">
+        <li class="site-header__section site-header__section--javascript{% if 'javascript' | tag_present(tag, article, category) %} active{% endif %}">
+          <a href="/category/javascript">
             <i class="fab fa-js"></i>
             <span>JavaScript</span>
           </a>
         </li>
-        <li class="site-header__section site-header__section--python{% if false %} active {% endif %}">
-          <a href="">
+        <li class="site-header__section site-header__section--python{% if 'python' | tag_present(tag, article, category) %} active {% endif %}">
+          <a href="/category/python">
             <i class="fab fa-python"></i>
             <span>Python</span>
           </a>
@@ -36,6 +36,12 @@
     </nav>
   </div>
   <div class="site-header__search-area">
+    <div class="form">
+        <form action="/search" method="GET">
+            <input type="search" name="q" minlength="3" required placeholder="Search keywords">
+            <input type="submit" hidden>
+        </form>
+    </div>
     <i class="fas fa-search"></i>
   </div>
 </header>

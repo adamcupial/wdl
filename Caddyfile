@@ -1,0 +1,6 @@
+https://localhost:8080
+gzip
+bind {$ADDRESS}
+root output
+tls self_signed
+index index.html

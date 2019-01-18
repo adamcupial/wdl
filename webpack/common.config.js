@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const noop = require('noop-webpack-plugin');
 
 
-module.exports = (settings, buildType) => ({
+module.exports = (settings) => ({
   mode: settings.mode,
   entry: settings.entry,
   resolve: {
@@ -22,7 +22,7 @@ module.exports = (settings, buildType) => ({
     }) : noop(),
     new ManifestPlugin({
       writeToFileEmit: true,
-      fileName: `manifest-${buildType}.json`,
+      fileName: `manifest.json`,
       basePath: settings.paths.manifestBasePath,
     }),
   ],

@@ -1,10 +1,36 @@
 {% extends "base.html" %}
 
 {% block css %}
-<link rel="preload" href="{{ 'page-homepage.css' | manifest_asset('legacy') }}" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-
+<style>
+{{ 'page-list.css' | manifest_asset | fetch }}
+</style>
 {% endblock %}
+
 {% block js %}
-<script type="module" src="{{ 'page-homepage.js' | manifest_asset('modern') }}"></script>
-<script nomodule src="{{ 'page-homepage.js' | manifest_asset('legacy') }}"></script>
+    <script>
+        {{ 'page-list.js' | manifest_asset | fetch }}
+    </script>
+{% endblock %}
+
+{% block content %}
+<section class="card-list">
+  {% for article in articles_page.object_list %}
+  {% if loop.first and not articles_page.has_previous() %}
+      {% with special="true" %}
+        {% include "includes/card.html" %}
+      {% endwith %}
+    {% else %}
+      {% include "includes/card.html" %}
+    {% endif %}
+  {% endfor %}
+  <footer>
+    {% include "widgets/paginator.html" %}
+  </footer>
+</section>
+{% endblock %}
+
+{% block sidebar %}
+  {% with articlelist=articles %}
+    {% include "widgets/taglist.html" %}
+  {% endwith %}
 {% endblock %}

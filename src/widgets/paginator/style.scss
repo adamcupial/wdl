@@ -1,0 +1,92 @@
+@import '~sass-rem/_rem.scss';
+@import 'styles/variables.scss';
+
+.paginator {
+  $color-hover: darken($color-text-accent, 5%);
+  $el-height: rem(48px);
+
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+
+  &__previous,
+  &__next {
+    display: inline-block;
+    position: relative;
+
+    span,
+    a {
+      box-sizing: border-box;
+      padding: rem(5px);
+      height: $el-height;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: $shadow-default;
+      width: rem(100px);
+      background-color: $color-text-accent;
+      color: $color-bg;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 0;
+        border: ($el-height / 2) solid $color-bg;
+      }
+    }
+
+    a {
+      &:hover {
+        background-color: $color-hover;
+      }
+    }
+
+    span {
+      opacity: .2;
+    }
+  }
+
+  &__previous {
+    padding-left: $el-height / 2;
+
+    a,
+    span {
+      &::before {
+        left: -1 * ($el-height / 2);
+        border-right-color: $color-text-accent;
+      }
+    }
+
+    a {
+      &:hover {
+        &::before {
+          border-right-color: $color-hover;
+        }
+      }
+    }
+  }
+
+  &__next {
+    padding-right: $el-height / 2;
+
+    a,
+    span {
+      &::before {
+        right: -1 * ($el-height / 2);
+        border-left-color: $color-text-accent;
+      }
+    }
+
+    a {
+      &:hover {
+        &::before {
+          border-left-color: $color-hover;
+        }
+      }
+    }
+  }
+}

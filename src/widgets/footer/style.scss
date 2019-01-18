@@ -1,0 +1,51 @@
+@import '~sass-rem/_rem.scss';
+@import 'styles/variables.scss';
+@import 'styles/mixins/link.scss';
+
+.site-footer {
+  background-color: $color-text-accent;
+  padding: rem(16px 32px);
+  text-align: center;
+  color: $color-bg;
+  position: relative;
+  z-index: 0;
+
+  &__logo-area {
+    margin-bottom: rem(16px);
+
+    a {
+      transition: opacity .2s;
+
+      &:hover img {
+        opacity: .75;
+      }
+    }
+  }
+
+  &__navigation {
+    margin-bottom: rem(16px);
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+      display: inline-block;
+      border-right: 1px solid $color-bg;
+      padding: rem(0 10px);
+      margin: 0;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      a {
+        @include link($color-bg);
+      }
+    }
+
+  }
+}

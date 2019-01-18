@@ -2,13 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include "includes/seo.html" %}
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
   {% block head %}{% endblock %}
   {% block css %}{% endblock %}
 </head>
 <body>
   {% include "widgets/header.html" %}
-  {% block body %}{% endblock %}
+  <div class="page-body">
+  {% block body %}
+    <main role="main">
+      {% block content %}{% endblock %}
+    </main>
+    <aside class="sidebar">
+      {% block sidebar %}{% endblock %}
+    </aside>
+  {% endblock %}
+  </div>
+  {% include "widgets/footer.html" %}
   {% block js %}{% endblock %}
 </body>
 </html>

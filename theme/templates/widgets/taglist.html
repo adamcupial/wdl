@@ -1,0 +1,13 @@
+<section class="taglist" data-module="taglist" data-module-style-only="true">
+    <h2 class="section-title">Tags</h2>
+    <div class="taglist__cloud">
+        {% for tag, count, group in articlelist | aggregate_tags %}
+            <a
+                class="taglist__tag taglist__tag--group-{{ group }}"
+                href="{{ SITE_URL }}/{{ tag.url }}"
+                rel="tag"
+            >{{ tag.name }}</a>
+        {% endfor %}
+    </div>
+    <a class="taglist__all-tags" href="{{ SITE_URL }}/tags.html">all tags</a>
+</section>
