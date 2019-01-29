@@ -26,8 +26,8 @@ ID = "WebdesignLog.pl"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Content-Security-Policy = "frame-ancestors"
-    Referrer-Policy = "origin-when-cross-origin"
-    Feature-Policy = "vibrate: 'none'; autoplay: 'none'; camera: 'none'; microphone: 'none'; payment: 'none'; geolocation: 'self'"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Feature-Policy = "vibrate 'none'; autoplay 'none'; camera 'none'; microphone 'none'; payment 'none'; geolocation 'self'"
 
 [[headers]]
   for = "/theme/css/*"
