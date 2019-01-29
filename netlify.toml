@@ -25,9 +25,9 @@ ID = "WebdesignLog.pl"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "frame-ancestors"
+    Content-Security-Policy = "default-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Feature-Policy = "vibrate 'none'; autoplay 'none'; camera 'none'; microphone 'none'; payment 'none'; geolocation 'self'"
+    Feature-Policy = "autoplay 'none'; camera 'none'; microphone 'none'; payment 'none'; geolocation 'self'"
 
 [[headers]]
   for = "/theme/css/*"
