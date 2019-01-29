@@ -19,7 +19,6 @@ ID = "WebdesignLog.pl"
   command = "make publish"
 
 [[headers]]
-  # Define which paths this specific [[headers]] block will cover.
   for = "/*"
 
   [headers.values]
@@ -28,13 +27,13 @@ ID = "WebdesignLog.pl"
     Content-Security-Policy = "frame-ancestors"
 
 [[headers]]
-  for = "*.css"
+  for = "/theme/css/*"
 
   [headers.values]
-    Cache-Control = "max-age: 31536000"
+    Cache-Control = "public, max-age: 31536000"
 
 [[headers]]
-  for = "*.js"
+  for = "/theme/js/*"
 
   [headers.values]
-    Cache-Control = "max-age: 31536000"
+    Cache-Control = "public, max-age: 31536000"
