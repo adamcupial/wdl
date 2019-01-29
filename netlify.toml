@@ -26,3 +26,13 @@ ID = "WebdesignLog.pl"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     Content-Security-Policy = "frame-ancestors"
+
+  for = "/theme/css/*"
+
+  [headers.values]
+    Cache-Control = "max-age: 31536000"
+
+  for = "/theme/js/*"
+
+  [headers.values]
+    Cache-Control = "max-age: 31536000"
