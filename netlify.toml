@@ -27,12 +27,14 @@ ID = "WebdesignLog.pl"
     X-XSS-Protection = "1; mode=block"
     Content-Security-Policy = "frame-ancestors"
 
-  for = "/theme/css/*"
+[[headers]]
+  for = "*.css"
 
   [headers.values]
     Cache-Control = "max-age: 31536000"
 
-  for = "/theme/js/*"
+[[headers]]
+  for = "*.js"
 
   [headers.values]
     Cache-Control = "max-age: 31536000"
