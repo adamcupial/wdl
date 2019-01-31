@@ -10,19 +10,26 @@ export default class HeaderWidget extends BaseWidget {
     this.context
     .querySelector('.navigation-button')
     .addEventListener('click', (ev:Event) => {
-      ev.currentTarget.classList.toggle('active');
+      const target = ev.currentTarget as HTMLElement;
+
+      target.classList.toggle('active');
       document.documentElement.classList.toggle('no-scroll');
     }, false)
 
     this.context
       .addEventListener('click', (ev:Event) => {
-        if (ev.target.classList.contains('fa-search')) {
+        const target = <HTMLElement> ev.target;
+
+        if (target.classList.contains('fa-search')) {
           const form = this.context.querySelector('.form');
+          const submitButton = form.querySelector('form input[type="submit"]') as HTMLElement;
+          const searchInput = form.querySelector('input[name="q"]') as HTMLElement;
+
           if (form.classList.contains('visible')) {
-            form.querySelector('form input[type="submit"]').click();
+            submitButton.click();
           } else {
             form.classList.add('visible')
-            form.querySelector('input[name="q"]').focus();
+            searchInput.focus();
           }
         }
       });

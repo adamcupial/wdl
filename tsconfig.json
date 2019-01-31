@@ -11,7 +11,7 @@
     "noEmit": true,
     "strict": false,
     "moduleResolution": "node",
-    "baseUrl": "./assets/",
+    "baseUrl": "./src/",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   }
