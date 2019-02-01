@@ -6,7 +6,15 @@ import { faPython, faCss3Alt, faJs, faHtml5 } from '@fortawesome/free-brands-svg
 
 
 export default class HeaderWidget extends BaseWidget {
-  render() {
+  private loadSVG () : void {
+    library.add(faHtml5, faPython, faCss3Alt, faJs, faSearch, faBars);
+    dom.i2svg({
+      node: this.context as Node,
+      callback: () => {},
+    });
+  }
+
+  render() : void {
     this.context
     .querySelector('.navigation-button')
     .addEventListener('click', (ev:Event) => {
@@ -14,7 +22,7 @@ export default class HeaderWidget extends BaseWidget {
 
       target.classList.toggle('active');
       document.documentElement.classList.toggle('no-scroll');
-    }, false)
+    }, false);
 
     this.context
       .addEventListener('click', (ev:Event) => {
@@ -33,9 +41,6 @@ export default class HeaderWidget extends BaseWidget {
           }
         }
       });
-
-    library.add(faHtml5, faPython, faCss3Alt, faJs, faSearch, faBars);
-
-    dom.i2svg({ node: this.context });
+    this.loadSVG();
   }
 }

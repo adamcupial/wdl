@@ -11,6 +11,22 @@ function _log(type : LOGTYPE, ...args) : void {
   }
 }
 
+export function group(name : string) {
+  if (window.console && 'group' in window.console) {
+    if ('groupCollapsed' in window.console) {
+      window.console.groupCollapsed(name);
+    } else {
+      window.console.group(name);
+    }
+  }
+}
+
+export function groupEnd() {
+  if (window.console && 'groupEnd' in window.console) {
+    window.console.groupEnd();
+  }
+}
+
 export function log(...args) {
   _log(LOGTYPE.Log, ...args);
 }
