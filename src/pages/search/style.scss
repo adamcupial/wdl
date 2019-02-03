@@ -1,4 +1,17 @@
+@import 'styles/base.scss';
+@import '~sass-rem/_rem.scss';
+@import 'styles/mixins/card.scss';
+
 .search-form {
   border: 1px solid #ccc;
   padding: 10px;
+}
+
+.search-results {
+
+  &__content {
+  }
+
+  &__item {
+  }
 }

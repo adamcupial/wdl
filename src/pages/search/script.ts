@@ -5,7 +5,7 @@ import BaseScripts from 'scripts/base';
 import SearchIndex from 'scripts/search';
 
 const searchForm = document.getElementById('search-form') as HTMLFormElement;
-const searchResults = document.querySelector('.search-results .content');
+const searchResults = document.querySelector('.search-results__content');
 const searchParams = new URLSearchParams(window.location.search);
 const sIdx = new SearchIndex();
 
@@ -13,14 +13,22 @@ const resultTemplate = (results) => {
   let res = null;
   if (results.length) {
     res = results.map((result) => html`
-      <li data-ref="${result.ref}">
-        <a href="${result.data.url}">${result.data.title}</a>
-      </li>
+      <div class="search-results__item article-card" data-ref="${result.ref}">
+        <h3 class="article-card__title">
+          <a href="${result.data.url}">${result.data.title}</a>
+        </h3>
+        <div class="article-card__excerpt">
+          <p>
+            ${result.data.summary}
+            <a class="article-card__readmore" href="${result.data.url}">Read more</a>
+          </p>
+        </div>
+      </div>
     `);
   } else {
     res = html`<li class="empty">No articles found matching the query</li>`;
   }
-  return html`<ul>${res}</ul>`;
+  return html`${res}`;
 };
 
 function search(query: string) : void {
