@@ -14,16 +14,16 @@
 
 {% block content %}
 <section class="search-form">
-<form id="search-form" action="/search" method="GET">
-    <input type="search" name="q" required minlength="3" placeholder="search keyword">
-    <button type="submit">Search</button>
-</form>
+    <form id="search-form" action="/search" method="GET">
+        <input type="search" name="q" required minlength="3" placeholder="search keyword">
+        <button type="submit">Search</button>
+    </form>
 </section>
 <section class="search-results">
     <header>
-        <h2>Search Results</h2>
+        <h2 class="section-title">Search Results</h2>
     </header>
-    <div class="content"></div>
+    <div class="search-results__content"></div>
 </section>
 {% endblock %}
 

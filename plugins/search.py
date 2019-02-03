@@ -49,6 +49,8 @@ class SearchIndexGenerator(object):
             .replace('¦', ' ')\
             .replace('^', '&#94;')
         page_text = ' '.join(page_text.split())
+        soup_summary = BeautifulSoup(page.summary, 'html.parser')
+        page_summary = soup_summary.get_text(' ', strip=True)
 
         page_url = '.' if self.relative_urls else self.siteurl + '/' + page.url
 
@@ -57,6 +59,7 @@ class SearchIndexGenerator(object):
             'title': page_title,
             'text': page_text,
             'url': page_url,
+            'summary': page_summary,
         }
 
     def generate_output(self, writer):
@@ -72,6 +75,7 @@ class SearchIndexGenerator(object):
             x['id']: {
                 'url': x['url'],
                 'title': x['title'],
+                'summary': x['summary'],
             } for x in pages
         }
         idx = lunr(
