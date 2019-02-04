@@ -4,13 +4,27 @@ from __future__ import unicode_literals
 import sys
 sys.path.append('.')
 from plugins.jinja_plugins import manifest_asset, tag_present, tags_not_present, aggregate_tags, fetch
-from plugins import tagnames, search
+from urllib.parse import urljoin
 
-PLUGINS = [tagnames, search, 'minify']
+PLUGIN_PATHS = ['./plugins', './pelican-plugins']
+PLUGINS = [
+    'tagnames',
+    'search',
+    'minify',
+    'sitemap',
+    'series',
+    'summary',
+    'share_post',
+]
 
 AUTHOR = 'Adam Cupial'
 SITENAME = 'Webdesign-log.pl'
 SITEURL = ''
+SITE_LOGO = urljoin(SITEURL, '/theme/images/logo.svg')
+
+SITEMAP = {
+    'format': 'xml',
+}
 
 PATH = 'content'
 

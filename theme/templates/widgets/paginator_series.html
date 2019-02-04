@@ -1,0 +1,15 @@
+{% if article.series and article.series.all|length > 1 %}
+<ul class="paginator" data-module="paginator">
+  {% if article.series.previous %}
+    <li class="paginator__previous"><a href="{{ SITEURL }}/{{ article.series.previous.url }}/">Previous</a></li>
+  {% else %}
+  <li class="paginator__previous paginator__previous--disabled"><span>Previous</span></li>
+  {% endif %}
+
+  {% if article.series.next %}
+  <li class="paginator__next"><a href="{{ SITEURL }}/{{ article.series.next.url }}/">Next</a></li>
+  {% else %}
+  <li class="paginator__next paginator__next--disabled"><span>Next</span></li>
+  {% endif %}
+</ul>
+{% endif %}

@@ -13,7 +13,7 @@
         title="permalink for '{{ article.title | striptags }}'"
         rel="bookmark"
         >
-        {{ article.title }}
+        {% if article.series %}{{ article.series.name }}: {% endif %}{{ article.title }}
       </a>
     </h2>
   </header>

@@ -1,0 +1,17 @@
+{
+    "@context": "http://schema.org",
+    "@type": "Blog",
+    "name": "{{ SITENAME }}",
+    "url": "{{ SITEURL }}",
+    "image": "{{ SITE_LOGO }}",
+    "description": "{{ SITE_SUMMARY }}",
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ SITENAME }}"
+    },
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ SITEURL }}/search?q={search_term}",
+        "query-input": "required name=search_term"
+    }
+}
