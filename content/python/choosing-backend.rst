@@ -1,5 +1,5 @@
-Choosing right tools
-####################
+Choosing backend
+################
 
 :date: 2019-02-03
 :tags: blog, tips, python, pelican, static site generator
@@ -16,7 +16,7 @@ But what should be used on the backend? Do you even need a backend?
 
 As it happens - sometimes you can get away with no backend at all.
 
-If you remember from my `previous post <{filename}/varia/the-beginning.rst>`__ I wanted a simple to use and to create website with minimum amount of fuss and moderate number of features, typical to blog. That was shouting to me *Static Site*.
+If you remember from my `previous post <{filename}/varia/the-beginning.rst>`__ I wanted simple to use solution to create website with minimum amount of fuss and moderate number of features. That was shouting to me *Static Site*.
 
 For those unfamiliar - static site means you create a content and then run script which outputs the HTML and static files ready for upload to your hosting, no backend required at all.
 
