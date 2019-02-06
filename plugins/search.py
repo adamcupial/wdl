@@ -54,6 +54,10 @@ class SearchIndexGenerator(object):
 
         page_url = '.' if self.relative_urls else self.siteurl + '/' + page.url
 
+        if hasattr(page, 'series'):
+            page_title = '{0}: {1}'.format(page.series['name'], page_title)
+
+
         return {
             'id': iden,
             'title': page_title,
