@@ -79,6 +79,10 @@ main {
   @include media('>=desktop') {
     display: block;
   }
+
+  > * + * {
+    margin-top: rem(32px);
+  }
 }
 
 .page-title {

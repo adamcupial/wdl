@@ -24,4 +24,7 @@
 
 {% block sidebar %}
 {% include "widgets/series.html" %}
+  {% with articlelist=[article] %}
+    {% include "widgets/taglist.html" %}
+  {% endwith %}
 {% endblock %}
