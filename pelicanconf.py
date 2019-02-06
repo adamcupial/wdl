@@ -88,13 +88,13 @@ DEFAULT_CATEGORY = 'varia'
 TAG_URL = 'tag/{slug}'
 TAG_SAVE_AS = 'tag/{slug}/index.html'
 
-ARCHIVES_URL = 'archive'
-ARCHIVES_SAVE_AS = 'archive/index.html'
+
+# disable this ones
+
 AUTHORS_SAVE_AS = ''
 AUTHOR_SAVE_AS = ''
+TAGS_SAVE_AS = ''
+ARCHIVES_SAVE_AS = ''
 
-TAGS_URL = 'tag'
-TAGS_SAVE_AS = 'tag/index.html'
-
-DIRECT_TEMPLATES = ['index', 'tags', 'archives', 'search']
+DIRECT_TEMPLATES = ['index', 'search']
 SEARCH_SAVE_AS = 'search/index.html'
