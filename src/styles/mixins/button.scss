@@ -19,3 +19,10 @@
     opacity: 1;
   }
 }
+
+@mixin large-btn ($bg: $color-text-accent, $text: $color-bg) {
+  @include small-btn($bg, $text);
+  font-size: rem(22px);
+  padding: rem(8px 16px);
+  transform: translateY(-1px);
+}

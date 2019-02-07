@@ -1,8 +1,6 @@
 # TODO
 
 ## First Release
-- search style
-- favicon
 - robots.txt
 - analytics
 - sitemap
