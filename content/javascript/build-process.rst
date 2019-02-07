@@ -2,7 +2,7 @@ Build process
 #############
 
 :date: 2019-02-04
-:tags: blog, tips, javascript, webpack
+:tags: blog, tips, webpack
 :series: How I built my blog
 :series_index: 3
 

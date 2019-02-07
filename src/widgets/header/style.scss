@@ -208,6 +208,10 @@ $site-nav-height-mobile: rem(42px);
           height: $site-nav-height-desktop;
         }
 
+        span {
+          color: $color-text;
+        }
+
         .svg-inline--fa {
           margin: (0 auto 8px);
         }

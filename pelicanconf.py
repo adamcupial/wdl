@@ -19,7 +19,7 @@ PLUGINS = [
 
 AUTHOR = 'Adam Cupial'
 SITENAME = 'Webdesign-log.pl'
-SITEURL = ''
+SITEURL = 'http://127.0.0.1:8000'
 SITE_LOGO = urljoin(SITEURL, '/theme/images/logo.svg')
 
 SITEMAP = {

@@ -55,6 +55,7 @@ main {
   grid-column: body;
   z-index: 1;
   padding: rem(16px 16px);
+  overflow: hidden;
 
   @include media('>=tablet') {
     padding: rem(16px 32px);
@@ -62,6 +63,7 @@ main {
 }
 
 .sidebar {
+  overflow: hidden;
   grid-column: sidebar;
   position: relative;
   z-index: 1;
