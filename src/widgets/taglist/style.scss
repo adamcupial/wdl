@@ -1,5 +1,6 @@
 @import '~sass-rem/_rem.scss';
 @import 'styles/variables.scss';
+@import 'styles/mixins/button.scss';
 
 .taglist {
 
@@ -10,11 +11,7 @@
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
-  }
-
-  &__all-tags {
-    text-decoration: none;
-    color: $color-text-accent;
+    margin-bottom: rem(8px);
   }
 
   &__tag {

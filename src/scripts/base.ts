@@ -27,6 +27,7 @@ export default class BaseScripts {
       'footer',
       'paginator',
       'taglist',
+      'article-box',
     ]
       .map(name => `[data-module="${name}"]`)
       .map(selector => document.querySelector(selector))

@@ -1,10 +1,27 @@
 @import 'styles/base.scss';
 @import '~sass-rem/_rem.scss';
 @import 'styles/mixins/card.scss';
+@import 'styles/mixins/button.scss';
 
 .search-form {
-  border: 1px solid #ccc;
-  padding: 10px;
+  form {
+    display: flex;
+    flex-direction: row;
+  }
+
+  input {
+    border: 2px solid $color-text-accent;
+    height: rem(40px);
+    width: 100%;
+    margin-right: rem(20px);
+    outline: 0;
+    padding: rem(5px);
+    font-size: rem(20px);
+  }
+
+  button {
+    @include large-btn;
+  }
 }
 
 .search-results {

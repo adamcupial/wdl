@@ -1,0 +1,24 @@
+@import '~sass-rem/_rem.scss';
+@import 'styles/variables.scss';
+@import 'styles/mixins/link.scss';
+
+.article-box {
+  ol,
+  ul {
+    margin: 0;
+  }
+
+  &__item {
+    color: $color-text-accent;
+    margin: rem(8px 0);
+
+    a {
+      @include link($color-text-accent);
+    }
+
+    &--current {
+      font-weight: 700;
+    }
+  }
+
+}

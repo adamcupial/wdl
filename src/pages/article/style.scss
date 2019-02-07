@@ -13,6 +13,12 @@
 
     a {
       @include link;
+
+      &.footnote-reference {
+        vertical-align: super;
+        font-size: .75em;
+        border-bottom: none;
+      }
     }
 
     .highlight {
@@ -26,6 +32,24 @@
     h2 {
       line-height: 1.2;
       margin: rem(0 0 16px 0);
+    }
+  }
+
+  .footnote {
+    border: none;
+    border-collapse: collapse;
+    margin-bottom: rem(8px);
+
+    &:first-of-type {
+      border-top: 1px solid $color-border;
+    }
+
+    .label {
+      padding-right: rem(10px);
+
+      a {
+        border-bottom: none;
+      }
     }
   }
 }

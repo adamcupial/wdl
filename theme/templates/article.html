@@ -14,9 +14,17 @@
 
 {% block content %}
 <article class="article">
-    <h1 class="page-title">{{ article.title }}</h1>
+    <h1 class="page-title">{% if article.series %}{{ article.series.name }}: {% endif %}{{ article.title }}</h1>
     <div class="article__body">
         {{ article.content }}
     </div>
 </article>
+{% include "widgets/paginator_series.html" %}
+{% endblock %}
+
+{% block sidebar %}
+{% include "widgets/series.html" %}
+  {% with articlelist=[article] %}
+    {% include "widgets/taglist.html" %}
+  {% endwith %}
 {% endblock %}

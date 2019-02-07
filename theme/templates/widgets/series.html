@@ -1,0 +1,20 @@
+{% if article.series and article.series.all|length > 1 %}
+    <section data-module="article-box" class="article-box">
+        <header>
+            <h3 class="section-title">{{ article.series.name }}</h3>
+        </header>
+        <div class="section-body article-box__content">
+         <ol>
+             {% for part_article in article.series.all %}
+                {% if part_article == article %}
+                    <li class="article-box__item article-box__item--current">{{ part_article.title }}</li>
+                {% else %}
+                    <li class="article-box__item">
+                        <a href="{{ SITEURL }}/{{ part_article.url }}">{{ part_article.title }}</a>
+                    </li>
+                {% endif %}
+             {% endfor %}
+         </ol>
+        </div>
+    </section>
+{% endif %}

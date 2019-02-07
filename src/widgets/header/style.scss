@@ -208,6 +208,10 @@ $site-nav-height-mobile: rem(42px);
           height: $site-nav-height-desktop;
         }
 
+        span {
+          color: $color-text;
+        }
+
         .svg-inline--fa {
           margin: (0 auto 8px);
         }
@@ -236,7 +240,7 @@ $site-nav-height-mobile: rem(42px);
     align-items: center;
     display: flex;
     flex: 1 1 0;
-    justify-content: center;
+    justify-content: flex-end;
     padding-left: rem(10px);
     transition: width 200ms ease-in;
 
@@ -253,6 +257,14 @@ $site-nav-height-mobile: rem(42px);
     .form {
       display: none;
 
+      @include media('<500px') {
+        position: absolute;
+        top: rem(6px);
+        background-color: $color-bg;
+        left: rem(8px);
+        right: rem(86px);
+      }
+
       input {
         border: 2px solid $color-text-accent;
         height: rem(40px);
@@ -261,6 +273,10 @@ $site-nav-height-mobile: rem(42px);
         outline: 0;
         padding: rem(5px);
         font-size: rem(20px);
+
+        @include media('<500px') {
+          width: 100%;
+        }
       }
 
       &.visible {
