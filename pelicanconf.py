@@ -97,10 +97,10 @@ AUTHORS_SAVE_AS = ''
 AUTHOR_SAVE_AS = ''
 TAGS_SAVE_AS = ''
 ARCHIVES_SAVE_AS = ''
-_HEADERS_SAVE_AS = '_headers'
+HEADERS_SAVE_AS = '_headers'
 
 
-DIRECT_TEMPLATES = ['index', 'search', '_headers']
+DIRECT_TEMPLATES = ['index', 'search', 'headers']
 SEARCH_SAVE_AS = 'search/index.html'
 MINIFY = {
   'remove_comments': False,

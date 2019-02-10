@@ -75,6 +75,7 @@ endif
 publish: build-static
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	if test -d $(BASEDIR)/extra; then cp $(BASEDIR)/extra/* $(OUTPUTDIR)/; fi
+	if test -f $(OUTPUTDIR)/_headers; then cp $(OUTPUTDIR)/_headers $(BASEDIR)/_headers; fi
 
 build-static:
 	npm run build
