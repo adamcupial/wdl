@@ -10,7 +10,11 @@
                     <li class="article-box__item article-box__item--current">{{ part_article.title }}</li>
                 {% else %}
                     <li class="article-box__item">
-                        <a href="{{ SITEURL }}/{{ part_article.url }}">{{ part_article.title }}</a>
+                        {% if part_article in article.series.all_previous %}
+                            <a rel="prev" href="{{ SITEURL }}/{{ part_article.url }}">{{ part_article.title }}</a>
+                        {% else %}
+                            <a rel="next" href="{{ SITEURL }}/{{ part_article.url }}">{{ part_article.title }}</a>
+                        {% endif %}
                     </li>
                 {% endif %}
              {% endfor %}
