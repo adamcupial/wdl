@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 import sys
 sys.path.append('.')
-from plugins.jinja_plugins import manifest_asset, tag_present, tags_not_present, aggregate_tags, fetch
+from plugins.jinja_plugins import manifest_asset, tag_present, tags_not_present, aggregate_tags, fetch, get_asset_sha
 from urllib.parse import urljoin
 
 PLUGIN_PATHS = ['./plugins', './pelican-plugins']
@@ -22,6 +22,7 @@ SITENAME = 'Webdesign-log.pl'
 SITEURL = 'http://127.0.0.1:8000'
 SITE_LOGO = urljoin(SITEURL, '/theme/images/logo.svg')
 
+JINJA_ENVIRONMENT = {'trim_blocks': True, 'lstrip_blocks': True}
 SITEMAP = {
     'format': 'xml',
 }
@@ -45,6 +46,7 @@ JINJA_FILTERS = {
   'tags_not_present': tags_not_present,
   'aggregate_tags': aggregate_tags,
   'fetch': fetch,
+  'get_asset_sha': get_asset_sha,
 }
 
 DEFAULT_PAGINATION = 9
@@ -95,6 +97,13 @@ AUTHORS_SAVE_AS = ''
 AUTHOR_SAVE_AS = ''
 TAGS_SAVE_AS = ''
 ARCHIVES_SAVE_AS = ''
+_HEADERS_SAVE_AS = '_headers'
 
-DIRECT_TEMPLATES = ['index', 'search']
+
+DIRECT_TEMPLATES = ['index', 'search', '_headers']
 SEARCH_SAVE_AS = 'search/index.html'
+MINIFY = {
+  'remove_comments': False,
+  'remove_all_empty_space': True,
+  'remove_optional_attribute_quotes': False
+}

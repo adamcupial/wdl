@@ -1,0 +1,13 @@
+/
+Content-Security-Policy: default-src 'none'; script-src 'self' 'sha256-{{ "page-list.js" | get_asset_sha }}'; connect-src 'self'; img-src 'self'; style-src 'self' 'sha256-{{ "page-list.css" | get_asset_sha }}' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'
+/search
+Content-Security-Policy: default-src 'none'; script-src 'self' 'sha256-{{ "page-search.js" | get_asset_sha }}'; connect-src 'self'; img-src 'self'; style-src 'self' 'sha256-{{ "page-search.css" | get_asset_sha }}' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'
+/tag/*
+Content-Security-Policy: default-src 'none'; script-src 'self' 'sha256-{{ "page-list.js" | get_asset_sha }}'; connect-src 'self'; img-src 'self'; style-src 'self' 'sha256-{{ "page-list.css" | get_asset_sha }}' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'
+/category/*
+Content-Security-Policy: default-src 'none'; script-src 'self' 'sha256-{{ "page-list.js" | get_asset_sha }}'; connect-src 'self'; img-src 'self'; style-src 'self' 'sha256-{{ "page-list.css" | get_asset_sha }}' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'
+{% for category, _ in categories %}
+/{{ category }}/*
+Content-Security-Policy: default-src 'none'; script-src 'self' 'sha256-{{ "page-article.js" | get_asset_sha }}'; connect-src 'self'; img-src 'self'; style-src 'self' 'sha256-{{ "page-article.css" | get_asset_sha }}' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'
+{% endfor %}
+

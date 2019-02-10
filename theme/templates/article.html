@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 
 {% block css %}
-<style>
-{{ 'page-article.css' | manifest_asset | fetch }}
-</style>
-
+<style>{{ 'page-article.css' | manifest_asset | fetch | safe }}</style>
 {% endblock %}
+
 {% block js %}
-<script>
-{{ 'page-article.js' | manifest_asset | fetch }}
-</script>
+{% filter trim %}
+<script>{{ 'page-article.js' | manifest_asset | fetch | trim | safe }}</script>
+{% endfilter %}
 {% endblock %}
 
 {% block content %}

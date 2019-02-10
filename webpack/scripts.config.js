@@ -15,6 +15,11 @@ module.exports = (settings) => ({
         cache: true,
         parallel: true,
         sourceMap: true,
+        terserOptions: {
+            output: {
+                comments: false,
+            },
+        }
       }),
     ],
   },

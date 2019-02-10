@@ -1,15 +1,11 @@
 {% extends "base.html" %}
 
 {% block css %}
-<style>
-{{ 'page-search.css' | manifest_asset | fetch }}
-</style>
+<style>{{ 'page-search.css' | manifest_asset | fetch }}</style>
 {% endblock %}
 
 {% block js %}
-    <script>
-        {{ 'page-search.js' | manifest_asset | fetch }}
-    </script>
+<script>{{ 'page-search.js' | manifest_asset | fetch }}</script>
 {% endblock %}
 
 {% block content %}

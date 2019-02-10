@@ -2,6 +2,8 @@ import json
 from os.path import join, dirname
 from itertools import groupby
 import math
+import hashlib
+from base64 import urlsafe_b64encode as b64encode
 
 STATIC_PATH = join(dirname(__file__), '..', 'theme', 'static')
 
@@ -65,8 +67,19 @@ def aggregate_tags(articles):
 
     return fin
 
+
 def fetch(filepath):
     filepath = filepath.replace('/theme', 'theme/static')
     with open(filepath) as fil:
         src = fil.read()
-        return src
+    return src
+
+
+def get_asset_sha(name):
+    sha = hashlib.sha256()
+    filepath = manifest_asset(name)
+    filepath = filepath.replace('/theme', 'theme/static')
+    with open(filepath, 'rb') as fil:
+        sha.update(fil.read())
+
+    return b64encode(sha.digest()).decode()

@@ -1,15 +1,11 @@
 {% extends "base.html" %}
 
 {% block css %}
-<style>
-{{ 'page-list.css' | manifest_asset | fetch }}
-</style>
+<style>{{ 'page-list.css' | manifest_asset | fetch | safe }}</style>
 {% endblock %}
 
 {% block js %}
-    <script>
-        {{ 'page-list.js' | manifest_asset | fetch }}
-    </script>
+<script>{{ 'page-list.js' | manifest_asset | fetch | safe }}</script>
 {% endblock %}
 
 {% block content %}
