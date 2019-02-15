@@ -37,22 +37,27 @@ body {
 .page-body {
   background-color: $color-bg;
   display: grid;
-  grid-template-columns:
-  [body] 1fr;
+  min-height: 80vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "body"
+    "sidebar";
   grid-column-gap: rem(10px);
   max-width: $content-max-width;
   margin: 0 auto;
 
   @include media('>=desktop') {
-    grid-template-columns:
-      [body] 1fr
-      [sidebar] 320px;
+    grid-template-areas:
+      "body sidebar";
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 320px;
   }
 }
 
 main {
   position: relative;
-  grid-column: body;
+  grid-area: body;
   z-index: 1;
   padding: rem(16px 16px);
   overflow: hidden;
@@ -64,14 +69,10 @@ main {
 
 .sidebar {
   overflow: hidden;
-  grid-column: sidebar;
+  grid-area: sidebar;
   position: relative;
   z-index: 1;
   background: $color-bg;
-
-  box-shadow: $shadow-default;
-  display: none;
-
   padding: rem(16px 16px);
 
   @include media('>=tablet') {
@@ -79,11 +80,11 @@ main {
   }
 
   @include media('>=desktop') {
-    display: block;
-  }
+    box-shadow: $shadow-default;
 
-  > * + * {
-    margin-top: rem(32px);
+    > * + *:not(:first-child) {
+      margin-top: rem(32px);
+    }
   }
 }
 

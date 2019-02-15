@@ -24,24 +24,6 @@ export default class HeaderWidget extends BaseWidget {
       target.classList.toggle('active');
       document.documentElement.classList.toggle('no-scroll');
     }, false);
-
-    this.context
-      .addEventListener('click', (ev:Event) => {
-        const target = <HTMLElement> ev.target;
-
-        if (target.classList.contains('fa-search')) {
-          const form = this.context.querySelector('.form');
-          const submitButton = form.querySelector('form input[type="submit"]') as HTMLElement;
-          const searchInput = form.querySelector('input[name="q"]') as HTMLElement;
-
-          if (form.classList.contains('visible')) {
-            submitButton.click();
-          } else {
-            form.classList.add('visible')
-            searchInput.focus();
-          }
-        }
-      });
     this.loadSVG();
   }
 }

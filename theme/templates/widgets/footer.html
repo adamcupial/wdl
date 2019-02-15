@@ -1,23 +1,31 @@
 <footer class="site-footer" data-module="footer">
-  <div class="site-footer__logo-area">
-  <a href="/">
-    <img src="/theme/images/blank.gif" data-lazy-src="/theme/images/logo-inverted.svg" alt="webdesign-log.pl logo" title="webdesign-log.pl"/>
-  </a>
-  </div>
-  <div class="site-footer__navigation-area">
-    <nav class="site-footer__navigation">
-      <ul>
-        <li><a href="/category/javascript" rel="tag">JavaScript</li>
-        <li><a href="/category/python" rel="tag">Python</a></li>
-        <li><a href="/category/css" rel="tag">CSS</a></li>
-        <li><a href="/category/html" rel="tag">HTML</a></li>
-        <li><a href="/search" rel="search">Search</a></li>
-        <li><a href="https://github.com/adamcupial/wdl" rel="noobserver external" target="_blank">Github</a></li>
-      </ul>
-    </nav>
-  </div>
-  <div class="site-footer__copyright-area">
-  Copyright: Adam Cupiał &copy; 2019
-  </div>
+    <div class="site-footer__logo-area">
+        <a href="/">
+            <img src="/theme/images/blank.gif" data-lazy-src="/theme/images/logo-inverted.svg" alt="webdesign-log.pl logo" title="webdesign-log.pl"/>
+        </a>
+    </div>
+    <div class="site-footer__navigation-area">
+        <nav class="site-footer__navigation">
+            <ul>
+                {% if 'javascript' in categories | get_tag_names %}
+                <li><a href="/category/javascript" rel="tag">JavaScript</li>
+                {% endif %}
+                {% if 'python' in categories | get_tag_names %}
+                <li><a href="/category/python" rel="tag">Python</a></li>
+                {% endif %}
+                {% if 'css' in categories | get_tag_names %}
+                <li><a href="/category/css" rel="tag">CSS</a></li>
+                {% endif %}
+                {% if 'html' in categories | get_tag_names %}
+                <li><a href="/category/html" rel="tag">HTML</a></li>
+                {% endif %}
+                <li><a href="/search" rel="search">Search</a></li>
+                <li><a href="https://github.com/adamcupial/wdl" rel="noobserver external" target="_blank">Github</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="site-footer__copyright-area">
+        Copyright: Adam Cupiał &copy; 2019
+    </div>
 
 </footer>

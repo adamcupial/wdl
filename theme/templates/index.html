@@ -19,9 +19,11 @@
       {% include "includes/card.html" %}
     {% endif %}
   {% endfor %}
+  {% if articles_page.has_previous() or articles_page.has_next() %}
   <footer>
     {% include "widgets/paginator.html" %}
   </footer>
+  {% endif %}
 </section>
 {% endblock %}
 

@@ -1,9 +1,9 @@
 # TODO
 
 ## First Release
-- robots.txt
 - analytics
 - sitemap
+- robots.txt
 
 ## NextUp
  - sharing

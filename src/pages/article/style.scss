@@ -1,6 +1,7 @@
 @import '~sass-rem/_rem.scss';
 @import 'styles/base.scss';
 @import 'styles/variables.scss';
+@import '~include-media/dist/_include-media.scss';
 @import 'styles/mixins/link.scss';
 
 .article {
@@ -51,5 +52,13 @@
         border-bottom: none;
       }
     }
+  }
+}
+
+.article-box--series {
+  display: none;
+
+  @include media('>=desktop') {
+    display: block;
   }
 }

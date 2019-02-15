@@ -9,6 +9,7 @@ const searchResults = document.querySelector('.search-results__content');
 const searchParams = new URLSearchParams(window.location.search);
 const sIdx = new SearchIndex();
 
+
 const resultTemplate = (results) => {
   let res = null;
   if (results.length) {
@@ -40,6 +41,8 @@ function search(query: string) : void {
       render(resultTemplate(results), searchResults);
     });
 }
+
+searchForm.elements.q.focus();
 
 new BaseScripts();
 

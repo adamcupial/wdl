@@ -244,45 +244,14 @@ $site-nav-height-mobile: rem(42px);
     padding-left: rem(10px);
     transition: width 200ms ease-in;
 
-    svg {
-      cursor: pointer;
+    a {
+      color: $color-text;
 
       &:hover {
-        path {
-          fill: $color-text-accent;
-        }
+        color: $color-text-accent;
       }
     }
 
-    .form {
-      display: none;
-
-      @include media('<500px') {
-        position: absolute;
-        top: rem(6px);
-        background-color: $color-bg;
-        left: rem(8px);
-        right: rem(86px);
-      }
-
-      input {
-        border: 2px solid $color-text-accent;
-        height: rem(40px);
-        width: rem(200px);
-        margin-right: rem(20px);
-        outline: 0;
-        padding: rem(5px);
-        font-size: rem(20px);
-
-        @include media('<500px') {
-          width: 100%;
-        }
-      }
-
-      &.visible {
-        display: block;
-      }
-    }
 
     @include media('>tablet') {
       padding-left: rem(40px);

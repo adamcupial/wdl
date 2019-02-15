@@ -25,10 +25,19 @@
 }
 
 .search-results {
+  $base: &;
+  display: flex;
+  flex-direction: column;
 
-  &__content {
+  header {
+    order: 1;
   }
 
-  &__item {
+  &__content {
+    order: 2;
+
+    &:empty ~ header {
+      display: none;
+    }
   }
 }

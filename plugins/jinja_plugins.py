@@ -36,6 +36,10 @@ def tags_not_present(tagnames, tag=None, article=None, category=None):
     )
 
 
+def get_tag_names(tags):
+    return [k.name for k, v in tags]
+
+
 def aggregate_tags(articles):
     all_tags = []
 
