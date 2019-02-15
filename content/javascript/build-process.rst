@@ -24,7 +24,7 @@ In short - I went with `webpack <https://webpack.js.org/>`__, which comes bundle
 
 That's basically the setup I am using as a base for all my projects, and modify as needed.
 
-I won't delve into some excrutiating details, you are welcome to take a look yourself on `github <https://github.com/adamcupiall/wdl/blob/master/webpack.config.js>`__.
+I won't delve into some excrutiating details, you are welcome to take a look yourself on `github <https://github.com/adamcupial/wdl/blob/master/webpack.config.js>`__.
 
 Build config
 ------------
