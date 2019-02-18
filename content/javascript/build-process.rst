@@ -1,13 +1,12 @@
 Build process
 #############
 
-:date: 2019-02-04
+:date: 2019-02-16
 :tags: blog, tips, webpack
 :series: How I built my blog
 :series_index: 3
 
 In this episode I explain details about the build process, what were the requirements and why I have chosen webpack to handle them.
-
 
 .. PELICAN_END_SUMMARY
 

@@ -1,9 +1,11 @@
 import './style.scss';
 import BaseScripts from 'scripts/base';
 import getConnectionType from 'scripts/connection';
+import { mark } from 'scripts/logger';
 
 new BaseScripts();
 const codeBlock = document.querySelector('.article .highlight');
+const footnotes = document.querySelector('a.footnote-reference');
 
 if (codeBlock) {
   const obs = new IntersectionObserver(
@@ -30,4 +32,13 @@ if (codeBlock) {
   );
 
   obs.observe(codeBlock);
+}
+
+if (footnotes) {
+  mark('tooltip').start();
+  import(/* webpackChunkName "tooltip" */ 'scripts/tooltip')
+    .then((Tooltip) => {
+      new Tooltip.default(document.querySelector('.article__body'));
+      mark('tooltip').end();
+    });
 }
