@@ -3,6 +3,7 @@
     <div class="taglist__cloud">
         {% for tag, count, group in articlelist | aggregate_tags %}
             <a
+                tabindex="-1"
                 class="taglist__tag taglist__tag--group-{{ group }}"
                 href="{{ SITE_URL }}/{{ tag.url }}"
                 rel="tag"

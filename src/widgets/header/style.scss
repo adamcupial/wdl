@@ -73,7 +73,8 @@ $site-nav-height-mobile: rem(42px);
       }
     }
 
-    &:hover img {
+    &:hover img,
+    &:focus img {
       opacity: .75;
     }
   }
@@ -222,6 +223,7 @@ $site-nav-height-mobile: rem(42px);
 
         &--#{$section} {
           &.active,
+          &:focus,
           &:hover {
             a {
               color: $color;
@@ -247,7 +249,8 @@ $site-nav-height-mobile: rem(42px);
     a {
       color: $color-text;
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: $color-text-accent;
       }
     }
