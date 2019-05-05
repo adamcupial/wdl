@@ -1,33 +1,64 @@
 import json
 from os.path import join, dirname
-from itertools import groupby
+from itertools import groupby, chain
 import math
 import hashlib
 from base64 import urlsafe_b64encode as b64encode
 
 STATIC_PATH = join(dirname(__file__), '..', 'theme', 'static')
+MANIFEST_PATH = join(STATIC_PATH, 'manifest.json')
 
 
 def manifest_asset(name):
-    manifest = join(STATIC_PATH, 'manifest.json')
-    parsed = {}
+    """Get full asset name using it's simple (short) name.
 
-    with open(manifest) as json_file:
-        parsed = json.load(json_file)
-        return parsed[name]
+        Args:
+          name (str): asset simple name
+
+        Returns:
+          str: full name of asset
+    """
+
+    with open(MANIFEST_PATH) as json_file:
+        return json.load(json_file)[name]
 
 
 def tag_present(tagname, tag=None, article=None, category=None):
+    """Checks if tag is present in current context.
+
+        Args:
+            tagname (str): name of the tag
+            tag (object, optional): pelican Tag object
+            article (object, optional): pelican Article object
+            category (str, optional): category name
+
+        Returns:
+            bool: whether tag is present in current context
+    """
+
     if category and category == tagname:
         return True
     elif tag and tag.name == tagname:
         return True
     elif article and tagname == article.category:
         return True
-    return False
+    else:
+        return False
 
 
 def tags_not_present(tagnames, tag=None, article=None, category=None):
+    """Checks if tag is NOT present in current context.
+
+        Args:
+            tagname (str): name of the tag
+            tag (:obj:`Tag`, optional): pelican Tag object
+            article (:obj:`Article`, optional): pelican Article object
+            category (str, optional): category name
+
+        Returns:
+            bool: whether tag is NOT present in current context
+    """
+
     return not any(
         [
             tag_present(x, tag, article, category)
@@ -37,14 +68,19 @@ def tags_not_present(tagnames, tag=None, article=None, category=None):
 
 
 def get_tag_names(tags):
+    """Gets tag names from list of Tag objects.
+
+        Args:
+            tags (:obj:`list` of :obj:Tag): list of pelican Tag object
+        Returns:
+            :obj:`list` of :obj:`str`: list of tag names
+    """
+
     return [k.name for k, v in tags]
 
 
 def aggregate_tags(articles):
-    all_tags = []
-
-    for article in articles:
-        all_tags += article.tags
+    all_tags = list(chain.from_iterable([x.tags for x in articles]))
     all_tags.sort(key=lambda x: x.name)
 
     taglist = []
@@ -54,17 +90,17 @@ def aggregate_tags(articles):
 
     taglist.sort(key=lambda x: x[1], reverse=True)
     counts = [y for x, y in taglist]
-    min_count = min(counts)
-    max_count = max(counts)
-    steps = 4
+    min_count, max_count = min(counts), max(counts)
     fin = []
 
     for tag, count in taglist:
         fin.append((
             tag,
             count,
-            int(math.floor(steps - (steps - 1) * math.log(count - min_count + 1)
-                           / (math.log(max_count - min_count + 1) or 1)))
+            int(math.floor(
+                    math.log(count - min_count + 1) /
+                    (math.log(max_count - min_count + 1) or 1)
+            ))
         ))
 
     fin.sort(key=lambda x: x[0].name)
@@ -73,16 +109,14 @@ def aggregate_tags(articles):
 
 
 def fetch(filepath):
-    filepath = filepath.replace('/theme', 'theme/static')
-    with open(filepath) as fil:
-        src = fil.read()
-    return src
+    with open(filepath.replace('/theme', 'theme/static')) as fil:
+        return fil.read()
 
 
 def get_asset_sha(name):
+    filepath = manifest_asset(name).replace('/theme', 'theme/static')
+
     sha = hashlib.sha256()
-    filepath = manifest_asset(name)
-    filepath = filepath.replace('/theme', 'theme/static')
     with open(filepath, 'rb') as fil:
         sha.update(fil.read())
 
