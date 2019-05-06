@@ -1,19 +1,22 @@
 # -*- coding: utf-8 -*-
 
+# Future in this version
 from __future__ import unicode_literals
 
-from bs4 import BeautifulSoup
-from pelican import signals
-from hashlib import sha1
-from lunr import lunr
+# Python Standard Library
 import json
 import os
+from hashlib import sha1
+
+# Own
+from bs4 import BeautifulSoup
+from lunr import lunr
+from pelican import signals
 
 
 class SearchIndexGenerator(object):
 
     def __init__(self, context, settings, path, theme, output_path, *null):
-
         self.output_path = output_path
         self.context = context
         self.siteurl = settings.get('SITEURL')
@@ -22,11 +25,12 @@ class SearchIndexGenerator(object):
         self.json_nodes = []
 
     def create_node(self, page):
-
         if getattr(page, 'status', 'published') != 'published':
             return
 
-        iden_str = '{0}{1}'.format(page.category.name, page.slug).encode('utf-8')
+        iden_str = '{0}{1}'.format(
+                page.category.name, page.slug
+            ).encode('utf-8')
 
         iden = sha1(iden_str).hexdigest()
 
@@ -57,7 +61,6 @@ class SearchIndexGenerator(object):
         if hasattr(page, 'series'):
             page_title = '{0}: {1}'.format(page.series['name'], page_title)
 
-
         return {
             'id': iden,
             'title': page_title,
@@ -69,6 +72,7 @@ class SearchIndexGenerator(object):
     def generate_output(self, writer):
         pages = [self.create_node(x) for x in self.context['articles']]
         path = os.path.join(self.output_path, 'search_index.json')
+
         pages_to_index = [{
             'id': x['id'],
             'title': x['title'],
@@ -82,6 +86,7 @@ class SearchIndexGenerator(object):
                 'summary': x['summary'],
             } for x in pages
         }
+
         idx = lunr(
             ref='id',
             fields=[
@@ -93,6 +98,7 @@ class SearchIndexGenerator(object):
             ],
             documents=pages_to_index
         ).serialize()
+
         with open(path, 'w') as idxfile:
             json.dump({
                 'index': idx,

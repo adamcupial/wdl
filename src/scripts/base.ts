@@ -7,15 +7,14 @@ export default class BaseScripts {
   observer: IntersectionObserver;
 
   constructor() {
-    const intObsOptions = {
-      rootMargin: "100px 0px",
-      threshold: 0.01,
-    };
     this.observer = new IntersectionObserver(
       (entries, observer) => {
         this.processObserver(entries, observer);
       },
-      intObsOptions
+      {
+        rootMargin: "100px 0px",
+        threshold: 0.01,
+      }
     );
 
     this.loadBaseWidgets();
@@ -29,18 +28,15 @@ export default class BaseScripts {
       'taglist',
       'article-box',
     ]
-      .map(name => `[data-module="${name}"]`)
-      .map(selector => document.querySelector(selector))
-      .filter(el => !!el)
+      .map(name => document.querySelector(`[data-module="${name}"]`))
+      .filter(Boolean)
+      .concat(...document.querySelectorAll('[data-lazy-src]'))
       .forEach((el) => {
         this.observer.observe(el);
       });
-
-    document.querySelectorAll('[data-lazy-src]')
-      .forEach((el) => { this.observer.observe(el); });
   }
 
-  private loadModule(node) {
+  private loadModule(node: HTMLElement) : void {
     const moduleName = node.dataset.module;
 
     import(`widgets/${moduleName}/script`)
@@ -49,7 +45,7 @@ export default class BaseScripts {
       });
   }
 
-  private loadImage(node) {
+  private loadImage(node: HTMLImageElement) : void {
     node.src = node.dataset.lazySrc;
     delete node.dataset.lazySrc;
   }
@@ -57,21 +53,23 @@ export default class BaseScripts {
   processObserver(entries, observer) {
     entries
       .filter(entry => entry.isIntersecting)
-      .forEach((entry) => {
-        const data = entry.target.dataset;
+      .forEach(({ target }) => {
+        const data = target.dataset;
 
         if (data.module) {
-          this.loadModule(entry.target);
+          this.loadModule(target);
         } else if (data.lazySrc) {
-          this.loadImage(entry.target);
+          this.loadImage(target);
+        } else {
+          throw new Error('UnexpectedType: not a module nor image');
         }
 
-        observer.unobserve(entry.target);
+        observer.unobserve(target);
       });
   }
 
   loadBaseWidgets() {
-    new HeaderWidget(document.querySelector('[data-module="header"]'), {});
+    new HeaderWidget(document.querySelector('[data-module="header"]'));
   }
 
   loadFonts() {

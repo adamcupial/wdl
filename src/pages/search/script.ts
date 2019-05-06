@@ -5,9 +5,10 @@ import BaseScripts from 'scripts/base';
 import SearchIndex from 'scripts/search';
 
 const searchForm = document.getElementById('search-form') as HTMLFormElement;
+const queryField = searchForm.elements.q;
 const searchResults = document.querySelector('.search-results__content');
 const searchParams = new URLSearchParams(window.location.search);
-const sIdx = new SearchIndex();
+const searchIndex = new SearchIndex();
 
 
 const resultTemplate = (results) => {
@@ -33,28 +34,31 @@ const resultTemplate = (results) => {
 };
 
 function search(query: string) : void {
-  window.history.replaceState({}, document.title, `${window.location.pathname}?q=${query}`);
+  window.history.replaceState({}, document.title,
+                              `${window.location.pathname}?q=${query}`);
 
-  sIdx
+  searchIndex
     .search(query)
     .then((results) => {
       render(resultTemplate(results), searchResults);
     });
 }
 
-searchForm.elements.q.focus();
 
 new BaseScripts();
 
+queryField.focus();
+
 if (searchParams.has('q')) {
   const query = searchParams.get('q');
-  searchForm.elements.q.value = query;
+  queryField.value = query;
   search(query);
 }
 
 searchForm.addEventListener('submit', (ev) => {
-  ev.preventDefault();
   const form = ev.currentTarget as HTMLFormElement;
-  search(form.elements.q.value);
+  const queryField = form.elements.q;
+  ev.preventDefault();
+  search(queryField.value);
   return false;
 });

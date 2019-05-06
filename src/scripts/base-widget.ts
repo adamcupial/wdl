@@ -6,34 +6,30 @@ export default class BaseWidget {
   __name: string;
 
   private get name () : string {
-    if (this.__name) {
-      return this.__name;
-    }
-
-    if (this.context.dataset && this.context.dataset.module) {
-      this.__name = `${this.context.dataset.module}Widget`;
-    } else {
-      this.__name = `${Math.random().toString(36).substr(2, 9)}Widget`;
+    if (!this.__name) {
+      if (this.context.dataset && this.context.dataset.module) {
+        this.__name = `${this.context.dataset.module}Widget`;
+      } else {
+        this.__name = `${Math.random().toString(36).substr(2, 9)}Widget`;
+      }
     }
 
     return this.__name;
   }
 
   get settings () : object {
-    if (this.__settings) {
-      return this.__settings;
-    }
-
-    if (this.context.dataset && this.context.dataset.settings) {
-      this.__settings = JSON.parse(this.context.dataset.settings);
-    } else {
-      this. __settings = {};
+    if (!this.__settings) {
+      if (this.context.dataset && this.context.dataset.settings) {
+        this.__settings = JSON.parse(this.context.dataset.settings);
+      } else {
+        this. __settings = {};
+      }
     }
 
     return this.__settings;
   }
 
-  constructor(context) {
+  constructor(context: HTMLElement) {
     this.context = context;
 
     group(`${this.name}`);
@@ -51,6 +47,5 @@ export default class BaseWidget {
   }
 
   render() : void {
-    error('NotImplementedError');
   }
 }

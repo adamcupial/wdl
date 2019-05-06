@@ -1,8 +1,8 @@
 export default class TimeChanger {
-  root: HTMLElement;
+  __root: HTMLElement;
 
   constructor(root=document.body) {
-    this.root = root;
+    this.__root = root;
     const changes = [...this.getElements()]
       .map(tag => this.applyTime(tag));
 
@@ -15,7 +15,7 @@ export default class TimeChanger {
   }
 
   private getElements(): NodeListOf<HTMLTimeElement> {
-    return this.root.querySelectorAll('time[datetime]');
+    return this.__root.querySelectorAll('time[datetime]');
   }
 
   private applyTime(tag: HTMLTimeElement) : [HTMLTimeElement, string] {
@@ -44,9 +44,9 @@ export default class TimeChanger {
   private format_rtf(num: number, unit: string) : string {
     if (Intl.RelativeTimeFormat) {
       return new Intl.RelativeTimeFormat('en', {
-        numeric: 'auto',
-      })
-      .format(-1 * num, unit);
+          numeric: 'auto',
+        })
+        .format(-1 * num, unit);
     } else {
       return `${num} ${unit}${num > 1 ? 's' : ''} ago`;
     }

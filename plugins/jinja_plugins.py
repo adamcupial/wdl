@@ -1,9 +1,13 @@
-import json
-from os.path import join, dirname
-from itertools import groupby, chain
-import math
+# this python file uses the following encoding utf-8
+
+# Python Standard Library
 import hashlib
+import json
+import math
 from base64 import urlsafe_b64encode as b64encode
+from itertools import chain, groupby
+from os.path import dirname, join
+
 
 STATIC_PATH = join(dirname(__file__), '..', 'theme', 'static')
 MANIFEST_PATH = join(STATIC_PATH, 'manifest.json')

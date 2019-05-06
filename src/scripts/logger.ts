@@ -11,7 +11,7 @@ function _log(type : LOGTYPE, ...args) : void {
   }
 }
 
-export function group(name : string) {
+export function group(name : string) : void {
   if (window.console && 'group' in window.console) {
     if ('groupCollapsed' in window.console) {
       window.console.groupCollapsed(name);
@@ -21,25 +21,25 @@ export function group(name : string) {
   }
 }
 
-export function groupEnd() {
+export function groupEnd() : void {
   if (window.console && 'groupEnd' in window.console) {
     window.console.groupEnd();
   }
 }
 
-export function log(...args) {
+export function log(...args) : void {
   _log(LOGTYPE.Log, ...args);
 }
 
-export function warn(...args) {
+export function warn(...args) : void {
   _log(LOGTYPE.Warning, ...args);
 }
 
-export function info(...args) {
+export function info(...args) : void {
   _log(LOGTYPE.Info, ...args);
 }
 
-export function error(...args : string[]) {
+export function error(...args : string[]) : void {
   _log(LOGTYPE.Error, new Error(...args.join(' ')));
 }
 

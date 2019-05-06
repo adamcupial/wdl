@@ -18,10 +18,8 @@ export default class HeaderWidget extends BaseWidget {
   render() : void {
     this.context
     .querySelector('.navigation-button')
-    .addEventListener('click', (ev:Event) => {
-      const target = ev.currentTarget as HTMLElement;
-
-      target.classList.toggle('active');
+    .addEventListener('click', ({ currentTarget }) => {
+      currentTarget.classList.toggle('active');
       document.documentElement.classList.toggle('no-scroll');
     }, false);
     this.loadSVG();
