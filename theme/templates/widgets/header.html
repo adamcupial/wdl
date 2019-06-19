@@ -1,17 +1,27 @@
 <header class="site-header" data-module="header">
     <div class="site-header__logo-area">
         <a class="site-header__logo{% if 'css,html,javascript,python' | tags_not_present(tag, article, category) %} active{% endif %}" href="/">
-            <img src="/theme/images/blank.gif" loading="lazy" data-src="/theme/images/logo.svg" alt="webdesign-log.pl logo, links to homepage" title="webdesign-log.pl"/>
+            <img
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                loading="lazy"
+                data-src="/theme/images/logo.svg"
+                alt="webdesign-log.pl logo, links to homepage"
+                title="webdesign-log.pl"
+                width="196"
+                height="29"
+            />
         </a>
     </div>
     <div class="site-header__middle-area">
-        <div class="navigation-button"> <i class="fas fa-bars"></i> </div>
+        <div class="navigation-button">
+            {{ '/theme/images/bars-solid.svg' | fetch | safe }}
+        </div>
         <nav class="site-header__navigation">
             <ul class="site-header__sections">
                 {% if 'javascript' in categories | get_tag_names %}
                 <li class="site-header__section site-header__section--javascript{% if 'javascript' | tag_present(tag, article, category) %} active{% endif %}">
                     <a href="/category/javascript">
-                        <i class="fab fa-js"></i>
+                        {{ '/theme/images/js-brands.svg' | fetch | safe }}
                         <span>JavaScript</span>
                     </a>
                 </li>
@@ -19,7 +29,7 @@
                 {% if 'python' in categories | get_tag_names %}
                 <li class="site-header__section site-header__section--python{% if 'python' | tag_present(tag, article, category) %} active {% endif %}">
                     <a href="/category/python">
-                        <i class="fab fa-python"></i>
+                        {{ '/theme/images/python-brands.svg' | fetch | safe }}
                         <span>Python</span>
                     </a>
                 </li>
@@ -27,7 +37,7 @@
                 {% if 'css' in categories | get_tag_names %}
                 <li class="site-header__section site-header__section--css{% if 'css' | tag_present(tag, article, category) %} active{% endif %}">
                     <a href="/category/css">
-                        <i class="fab fa-css3-alt"></i>
+                        {{ '/theme/images/css3-alt-brands.svg' | fetch | safe }}
                         <span>CSS</span>
                     </a>
                 </li>
@@ -35,7 +45,7 @@
                 {% if 'html' in categories | get_tag_names %}
                 <li class="site-header__section site-header__section--html{% if 'html' | tag_present(tag, article, category) %} active{% endif %}">
                     <a href="/category/html">
-                        <i class="fab fa-html5"></i>
+                        {{ '/theme/images/html5-brands.svg' | fetch | safe }}
                         <span>HTML</span>
                     </a>
                 </li>
@@ -45,7 +55,7 @@
     </div>
     <div class="site-header__search-area">
         <a href="/search" title="search">
-            <i class="fas fa-search"></i>
+            {{ '/theme/images/search-solid.svg' | fetch | safe }}
         </a>
     </div>
 </header>

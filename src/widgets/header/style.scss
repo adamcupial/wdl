@@ -38,13 +38,13 @@ $site-nav-height-mobile: rem(42px);
     height: $site-header-height-desktop;
   }
 
-  .svg-inline--fa {
+  svg {
     height: rem(30px);
     width: rem(30px);
 
     @include media('>tablet') {
-    height: rem(40px);
-    width: rem(40px);
+      height: rem(40px);
+      width: rem(40px);
     }
   }
 
@@ -213,7 +213,7 @@ $site-nav-height-mobile: rem(42px);
           color: $color-text;
         }
 
-        .svg-inline--fa {
+        svg {
           margin: (0 auto 8px);
         }
       }
