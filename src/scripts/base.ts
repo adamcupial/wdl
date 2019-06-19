@@ -79,7 +79,7 @@ export default class BaseScripts {
         WebFontLoader.load({
           timeout: 3000,
           google: {
-            families: ['Open Sans:400,700']
+            families: ['Open Sans:400,700&display=swap']
           },
         })
       });

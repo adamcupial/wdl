@@ -21,7 +21,7 @@ if (codeBlock) {
             WebFontLoader.load({
               timeout: 3000,
               google: {
-                families: ['Fira Mono:400']
+                families: ['Fira Mono:400&display=swap']
               },
             })
           });
