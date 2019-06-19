@@ -2,7 +2,6 @@ import { log, mark, group, groupEnd, error } from './logger';
 
 export default class BaseWidget {
   context: HTMLElement;
-  __settings: object;
   __name: string;
 
   private get name () : string {
@@ -17,24 +16,12 @@ export default class BaseWidget {
     return this.__name;
   }
 
-  get settings () : object {
-    if (!this.__settings) {
-      if (this.context.dataset && this.context.dataset.settings) {
-        this.__settings = JSON.parse(this.context.dataset.settings);
-      } else {
-        this. __settings = {};
-      }
-    }
-
-    return this.__settings;
-  }
-
   constructor(context: HTMLElement) {
     this.context = context;
 
     group(`${this.name}`);
     mark(`${this.name}`).start();
-    log(`${this.name} widget initialized with settings`, this.settings);
+    log(`${this.name} widget initialized`);
     this.render();
     mark(`${this.name}`).end();
 
