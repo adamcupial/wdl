@@ -4,6 +4,9 @@
   {% if article.summary %}
     <meta name="description" content="{{ article.summary|striptags }}"/>
   {% endif %}
+{% elif category %}
+    <title>{{ category.name | title }} - {{ TAGLINE }}</title>
+    <meta name="description" content="Posts related to the {{ category.name }}"/>
 {% else %}
   <title>{{ TAGLINE }}</title>
   <meta name="description" content="{{ SITE_SUMMARY }}"/>
