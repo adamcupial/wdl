@@ -4,7 +4,10 @@
 
 .article-card {
   $base: &;
-  margin-bottom: rem(64px);
+
+  & + .article-card {
+    margin-top: rem(64px);
+  }
 
   &__title {
     line-height: 1.2;

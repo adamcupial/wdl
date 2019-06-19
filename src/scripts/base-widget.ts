@@ -31,6 +31,7 @@ export default class BaseWidget {
     }
 
     groupEnd();
+    this.context.dataset.loaded = 'true';
   }
 
   render() : void {

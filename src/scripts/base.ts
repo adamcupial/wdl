@@ -7,6 +7,8 @@ export default class BaseScripts {
   observer: IntersectionObserver;
 
   constructor() {
+    const nativeLazyLoading = ('loading' in HTMLImageElement.prototype);
+
     this.observer = new IntersectionObserver(
       (entries, observer) => {
         this.processObserver(entries, observer);
@@ -17,48 +19,49 @@ export default class BaseScripts {
       }
     );
 
-    this.loadBaseWidgets();
-    this.loadFonts();
+    [...document.querySelectorAll('[data-module]')]
+      .forEach((el) => {
+        if (el.dataset.lazy) {
+          this.observer.observe(el);
+        } else {
+          this.loadModule(el);
+        }
+      });
+
+      [...document.querySelectorAll('[loading="lazy"]')]
+        .forEach((el) => {
+        if (nativeLazyLoading) {
+          this.loadImage(el);
+        } else {
+          this.observer.observe(el);
+        }
+        });
 
     new TimeChanger();
-
-    [
-      'footer',
-      'paginator',
-      'taglist',
-      'article-box',
-    ]
-      .map(name => document.querySelector(`[data-module="${name}"]`))
-      .filter(Boolean)
-      .concat(...document.querySelectorAll('[data-lazy-src]'))
-      .forEach((el) => {
-        this.observer.observe(el);
-      });
+    this.loadFonts();
   }
 
   private loadModule(node: HTMLElement) : void {
     const moduleName = node.dataset.module;
 
-    import(`widgets/${moduleName}/script`)
+    import(/* webpackPrefetch: true */`widgets/${moduleName}/script`)
       .then((widget) => {
         new widget.default(node);
       });
   }
 
   private loadImage(node: HTMLImageElement) : void {
-    node.src = node.dataset.lazySrc;
-    delete node.dataset.lazySrc;
+    node.src = node.dataset.src;
+    delete node.dataset.src;
   }
 
   processObserver(entries, observer) {
     entries
       .filter(entry => entry.isIntersecting)
       .forEach(({ target }) => {
-        const data = target.dataset;
-
-        if (data.module) {
+        if (target.dataset.module) {
           this.loadModule(target);
-        } else if (data.lazySrc) {
+        } else if (target.hasAttribute('loading')) {
           this.loadImage(target);
         } else {
           throw new Error('UnexpectedType: not a module nor image');
@@ -66,10 +69,6 @@ export default class BaseScripts {
 
         observer.unobserve(target);
       });
-  }
-
-  loadBaseWidgets() {
-    new HeaderWidget(document.querySelector('[data-module="header"]'));
   }
 
   loadFonts() {

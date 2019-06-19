@@ -30,7 +30,7 @@ html {
 body {
   min-height: 100%;
   color: $color-text;
-  background-color: $color-body;
+  background-color: $color-bg;
 }
 
 
@@ -104,4 +104,13 @@ main {
   padding: rem(0 8px);
   margin: rem(0 0 8px 0);
   font-size: rem(18px);
+}
+
+[data-module] {
+  opacity: 0;
+  transition: opacity 250ms linear;
+
+  &[data-loaded] {
+    opacity: 1;
+  }
 }

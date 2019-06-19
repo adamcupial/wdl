@@ -1,5 +1,5 @@
 {% if article.series and article.series.all|length > 1 %}
-<ul class="paginator" data-module="paginator">
+<ul class="paginator" data-module="paginator" data-lazy="true">
   {% if article.series.previous %}
     <li class="paginator__previous"><a href="{{ SITEURL }}/{{ article.series.previous.url }}/">Previous</a></li>
   {% else %}
