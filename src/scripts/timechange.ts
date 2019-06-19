@@ -1,9 +1,7 @@
 export default class TimeChanger {
-  __root: HTMLElement;
 
   constructor(root=document.body) {
-    this.__root = root;
-    const changes = [...this.getElements()]
+    const changes = [...root.querySelectorAll('time[datetime]')]
       .map(tag => this.applyTime(tag));
 
     window.requestAnimationFrame(() => {
@@ -12,10 +10,6 @@ export default class TimeChanger {
           element.innerHTML = timestr;
         });
     })
-  }
-
-  private getElements(): NodeListOf<HTMLTimeElement> {
-    return this.__root.querySelectorAll('time[datetime]');
   }
 
   private applyTime(tag: HTMLTimeElement) : [HTMLTimeElement, string] {
