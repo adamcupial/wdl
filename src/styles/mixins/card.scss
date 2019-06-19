@@ -42,16 +42,14 @@
   }
 
   &__category,
-  &__title,
-  &__excerpt {
+  &__title {
     a {
       text-decoration: none;
       color: $color-text-accent;
     }
   }
 
-  &__category,
-  &__excerpt {
+  &__category {
     a {
       border-bottom: 1px dotted transparent;
 
@@ -62,7 +60,17 @@
   }
 
   &__readmore {
+    display: inline-block;
     font-weight: 700;
+    background-color: $color-text-accent;
+    padding: rem(2px 5px);
+    color: #000;
+    text-decoration: none;
+    transition: transform 50ms ease-in;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &--featured {

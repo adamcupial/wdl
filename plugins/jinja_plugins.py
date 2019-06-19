@@ -24,7 +24,10 @@ def manifest_asset(name):
     """
 
     with open(MANIFEST_PATH) as json_file:
-        return json.load(json_file)[name]
+        loaded = json.load(json_file)
+        if name in loaded.keys():
+            return loaded[name]['src']
+        return name
 
 
 def tag_present(tagname, tag=None, article=None, category=None):
@@ -113,15 +116,11 @@ def aggregate_tags(articles):
 
 
 def fetch(filepath):
-    with open(filepath.replace('/theme', 'theme/static')) as fil:
+    filepath = join(STATIC_PATH, filepath)
+    with open(filepath) as fil:
         return fil.read()
 
 
 def get_asset_sha(name):
-    filepath = manifest_asset(name).replace('/theme', 'theme/static')
-
-    sha = hashlib.sha256()
-    with open(filepath, 'rb') as fil:
-        sha.update(fil.read())
-
-    return b64encode(sha.digest()).decode()
+    with open(MANIFEST_PATH) as json_file:
+        return json.load(json_file)[name]['integrity']

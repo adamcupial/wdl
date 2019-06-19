@@ -10,11 +10,11 @@ PLUGIN_PATHS = ['./plugins', './pelican-plugins']
 PLUGINS = [
     'tagnames',
     'search',
-    'minify',
     'sitemap',
     'series',
     'summary',
     'share_post',
+    'noopener',
 ]
 
 AUTHOR = 'Adam Cupial'

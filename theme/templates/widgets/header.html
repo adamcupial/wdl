@@ -14,14 +14,14 @@
     </div>
     <div class="site-header__middle-area">
         <div class="navigation-button">
-            {{ '/theme/images/bars-solid.svg' | fetch | safe }}
+            {{ 'images/bars-solid.svg' | fetch | safe }}
         </div>
         <nav class="site-header__navigation">
             <ul class="site-header__sections">
                 {% if 'javascript' in categories | get_tag_names %}
                 <li class="site-header__section site-header__section--javascript{% if 'javascript' | tag_present(tag, article, category) %} active{% endif %}">
                     <a href="/category/javascript">
-                        {{ '/theme/images/js-brands.svg' | fetch | safe }}
+                        {{ 'images/js-brands.svg' | fetch | safe }}
                         <span>JavaScript</span>
                     </a>
                 </li>
@@ -29,7 +29,7 @@
                 {% if 'python' in categories | get_tag_names %}
                 <li class="site-header__section site-header__section--python{% if 'python' | tag_present(tag, article, category) %} active {% endif %}">
                     <a href="/category/python">
-                        {{ '/theme/images/python-brands.svg' | fetch | safe }}
+                        {{ 'images/python-brands.svg' | fetch | safe }}
                         <span>Python</span>
                     </a>
                 </li>
@@ -37,7 +37,7 @@
                 {% if 'css' in categories | get_tag_names %}
                 <li class="site-header__section site-header__section--css{% if 'css' | tag_present(tag, article, category) %} active{% endif %}">
                     <a href="/category/css">
-                        {{ '/theme/images/css3-alt-brands.svg' | fetch | safe }}
+                        {{ 'images/css3-alt-brands.svg' | fetch | safe }}
                         <span>CSS</span>
                     </a>
                 </li>
@@ -45,7 +45,7 @@
                 {% if 'html' in categories | get_tag_names %}
                 <li class="site-header__section site-header__section--html{% if 'html' | tag_present(tag, article, category) %} active{% endif %}">
                     <a href="/category/html">
-                        {{ '/theme/images/html5-brands.svg' | fetch | safe }}
+                        {{ 'images/html5-brands.svg' | fetch | safe }}
                         <span>HTML</span>
                     </a>
                 </li>
@@ -55,7 +55,7 @@
     </div>
     <div class="site-header__search-area">
         <a href="/search" title="search">
-            {{ '/theme/images/search-solid.svg' | fetch | safe }}
+            {{ 'images/search-solid.svg' | fetch | safe }}
         </a>
     </div>
 </header>

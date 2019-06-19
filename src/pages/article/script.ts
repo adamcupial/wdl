@@ -4,9 +4,7 @@ import getConnectionType from 'scripts/connection';
 import { mark } from 'scripts/logger';
 
 new BaseScripts();
-const $ = document.querySelector;
-const codeBlock = $('.article .highlight');
-const footnotes = $('a.footnote-reference');
+const codeBlock = document.querySelector('.article .highlight');
 
 if (codeBlock) {
   const observer = new IntersectionObserver(
@@ -16,14 +14,9 @@ if (codeBlock) {
       import(/* webpackChunkName: "pygments-css" */ 'styles/pygment.scss');
 
       if (getConnectionType() === '4g') {
-        import(/* webpackChunkName: "webfontloader" */ 'webfontloader')
-          .then(WebFontLoader => {
-            WebFontLoader.load({
-              timeout: 3000,
-              google: {
-                families: ['Fira Mono:400&display=swap']
-              },
-            })
+        import('scripts/font-load')
+          .then(loader => {
+            new loader.default('Fira Mono:400')
           });
       }
     },
@@ -36,11 +29,11 @@ if (codeBlock) {
   observer.observe(codeBlock);
 }
 
-if (footnotes) {
+if (document.querySelector('a.footnote-reference')) {
   mark('tooltip').start();
   import(/* webpackChunkName "tooltip" */ 'scripts/tooltip')
     .then((Tooltip) => {
-      new Tooltip.default($('.article__body'));
+      new Tooltip.default(document.querySelector('.article__body'));
       mark('tooltip').end();
     });
 }

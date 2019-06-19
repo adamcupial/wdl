@@ -2,6 +2,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const webpack = require('webpack');
 const noop = require('noop-webpack-plugin');
+const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 
 module.exports = (settings) => ({
@@ -24,6 +25,11 @@ module.exports = (settings) => ({
       writeToFileEmit: true,
       fileName: `manifest.json`,
       basePath: settings.paths.manifestBasePath,
+    }),
+    new WebpackAssetsManifest({
+        integrity: true,
+        integrityHashes: ['sha256'],
+        writeToDisk: true,
     }),
   ],
   optimization: {

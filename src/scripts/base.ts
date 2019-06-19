@@ -1,7 +1,6 @@
 import HeaderWidget from 'widgets/header/script';
 import getConnectionType from 'scripts/connection';
 import TimeChanger from 'scripts/timechange';
-import { log, group, groupEnd } from 'scripts/logger';
 
 export default class BaseScripts {
   observer: IntersectionObserver;
@@ -73,14 +72,9 @@ export default class BaseScripts {
 
   loadFonts() {
     if (['4g', '3g'].indexOf(getConnectionType()) !== -1) {
-      import(/* webpackPreload: true, webpackChunkName: "webfontloader" */ 'webfontloader')
-      .then(WebFontLoader => {
-        WebFontLoader.load({
-          timeout: 3000,
-          google: {
-            families: ['Open Sans:400,700&display=swap']
-          },
-        })
+      import('scripts/font-load')
+      .then(loader => {
+        new loader.default('Open Sans:400,700')
       });
     }
   }
