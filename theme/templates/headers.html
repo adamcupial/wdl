@@ -1,5 +1,5 @@
 /
-    Content-Security-Policy: default-src 'none'; script-src '{{ "page-list.js" | get_asset_sha }}' 'strict-dynamic'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src 'self' '{{ "page-list.css" | get_asset_sha }}'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
+Content-Security-Policy: default-src 'none'; script-src '{{ "page-list.js" | get_asset_sha }}' 'strict-dynamic'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src 'self' '{{ "page-list.css" | get_asset_sha }}' {{ QUANTCAST_STYLE_HASHES }}; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
 {% include "includes/default_headers.html" %}
 
 /search
