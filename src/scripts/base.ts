@@ -1,7 +1,6 @@
 import HeaderWidget from 'widgets/header/script';
 import getConnectionType from 'scripts/connection';
 import TimeChanger from 'scripts/timechange';
-import injectAnalytics from 'scripts/analytics';
 
 export default class BaseScripts {
   observer: IntersectionObserver;
@@ -38,7 +37,6 @@ export default class BaseScripts {
         });
 
         new TimeChanger();
-        injectAnalytics();
   }
 
   private loadModule(node: HTMLElement) : void {
