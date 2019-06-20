@@ -31,12 +31,14 @@ images
           .toFile(`${newFile}.png`, (err, info) => {
             if (err) {
               throw new Error(err);
+              process.exit(1);
             }
           })
           .webp()
           .toFile(`${newFile}.webp`, (err, info) => {
             if (err) {
               throw new Error(err);
+              process.exit(1);
             }
           })
       });
@@ -64,4 +66,5 @@ Promise.all([
   })
   .catch((err) => {
     throw new Error(err);
+    process.exit(1);
   });
