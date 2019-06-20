@@ -131,6 +131,7 @@ CSP_HEADERS_DICT = {
     "img-src": [
         "self",
         "https://webdesign-log.pl",
+        "https://www.googletagmanager.com",
         "data:",
     ],
     "style-src": [
