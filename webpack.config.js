@@ -5,7 +5,7 @@ const getStylesConfig = require('./webpack/styles.config.js');
 const getAssetsConfig = require('./webpack/assets.config.js');
 const getAnalyzeConfig = require('./webpack/analyze.config.js');
 const path = require('path');
-const glob = require('glob-all');
+const glob = require('fast-glob');
 
 // webpack plugins
 const merge = require('webpack-merge');
