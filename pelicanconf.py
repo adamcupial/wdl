@@ -111,10 +111,3 @@ MINIFY = {
   'remove_all_empty_space': True,
   'remove_optional_attribute_quotes': False
 }
-
-QUANTCAST_STYLE_HASHES = ' '.join(["'{0}'".format(x) for x in [
-    'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=',
-    'sha256-4JqrX7rrNLxYOU9KFPHnQGL6TQuE9qWtUPge+ZpwA9o=',
-    'sha256-Kj8V1fMezvAfAf79qgarNnSJqVHpoblubcEpoGw072k=',
-    'sha256-q+y4ElVlopcRtv1FJrDxaKGkPdLJgItBytkQoWXKiow=',
-]])
