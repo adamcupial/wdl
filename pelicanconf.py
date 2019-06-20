@@ -118,15 +118,17 @@ CSP_HEADERS_DICT = {
     ],
     "script-src": [
         "self",
-        "unsafe-inline"
+        "unsafe-inline",
+        "https://*.consensu.org",
+        "https://www.googletagmanager.com",
     ],
     "connect-src": [
         "self",
-        "https://audit.quantcast.mgr.consensu.org",
-        "https://vendorlist.consensu.org",
+        "https://*.consensu.org",
     ],
     "img-src": [
         "self",
+        "https://webdesign-log.pl",
         "data:",
     ],
     "style-src": [
@@ -137,7 +139,8 @@ CSP_HEADERS_DICT = {
         "https://fonts.gstatic.com",
     ],
     "frame-ancestors": [
-        "none",
+        "self",
+        "https://*.consensu.org",
     ],
     "base-uri": [
         "none",
@@ -150,7 +153,7 @@ CSP_HEADERS_DICT = {
     ],
     "frame-src": [
         "self",
-        "https://static.quantcast.mgr.consensu.org"
+        "https://*.consensu.org",
     ],
 }
 

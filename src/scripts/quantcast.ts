@@ -93,6 +93,7 @@ export default function createQuantcast () {
     'Consent Scope': 'service',
     'No Option': false,
     'Display UI': 'inEU',
+		'Google Personalization': false,
 
   });
 }
