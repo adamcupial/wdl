@@ -251,7 +251,6 @@ tags
 #
 /output
 /theme/static/css
-/theme/static/content-images
 /theme/static/js
 /theme/static/manifest.json
 /_headers

@@ -78,7 +78,6 @@ publish: build-static
 	if test -f $(OUTPUTDIR)/_headers; then cp $(OUTPUTDIR)/_headers $(BASEDIR)/_headers; fi
 
 build-static:
-	npm run generate-images
 	npm run build
 
 github: publish

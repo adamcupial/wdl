@@ -51,17 +51,23 @@ Promise.all([
     plugins: [
       imageminPng({
         strip: true,
+        speed: 1,
       }),
     ]
   }),
   imagemin([`${tmpobj.name}/*.webp`], output, {
     plugins: [
-      imageminWebp(),
+      imageminWebp({
+        method: 6,
+      }),
     ]
   })
 ])
-  .then(() => {
-    console.info('Finished optimizing images');
+  .then(([pngs, webp]) => {
+    [...pngs, ...webp]
+      .forEach((obj) => {
+        console.info(`Optimized ${path.basename(obj.path)}`);
+      });
     tmpobj.removeCallback();
   })
   .catch((err) => {
