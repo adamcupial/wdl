@@ -56,6 +56,9 @@ const config = {
         extensionPattern: /\.ts$/,
         outputPath: 'js',
     },
+    images: {
+        outputPath: 'images',
+    }
 };
 
 module.exports = (env) => {
