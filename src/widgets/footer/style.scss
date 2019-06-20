@@ -21,31 +21,4 @@
       }
     }
   }
-
-  &__navigation {
-    margin-bottom: rem(16px);
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    li {
-      list-style: none;
-      display: inline-block;
-      border-right: 1px solid $color-bg;
-      padding: rem(0 10px);
-      margin: 0;
-
-      &:last-child {
-        border-right: none;
-      }
-
-      a {
-        @include link($color-bg);
-      }
-    }
-
-  }
 }
