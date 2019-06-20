@@ -2,7 +2,6 @@ import HeaderWidget from 'widgets/header/script';
 import getConnectionType from 'scripts/connection';
 import TimeChanger from 'scripts/timechange';
 import createQuantcast from 'scripts/quantcast';
-import injectAdsense from 'scripts/adsense';
 import injectAnalytics from 'scripts/analytics';
 
 export default class BaseScripts {
@@ -42,7 +41,6 @@ export default class BaseScripts {
         new TimeChanger();
         createQuantcast();
         injectAnalytics();
-        injectAdsense();
   }
 
   private loadModule(node: HTMLElement) : void {
