@@ -37,7 +37,6 @@ export default class BaseScripts {
         });
 
     new TimeChanger();
-    this.loadFonts();
   }
 
   private loadModule(node: HTMLElement) : void {
@@ -68,14 +67,5 @@ export default class BaseScripts {
 
         observer.unobserve(target);
       });
-  }
-
-  loadFonts() {
-    if (['4g', '3g'].indexOf(getConnectionType()) !== -1) {
-      import('scripts/font-load')
-      .then(loader => {
-        new loader.default('Open Sans:400,700')
-      });
-    }
   }
 }

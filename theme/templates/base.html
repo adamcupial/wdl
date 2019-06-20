@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% include "includes/seo.html" %}
-  {% include "includes/icons.html" %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% include "includes/seo.html" %}
+        {% include "includes/icons.html" %}
 
-  {% block head %}{% endblock %}
-  {% block css %}{% endblock %}
-</head>
-<body>
-  {% include "widgets/header.html" %}
-  <div class="page-body">
-  {% block body %}
-    <main role="main">
-      {% block content %}{% endblock %}
-    </main>
-    <aside class="sidebar">
-      {% block sidebar %}{% endblock %}
-    </aside>
-  {% endblock %}
-  </div>
-  {% include "widgets/footer.html" %}
-  {% block js %}{% endblock %}
-</body>
+        {% block head %}{% endblock %}
+        {% block css %}{% endblock %}
+
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap"
+            rel="preload"
+            as="stylesheet"
+            onload="this.rel = 'stylesheet'"
+            >
+    </head>
+        <body>
+            {% include "widgets/header.html" %}
+            <div class="page-body">
+                {% block body %}
+                <main role="main">
+                    {% block content %}{% endblock %}
+                </main>
+                <aside class="sidebar">
+                    {% block sidebar %}{% endblock %}
+                </aside>
+                {% endblock %}
+            </div>
+            {% include "widgets/footer.html" %}
+            {% block js %}{% endblock %}
+        </body>
 </html>
