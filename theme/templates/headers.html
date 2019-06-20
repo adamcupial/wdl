@@ -1,24 +1,6 @@
-/
-Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
+/*
+    Content-Security-Policy: {{ CSP_HEADERS }}
 {% include "includes/default_headers.html" %}
-
-/search
-    Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
-{% include "includes/default_headers.html" %}
-
-/tag/*
-    Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
-{% include "includes/default_headers.html" %}
-
-/category/*
-    Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
-{% include "includes/default_headers.html" %}
-
-{% for category, _ in categories %}
-/{{ category }}/*
-    Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
-    {% include "includes/default_headers.html" %}
-{% endfor %}
 
 /theme/css/*
     Cache-Control: public, max-age: 31536000

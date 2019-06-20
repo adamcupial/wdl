@@ -111,3 +111,51 @@ MINIFY = {
   'remove_all_empty_space': True,
   'remove_optional_attribute_quotes': False
 }
+
+CSP_HEADERS_DICT = {
+    "default-src": [
+        "none"
+    ],
+    "script-src": [
+        "self",
+        "unsafe-inline"
+    ],
+    "connect-src": [
+        "self",
+        "https://audit.quantcast.mgr.consensu.org",
+        "https://vendorlist.consensu.org",
+    ],
+    "img-src": [
+        "self",
+        "data:",
+    ],
+    "style-src": [
+        "self",
+        "unsafe-inline",
+    ],
+    "font-src": [
+        "https://fonts.gstatic.com",
+    ],
+    "frame-ancestors": [
+        "none",
+    ],
+    "base-uri": [
+        "none",
+    ],
+    "form-action": [
+        "self",
+    ],
+    "manifest-src": [
+        "self",
+    ],
+    "frame-src": [
+        "self",
+        "https://static.quantcast.mgr.consensu.org"
+    ],
+}
+
+CSP_HEADERS = []
+for key, arr in CSP_HEADERS_DICT.items():
+    vals = [key] + [x if x.startswith('http') or x.endswith(':') else "'{0}'".format(x) for x in arr]
+    CSP_HEADERS.append(' '.join(vals))
+CSP_HEADERS = '; '.join(CSP_HEADERS)
