@@ -30,39 +30,38 @@ images
           .png()
           .toFile(`${newFile}.png`, (err, info) => {
             if (err) {
-              console.error(err);
-            } else {
-              console.log(`Created ${newFile}.png`);
+              throw new Error(err);
             }
           })
           .webp()
           .toFile(`${newFile}.webp`, (err, info) => {
             if (err) {
-              console.error(err);
-            } else {
-              console.log(`Created ${newFile}.webp`);
+              throw new Error(err);
             }
           })
       });
   });
 
-imagemin([`${tmpobj.name}/*.png`], output, {
-  plugins: [
-    imageminPng({
-      speed: 1,
-      strip: true,
-    }),
-  ]
-})
-  .then((files) => {
-    imagemin([`${tmpobj.name}/*.webp`], output, {
-      plugins: [
-        imageminWebp({
-          method: 6,
-        }),
-      ]
-    })
-      .then((files) => {
-        tmpobj.removeCallback();
-      });
+console.info('Resized images');
+
+Promise.all([
+  imagemin([`${tmpobj.name}/*.png`], output, {
+    plugins: [
+      imageminPng({
+        strip: true,
+      }),
+    ]
+  }),
+  imagemin([`${tmpobj.name}/*.webp`], output, {
+    plugins: [
+      imageminWebp(),
+    ]
+  })
+])
+  .then(() => {
+    console.info('Finished optimizing images');
+    tmpobj.removeCallback();
+  })
+  .catch((err) => {
+    throw new Error(err);
   });
