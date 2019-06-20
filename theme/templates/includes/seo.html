@@ -39,12 +39,19 @@
   <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}" />
   <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}" />
 {% endif%}
-  <meta name="twitter:image" content="INSERT-YOUR-TWITTER-IMAGE-LINK" />
 {% if article and article.summary %}
   <meta name="twitter:card" content="{{ article.summary|striptags }}" />
 {% else %}
   <meta name="twitter:card" content="{{ SITE_SUMMARY }}"/>
 {% endif%}
-<script type="application/ld+json">
-    {% include "includes/meta_main.json" %}
-</script>
+    {% if article and article.summary %}
+    <script type="application/ld+json">
+        {% include "includes/meta_article.json" %}
+    </script>
+    <script type="application/ld+json">
+        {% include "includes/meta_article_breadcrumb.json" %}
+    </script>
+    {% endif %}
+    <script type="application/ld+json">
+        {% include "includes/meta_main.json" %}
+    </script>

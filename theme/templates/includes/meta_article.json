@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ SITEURL }}{{ article.url }}"
+  },
+  "headline": "{% if article.series %}{{ article.series.name }}: {% endif %}{{ article.title }}",
+  "datePublished": "{{ article.date.isoformat() }}",
+  "dateModified": "{{ article.date.isoformat() }}",
+  "author": {
+    "@type": "Person",
+    "name": "Adam Cupiał"
+  },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Webdesign-log.pl",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ SITEURL }}/theme/images/logo.svg"
+    }
+  },
+  "description": "{{ article.summary | striptags }}"
+}

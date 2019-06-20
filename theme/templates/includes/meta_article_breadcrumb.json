@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "{{ article.category.name }}",
+    "item": "{{ SITEURL }}/{{ article.category.url }}"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "{% if article.series %}{{ article.series.name }}: {% endif %}{{ article.title }}",
+    "item": "{{ SITEURL }}/{{ article.url }}"
+  }]
+}
