@@ -3,21 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% include "includes/preloads.html" %}
         {% include "includes/seo.html" %}
         {% include "includes/icons.html" %}
 
         {% block head %}{% endblock %}
         {% block css %}{% endblock %}
 
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap"
-            rel="preload"
-            as="style"
-            onload="this.rel = 'stylesheet'"
-            >
-        <link rel="preconnect" href="https://www.googletagmanager.com">
-        <link rel="preconnect" href="https://googleads.g.doubleclick.net">
-        <link rel+"preconnect" href="https://vendorlist.consensu.org">
     </head>
         <body>
             {% include "widgets/header.html" %}

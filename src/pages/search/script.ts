@@ -22,7 +22,7 @@ const resultTemplate = (results) => {
         <div class="article-card__excerpt">
           <p>
             ${result.data.summary}
-            <a class="article-card__readmore" href="${result.data.url}">Read more</a>
+            <a class="article-card__readmore" href="${result.data.url}"><span data-hover="Read more">Read more</span></a>
           </p>
         </div>
       </div>
