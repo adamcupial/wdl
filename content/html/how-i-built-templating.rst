@@ -60,8 +60,8 @@ Meta me
 Metatags, are the tags that describe the content: categorize it (is it a person bio, or is it a recipe? Maybe it's an event invitiation?), provide additional info that may or not be useful (publication time, update time, which image should be considered main, what's the full url for the content, who's the author and what's his webpage etc.).
 Basically they are used by any automatic processes to categorize / display the page properly, useful for the additional SEO brownie points they are giving, the most important tags to be aware of:
 
-- open tags LINK HERE @TODO, is used by facebook and twitter crawlers, mostly when someone links to that page - it allows for customization and display the link properly they are put in the head of page as meta tags with names starting from `og`.
-- schema.org is mostly used by search crawlers, e.g. google (see: link to search gallery) and provide additional information, they can either be inlined in html-tags as attributes or provided in a separate script tag (jsod-ld)
+- `open graph tags <http://ogp.me/>`__ are used by facebook and twitter crawlers, mostly when someone links to that page - it allows for customization and display the link properly they are put in the head of page as meta tags with names starting from `og`.
+- `schema.org <https://schema.org/>`__ is mostly used by search crawlers, e.g. google (see: `search gallery <https://developers.google.com/search/docs/guides/search-gallery>`__) and provide additional information, they can either be inlined in html-tags as attributes or provided in a separate script tag (jsod-ld)
 - canonical url tag - should always be present, if by some reason there're multiple urls pointing at the same content all search crawlers look for canonical to group it under.
 
 
