@@ -86,7 +86,7 @@ I am using two fonts from google-fonts: Open Sans (for everything) and Fira Mono
 First iteration I was loading them using `typekit webfont-loader <https://github.com/typekit/webfontloader>`__ only on faster networks, this prevents fonts being a blocking resource, and allows the site to load faster.
 The downside of it is the visible flicker when font loads, around Google IO's (may) google has finally added support to display: swap to google fonts. I was so excited - right away I have created a `pull request for typekit <https://github.com/typekit/webfontloader/pull/415>`__ to pass that option, as yet to no avail - library doesn't look maintained anymore.
 
-Then it dawned on me that I don't need most of what webfontloader does and have written my `quick loader <https://github.com/adamcupial/wdl/blob/master/src/scripts/font-load.ts>`, it was better but still the font flickered.
+Then it dawned on me that I don't need most of what webfontloader does and have written my `quick loader <https://github.com/adamcupial/wdl/blob/master/src/scripts/font-load.ts>`__, it was better but still the font flickered.
 Finally I have just put the link to googlefonts in the body (it's non-blocking because display: swap) for Open Sans and just load the Fira dynamically.
 
 As a final note - very nice way of loading styles in modern browsers, `found here <https://www.filamentgroup.com/lab/async-css.html#a-modern-approach>`__.
@@ -117,7 +117,7 @@ Mine thing I was loosing points were:
  - color contrast background / text was not enough, I had a nice orange'ish accent color which was just a hair too light for good contrast, since making it darker just made it brown I went with blue instead. Google chrome developers tools has nice color contrast tool now, so I could check the contast in real time.
  - lack of a text on several icons (search...), too small links in footer. I have removed the links from footer (they are in header anyway) and put aria-labels where needed.
 
- That's all I can say about the style now, Next one will be about the scripts I use on page - hopefully with smaller gap.
+ That's all I can say about the style now, Next one will be about the scripts I use on page - hopefully with smaller time gap then these one.
 
 .. [#clean-is-boring] yes, clean design is boring. Especially since it's been overused in last few years (material design..),
                       but still it has it's uses.
