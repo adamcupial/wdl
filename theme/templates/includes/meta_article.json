@@ -17,7 +17,7 @@
     "name": "Webdesign-log.pl",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ SITEURL }}/theme/images/logo.svg"
+      "url": "{{ SITE_LOGO }}"
     }
   },
   "description": "{{ article.summary | striptags }}"

@@ -20,7 +20,7 @@ PLUGINS = [
 AUTHOR = 'Adam Cupial'
 SITENAME = 'Webdesign-log.pl'
 SITEURL = 'http://127.0.0.1:8000'
-SITE_LOGO = urljoin(SITEURL, '/theme/images/logo.svg')
+SITE_LOGO = urljoin(SITEURL, '/theme/images/logo.png')
 SITE_SUMMARY = '''
 For developers by (web) developer - a list of posts about the everyday struggles of web-dev and programmer in general, Included highly opinionated tips, tricks and advices.
 '''

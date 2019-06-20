@@ -29,6 +29,8 @@ There is really no excuse not to use semantic elements:
 
 and for a bit of extra credit we may as well make the page a tad more accessible, right?
 
+While most of the situations we can get by just with semantic HTML, I have found aria-label useful when I have to cheat - due to my design decisions I couldn't add text to search icon, aria-label saved my bacon here.
+
 Keyboard navigation
 ===================
 
