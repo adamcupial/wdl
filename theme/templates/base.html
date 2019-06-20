@@ -16,8 +16,8 @@
             onload="this.rel = 'stylesheet'"
             >
         <link rel="preconnect" href="https://www.googletagmanager.com">
-        <link rel="preconnect" href="https://quantcast.mgr.consensu.org">
         <link rel="preconnect" href="https://googleads.g.doubleclick.net">
+        <link rel+"preconnect" href="https://vendorlist.consensu.org">
     </head>
         <body>
             {% include "widgets/header.html" %}
@@ -33,5 +33,6 @@
             </div>
             {% include "widgets/footer.html" %}
             {% block js %}{% endblock %}
+            {% include "includes/cmp.html" %}
         </body>
 </html>

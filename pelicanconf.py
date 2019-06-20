@@ -120,6 +120,7 @@ CSP_HEADERS_DICT = {
         "self",
         "unsafe-inline",
         "https://*.consensu.org",
+        "https://unpkg.com",
         "https://www.googletagmanager.com",
     ],
     "connect-src": [
