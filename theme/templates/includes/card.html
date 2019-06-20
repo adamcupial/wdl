@@ -6,7 +6,7 @@
       datetime="{{ article.date.isoformat() }}"
     >
       {{ article.locale_date }}
-    </time>&nbsp;<span class="article-card__category">in&nbsp;<a tabindex="-1" href="{{ article.category.url }}" rel="tag" title="See more articles in '{{ article.category.name }}'">{{ article.category.name }}</a></span>
+    </time>&nbsp;<span class="article-card__category">in&nbsp;<a tabindex="-1" href="{{ article.category.url }}" rel="tag" title="See more articles in '{{ article.category.name }}'"><span data-hover="{{ article.category.name }}">{{ article.category.name }}</span></a></span>
     <h2 class="article-card__title">
       <a
         href="{{ SITE_URL }}/{{ article.url }}"
@@ -19,6 +19,8 @@
   </header>
   <div class="article-card__excerpt" tabindex="0">
     {{ article.summary|striptags }}
-    <a class="article-card__readmore" tabindex="-1" href="{{ SITE_URL }}/{{ article.url }}" title="Read more about '{{ article.title | striptags }}'">Read more</a>
+    <a class="article-card__readmore" tabindex="-1" href="{{ SITE_URL }}/{{ article.url }}" title="Read more about '{{ article.title | striptags }}'">
+        <span data-hover="Read more">Read more</span>
+    </a>
   </div>
 </article>

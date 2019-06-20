@@ -1,4 +1,5 @@
 @import 'styles/variables.scss';
+@import 'styles/mixins/pill.scss';
 @import '~sass-rem/_rem.scss';
 @import '~include-media/dist/_include-media.scss';
 
@@ -50,27 +51,17 @@
   }
 
   &__category {
-    a {
-      border-bottom: 1px dotted transparent;
-
-      &:hover {
-        border-bottom-color: inherit;
-      }
-    }
+    font-size: rem(13px);
   }
 
   &__readmore {
-    display: inline-block;
-    font-weight: 700;
-    background-color: $color-text-accent;
-    padding: rem(2px 5px);
-    color: #000;
-    text-decoration: none;
-    transition: transform 50ms ease-in;
+    font-size: rem(18px);
+  }
 
-    &:hover {
-      transform: scale(1.1);
-    }
+  &__category,
+  &__readmore {
+    @include pill;
+    text-transform: uppercase;
   }
 
   &--featured {

@@ -1,0 +1,48 @@
+@import '~sass-rem/_rem.scss';
+@import '~include-media/dist/_include-media.scss';
+@import 'styles/variables.scss';
+
+@mixin pill ($bg: $color-text-accent, $text: $color-bg) {
+	perspective: 1000px;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+
+  span {
+    position: relative;
+    display: inline-block;
+    padding: rem(0 10px);
+    background: $bg;
+    transition: transform 0.3s;
+    transform-origin: 50% 0;
+    transform-style: preserve-3d;
+    text-align: center;
+    color: $text;
+    border-radius: 2px;
+
+    &::before {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: darken($bg, 10%);
+      content: attr(data-hover);
+      transition: background 0.3s;
+      transform: rotateX(-90deg);
+      transform-origin: 50% 0;
+      box-shadow: 0 0 10px $color-shadow;
+      border-radius: 2px;
+    }
+  }
+
+  &:hover {
+    span {
+      transform: rotateX(90deg) translateY(-100%);
+
+      &::before {
+        background: lighten($bg, 10%);
+      }
+    }
+  }
+}
