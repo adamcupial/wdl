@@ -134,13 +134,13 @@ CSP_HEADERS_DICT = {
     "style-src": [
         "self",
         "unsafe-inline",
+        "https://fonts.googleapis.com",
     ],
     "font-src": [
         "https://fonts.gstatic.com",
     ],
     "frame-ancestors": [
-        "self",
-        "https://*.consensu.org",
+        "none",
     ],
     "base-uri": [
         "none",
