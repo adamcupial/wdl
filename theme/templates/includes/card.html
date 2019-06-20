@@ -1,4 +1,35 @@
-<article class="article-card{% if special %} article-card--featured{% endif %}">
+<article class="article-card">
+
+  <a
+    href="{{ SITE_URL }}/{{ article.url }}"
+    title="permalink for '{{ article.title | striptags }}'"
+    rel="bookmark"
+    >
+    <picture>
+        <source
+            sizes="(min-width: 1024px) 60vw, 100vw"
+            data-srcset="{{ SITEURL }}/{{ article | get_article_image('300x150', 'webp') }} 300w,
+                    {{ SITEURL }}/{{ article | get_article_image('600x300', 'webp') }} 600w,
+                    {{ SITEURL }}/{{ article | get_article_image('900x450', 'webp') }} 900w,
+                    {{ SITEURL }}/{{ article | get_article_image('1200x600', 'webp') }} 1200w"
+            type="image/webp"
+        >
+        <source
+            sizes="(min-width: 1024px) 60vw, 100vw"
+            data-srcset="{{ SITEURL }}/{{ article | get_article_image('300x150', 'png') }} 300w,
+                    {{ SITEURL }}/{{ article | get_article_image('600x300', 'png') }} 600w,
+                    {{ SITEURL }}/{{ article | get_article_image('900x450', 'png') }} 900w,
+                    {{ SITEURL }}/{{ article | get_article_image('1200x600', 'png') }} 1200w"
+            type="image/png"
+        >
+        <img
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            loading="lazy"
+            data-src="{{ SITEURL }}/{{ article | get_article_image('900x450', 'png') }}"
+            alt=""
+        >
+    </picture>
+    </a>
   <header class="article-card__header">
     <time
       class="article-card__date"
@@ -7,6 +38,7 @@
     >
       {{ article.locale_date }}
     </time>&nbsp;<span class="article-card__category">in&nbsp;<a tabindex="-1" href="{{ article.category.url }}" rel="tag" title="See more articles in '{{ article.category.name }}'"><span data-hover="{{ article.category.name }}">{{ article.category.name }}</span></a></span>
+
     <h2 class="article-card__title">
       <a
         href="{{ SITE_URL }}/{{ article.url }}"
@@ -17,6 +49,7 @@
       </a>
     </h2>
   </header>
+
   <div class="article-card__excerpt" tabindex="0">
     {{ article.summary|striptags }}
     <a class="article-card__readmore" tabindex="-1" href="{{ SITE_URL }}/{{ article.url }}" title="Read more about '{{ article.title | striptags }}'">

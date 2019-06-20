@@ -1,24 +1,30 @@
 {
-  "@context": "https://schema.org",
-  "@type": "NewsArticle",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ SITEURL }}{{ article.url }}"
-  },
-  "headline": "{% if article.series %}{{ article.series.name }}: {% endif %}{{ article.title }}",
-  "datePublished": "{{ article.date.isoformat() }}",
-  "dateModified": "{{ article.date.isoformat() }}",
-  "author": {
-    "@type": "Person",
-    "name": "Adam Cupiał"
-  },
-   "publisher": {
-    "@type": "Organization",
-    "name": "Webdesign-log.pl",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ SITE_LOGO }}"
-    }
-  },
-  "description": "{{ article.summary | striptags }}"
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ SITEURL }}{{ article.url }}"
+    },
+    "headline": "{% if article.series %}{{ article.series.name }}: {% endif %}{{ article.title }}",
+    "datePublished": "{{ article.date.isoformat() }}",
+    "dateModified": "{{ article.date.isoformat() }}",
+    "author": {
+        "@type": "Person",
+        "name": "Adam Cupiał"
+    },
+    "image": [
+        "{{ SITEURL }}/{{ article | get_article_image('1200x600', 'png') }}",
+        "{{ SITEURL }}/{{ article | get_article_image('900x450', 'png') }}",
+        "{{ SITEURL }}/{{ article | get_article_image('600x300', 'png') }}",
+        "{{ SITEURL }}/{{ article | get_article_image('300x150', 'png') }}"
+    ],
+    "publisher": {
+        "@type": "Organization",
+        "name": "Webdesign-log.pl",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ SITE_LOGO }}"
+        }
+    },
+    "description": "{{ article.summary | striptags }}"
 }

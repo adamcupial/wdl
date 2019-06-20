@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 import sys
 sys.path.append('.')
-from plugins.jinja_plugins import manifest_asset, tag_present, tags_not_present, aggregate_tags, fetch, get_asset_sha, get_tag_names
+from plugins.jinja_plugins import manifest_asset, tag_present, tags_not_present, aggregate_tags, fetch, get_asset_sha, get_tag_names, get_article_image
 from urllib.parse import urljoin
 
 PLUGIN_PATHS = ['./plugins', './pelican-plugins']
@@ -51,6 +51,7 @@ JINJA_FILTERS = {
   'fetch': fetch,
   'get_asset_sha': get_asset_sha,
   'get_tag_names': get_tag_names,
+  'get_article_image': get_article_image,
 }
 
 DEFAULT_PAGINATION = 9

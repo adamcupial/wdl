@@ -5,6 +5,16 @@
 @import 'styles/mixins/link.scss';
 
 .article {
+  picture {
+    margin-bottom: rem(18px);
+    display: block;
+    box-shadow: 0 5px 10px $color-shadow;
+    border: 1px solid $color-border;
+
+    img {
+      width: 100%;
+    }
+  }
   &__body {
     p {
       margin: rem(0 0 16px 0);

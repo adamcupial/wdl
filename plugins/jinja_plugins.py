@@ -6,7 +6,7 @@ import json
 import math
 from base64 import urlsafe_b64encode as b64encode
 from itertools import chain, groupby
-from os.path import dirname, join
+from os.path import dirname, join, basename
 
 
 STATIC_PATH = join(dirname(__file__), '..', 'theme', 'static')
@@ -124,3 +124,9 @@ def fetch(filepath):
 def get_asset_sha(name):
     with open(MANIFEST_PATH) as json_file:
         return json.load(json_file)[name]['integrity']
+
+
+def get_article_image(article, size, extension):
+    filname = basename(article.get_relative_source_path()).replace('.rst', '')
+    filename = '{0}-{1}.{2}'.format(filname, size, extension)
+    return join('theme', 'content-images', filename)

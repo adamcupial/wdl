@@ -49,6 +49,13 @@ export default class BaseScripts {
   }
 
   private loadImage(node: HTMLImageElement) : void {
+    if (node.parentElement.tagName.toLowerCase() === 'picture') {
+      [...node.parentElement.querySelectorAll('source')]
+      .forEach((source) => {
+        source.srcset = source.dataset.srcset;
+        delete source.dataset.srcset;
+      });
+    }
     node.src = node.dataset.src;
     delete node.dataset.src;
   }
