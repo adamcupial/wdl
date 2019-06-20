@@ -1,22 +1,22 @@
 /
-    Content-Security-Policy: default-src 'none'; script-src '{{ "page-list.js" | get_asset_sha }}' 'strict-dynamic'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src 'self' '{{ "page-list.css" | get_asset_sha }}' https://fonts.googleapis.com 'strict-dynamic'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
+    Content-Security-Policy: default-src 'none'; script-src '{{ "page-list.js" | get_asset_sha }}' 'strict-dynamic'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src '{{ "page-list.css" | get_asset_sha }}' 'strict-dynamic'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
 {% include "includes/default_headers.html" %}
 
 /search
-    Content-Security-Policy: default-src 'none'; script-src 'self' '{{ "page-search.js" | get_asset_sha }}' 'strict-dynamic'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src 'self' '{{ "page-search.css" | get_asset_sha }}' https://fonts.googleapis.com 'strict-dynamic'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
+    Content-Security-Policy: default-src 'none'; script-src 'self' '{{ "page-search.js" | get_asset_sha }}' 'strict-dynamic'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src '{{ "page-search.css" | get_asset_sha }}' 'strict-dynamic'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
 {% include "includes/default_headers.html" %}
 
 /tag/*
-    Content-Security-Policy: default-src 'none'; script-src 'self' '{{ "page-list.js" | get_asset_sha }}' 'strict-dynamic'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src 'self' '{{ "page-list.css" | get_asset_sha }}' https://fonts.googleapis.com 'strict-dynamic'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
+    Content-Security-Policy: default-src 'none'; script-src 'self' '{{ "page-list.js" | get_asset_sha }}' 'strict-dynamic'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src '{{ "page-list.css" | get_asset_sha }}' 'strict-dynamic'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
 {% include "includes/default_headers.html" %}
 
 /category/*
-    Content-Security-Policy: default-src 'none'; script-src 'self' '{{ "page-list.js" | get_asset_sha }}' 'strict-dynamic'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src 'self' '{{ "page-list.css" | get_asset_sha }}' https://fonts.googleapis.com 'strict-dynamic'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
+    Content-Security-Policy: default-src 'none'; script-src 'self' '{{ "page-list.js" | get_asset_sha }}' 'strict-dynamic'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src '{{ "page-list.css" | get_asset_sha }}' 'strict-dynamic'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
 {% include "includes/default_headers.html" %}
 
 {% for category, _ in categories %}
 /{{ category }}/*
-    Content-Security-Policy: default-src 'none'; script-src 'self' '{{ "page-article.js" | get_asset_sha }}' 'strict-dynamic'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src 'self' '{{ "page-article.css" | get_asset_sha }}' https://fonts.googleapis.com 'strict-dynamic'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
+    Content-Security-Policy: default-src 'none'; script-src 'self' '{{ "page-article.js" | get_asset_sha }}' 'strict-dynamic'; connect-src 'self' https://audit.quantcast.mgr.consensu.org https://vendorlist.consensu.org; img-src 'self' data:; style-src '{{ "page-article.css" | get_asset_sha }}' 'strict-dynamic'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; frame-src 'self' https://static.quantcast.mgr.consensu.org
     {% include "includes/default_headers.html" %}
 {% endfor %}
 
