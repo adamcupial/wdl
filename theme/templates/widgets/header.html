@@ -20,7 +20,7 @@
             <ul class="site-header__sections">
                 {% if 'javascript' in categories | get_tag_names %}
                 <li class="site-header__section site-header__section--javascript{% if 'javascript' | tag_present(tag, article, category) %} active{% endif %}">
-                    <a href="/category/javascript">
+                    <a href="/category/javascript" title="Go to javascript category">
                         {{ 'images/js-brands.svg' | fetch | safe }}
                         <span>JavaScript</span>
                     </a>
@@ -28,7 +28,7 @@
                 {% endif %}
                 {% if 'python' in categories | get_tag_names %}
                 <li class="site-header__section site-header__section--python{% if 'python' | tag_present(tag, article, category) %} active {% endif %}">
-                    <a href="/category/python">
+                    <a href="/category/python" title="Go to python category">
                         {{ 'images/python-brands.svg' | fetch | safe }}
                         <span>Python</span>
                     </a>
@@ -36,7 +36,7 @@
                 {% endif %}
                 {% if 'css' in categories | get_tag_names %}
                 <li class="site-header__section site-header__section--css{% if 'css' | tag_present(tag, article, category) %} active{% endif %}">
-                    <a href="/category/css">
+                    <a href="/category/css" title="Go to css category">
                         {{ 'images/css3-alt-brands.svg' | fetch | safe }}
                         <span>CSS</span>
                     </a>
@@ -44,7 +44,7 @@
                 {% endif %}
                 {% if 'html' in categories | get_tag_names %}
                 <li class="site-header__section site-header__section--html{% if 'html' | tag_present(tag, article, category) %} active{% endif %}">
-                    <a href="/category/html">
+                    <a href="/category/html" title="Go to HTML category">
                         {{ 'images/html5-brands.svg' | fetch | safe }}
                         <span>HTML</span>
                     </a>
@@ -54,7 +54,7 @@
         </nav>
     </div>
     <div class="site-header__search-area">
-        <a href="/search" title="Go to search page">
+        <a href="/search" title="Go to search page" aria-label="Go to search page">
             {{ 'images/search-solid.svg' | fetch | safe }}
         </a>
     </div>
