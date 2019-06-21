@@ -3,7 +3,7 @@
         const script = document.createElement('script');
         script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-10090520-2';
         script.async = true;
-        document.head.append(script);
+        document.head.insertBefore( script, document.head.childNodes[ document.head.childNodes.length - 1 ].nextSibling );
         window.dataLayer = window.dataLayer || [];
         const gtag = (...args) => {
           window.dataLayer.push(args);
