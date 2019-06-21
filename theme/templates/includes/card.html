@@ -7,7 +7,7 @@
     >
     <picture>
         <source
-            sizes="(min-width: 1024px) 30vw, (max-width: 1023px and min-width: 768px) 45vw, 85vw"
+            sizes="(min-width: 1024px) 30vw, (max-width: 1023px) and (min-width: 768px) 45vw, 85vw"
             data-srcset="{{ SITEURL }}/{{ article | get_article_image('300x150', 'webp') }} 300w,
                     {{ SITEURL }}/{{ article | get_article_image('600x300', 'webp') }} 600w,
                     {{ SITEURL }}/{{ article | get_article_image('900x450', 'webp') }} 900w,
@@ -15,7 +15,7 @@
             type="image/webp"
         >
         <source
-            sizes="(min-width: 1024px) 30vw, (max-width: 1023px and min-width: 768px) 45vw, 85vw"
+            sizes="(min-width: 1024px) 30vw, (max-width: 1023px) and (min-width: 768px) 45vw, 85vw"
             data-srcset="{{ SITEURL }}/{{ article | get_article_image('300x150', 'png') }} 300w,
                     {{ SITEURL }}/{{ article | get_article_image('600x300', 'png') }} 600w,
                     {{ SITEURL }}/{{ article | get_article_image('900x450', 'png') }} 900w,
