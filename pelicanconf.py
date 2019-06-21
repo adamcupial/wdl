@@ -115,7 +115,7 @@ MINIFY = {
 
 CSP_HEADERS_DICT = {
     "report-uri": [
-        "https://webdesignlogpl.report-uri.com/r/d/csp/enforce",
+        "https://webdesignlogpl.report-uri.com/r/d/csp/wizard",
     ],
     "default-src": [
         "none"
