@@ -123,6 +123,7 @@ CSP_HEADERS_DICT = {
         "https://*.consensu.org",
         "https://unpkg.com",
         "https://www.googletagmanager.com",
+        "https://www.google-analytics.com",
     ],
     "connect-src": [
         "self",
