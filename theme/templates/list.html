@@ -10,13 +10,21 @@
 
 {% block content %}
 <section class="card-list">
+    <div class="card-list__wrapper">
   {% for article in articles_page.object_list %}
       {% include "includes/card.html" %}
   {% endfor %}
+    </div>
 {% if articles_page.has_previous() or articles_page.has_next() %}
   <footer>
     {% include "widgets/paginator.html" %}
   </footer>
 {% endif %}
 </section>
+{% endblock %}
+
+{% block sidebar %}
+  {% with articlelist=articles %}
+    {% include "widgets/taglist.html" %}
+  {% endwith %}
 {% endblock %}

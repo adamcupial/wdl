@@ -25,6 +25,7 @@ html {
 body {
   color: $color-text;
   background-color: $color-bg;
+  overscroll-behavior: none;
 }
 
 .page-body {
@@ -41,14 +42,12 @@ body {
 }
 
 .page-title {
-  font-size: rem(32px);
-  color: $color-text-accent;
-  margin: rem(16px 0 48px 0);
+  font-size: rem(20px);
+  background-color: $color-text-accent;
+  color: #fff;
+  padding: rem(16px 10px);
+  margin: rem(0 0 16px 0);
   line-height: 1.2;
-
-  @include media('>=desktop') {
-    font-size: rem(56px);
-  }
 }
 
 .section-title {

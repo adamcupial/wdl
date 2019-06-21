@@ -10,21 +10,22 @@ body {
 
 body {
   min-height: 100%;
+  min-width: rem(320px);
 }
 
 .page-body {
   display: grid;
-  min-height: 80vh;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
     "body"
     "sidebar";
-  grid-column-gap: rem(10px);
+  grid-column-gap: 0;
   max-width: $content-max-width;
-  margin: 0 auto;
+  margin: -10px auto 0 auto;
 
   @include media('>=desktop') {
+    margin: 0 auto;
     grid-template-areas:
     "body sidebar";
     grid-template-rows: auto;
@@ -36,11 +37,14 @@ main {
   position: relative;
   grid-area: body;
   z-index: 1;
-  padding: rem(16px 16px);
   overflow: hidden;
 
   @include media('>=tablet') {
-    padding: rem(16px 32px);
+    padding: rem(0 16px);
+  }
+
+  @include media('>=desktop') {
+    padding: rem(0 16px 32px 16px);
   }
 }
 
@@ -50,13 +54,10 @@ main {
   position: relative;
   z-index: 1;
   background: $color-bg;
-  padding: rem(16px 16px);
-
-  @include media('>=tablet') {
-    padding: rem(16px 32px);
-  }
+  padding: rem(16px);
 
   @include media('>=desktop') {
+    padding: rem(32px);
     box-shadow: $shadow-default;
 
     > * + *:not(:first-child) {

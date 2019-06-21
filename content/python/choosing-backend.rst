@@ -6,7 +6,7 @@ Choosing backend
 :series: How I built my blog
 :series_index: 2
 
-In this episode I explain how I have chosen the technology for my blog - which of the myriad options suited me best and why.
+How I have chosen the backend technology for my blog - which of the myriad options suited me best and why.
 
 
 .. PELICAN_END_SUMMARY

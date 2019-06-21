@@ -3,21 +3,21 @@
     {% if articles_page.has_previous() %}
         {% if articles_page.previous_page_number() == 1 %}
             <li class="paginator__previous">
-                <a rel="prev" href="{{ SITEURL }}/">Previous</a>
+                <a rel="prev" href="{{ SITEURL }}/">Newer</a>
             </li>
         {% else %}
-            <li class="paginator__previous"><a rel="prev" href="{{ SITEURL }}/{{ articles_page.previous_page_number() }}/">Previous</a></li>
+            <li class="paginator__previous"><a rel="prev" href="{{ SITEURL }}/{{ articles_page.previous_page_number() }}/">Newer</a></li>
         {% endif %}
     {% else %}
-    <li class="paginator__previous paginator__previous--disabled"><span>Previous</span></li>
+    <li class="paginator__previous paginator__previous--disabled"><span>Newer</span></li>
     {% endif %}
 
     {% if articles_page.has_next() %}
     <li class="paginator__next">
-        <a rel="next" href="{{ SITEURL }}/{{ articles_page.next_page_number() }}/">Next</a>
+        <a rel="next" href="{{ SITEURL }}/{{ articles_page.next_page_number() }}/">Older</a>
     </li>
     {% else %}
-        <li class="paginator__next paginator__next--disabled"><span>Next</span></li>
+        <li class="paginator__next paginator__next--disabled"><span>Older</span></li>
     {% endif %}
 </ul>
 {% endif %}

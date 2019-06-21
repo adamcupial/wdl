@@ -6,6 +6,19 @@
 @import 'styles/mixins/link.scss';
 
 .article {
+  padding: rem(10px);
+
+  @include media('>=tablet') {
+    padding: 0;
+  }
+
+  &__title {
+    font-size: rem(28px);
+    color: $color-text-accent;
+    margin: rem(0 0 16px 0);
+    line-height: 1.2;
+  }
+
   picture {
     margin-bottom: rem(18px);
     display: block;
@@ -39,7 +52,7 @@
   }
 
   .section {
-    margin: rem(16px 0);
+    margin: rem(16px 0 32px 0);
 
     h2 {
       line-height: 1.2;

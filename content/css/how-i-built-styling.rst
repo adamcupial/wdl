@@ -6,7 +6,7 @@ Styling
 :series: How I built my blog
 :series_index: 5
 
-The episode I dread, I am detailing here my design and style process as well what technologies are used and why.
+Details of my design process, technologies used and reasons behind the choices.
 
 .. PELICAN_END_SUMMARY
 

@@ -6,8 +6,7 @@ The Beginning
 :series: How I built my blog
 :series_index: 1
 
-First in series of posts about how this blog came to be, difficulties I have encountered, technologies I have used here lessons-learnt as well.
-Step-by-step process of creating a website.
+Step-by-step process of creating a website, this website. What is used, how it's used and what I have learnt.
 
 .. PELICAN_END_SUMMARY
 

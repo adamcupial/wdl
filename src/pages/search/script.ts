@@ -15,20 +15,17 @@ const resultTemplate = (results) => {
   let res = null;
   if (results.length) {
     res = results.map((result) => html`
-      <div class="search-results__item article-card" data-ref="${result.ref}">
-        <h3 class="article-card__title">
+      <div class="search-results__item" data-ref="${result.ref}">
+        <h3 class="search-results__item-title">
           <a href="${result.data.url}">${result.data.title}</a>
         </h3>
-        <div class="article-card__excerpt">
-          <p>
-            ${result.data.summary}
-            <a class="article-card__readmore" href="${result.data.url}"><span data-hover="Read more">Read more</span></a>
-          </p>
+        <div class="search-results__item-excerpt">
+          <p> ${result.data.summary} </p>
         </div>
       </div>
     `);
   } else {
-    res = html`<li class="empty">No articles found matching the query</li>`;
+    res = html`<div class="empty">No articles found matching the query</div>`;
   }
   return html`${res}`;
 };
