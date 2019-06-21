@@ -1,9 +1,11 @@
 @import 'styles/base.scss';
+@import 'styles/layout.scss';
 @import '~sass-rem/_rem.scss';
-@import 'styles/mixins/card.scss';
 @import 'styles/mixins/button.scss';
 
 .search-form {
+  padding: rem(10px);
+
   form {
     display: flex;
     flex-direction: row;
@@ -28,6 +30,7 @@
   $base: &;
   display: flex;
   flex-direction: column;
+  padding: rem(10px);
 
   header {
     order: 1;
@@ -38,6 +41,23 @@
 
     &:empty ~ header {
       display: none;
+    }
+  }
+
+  &__item-excerpt {
+    margin-bottom: rem(16px);
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__item-title {
+    margin: 0;
+
+    a {
+      color: $color-text-accent;
+      text-decoration: none;
     }
   }
 }

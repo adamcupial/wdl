@@ -29,13 +29,17 @@ $site-nav-height-mobile: rem(42px);
   z-index: 2;
   top: 0;
   padding: rem(0 10px);
-  max-width: $content-max-width;
-  margin: 0 auto;
+  margin: rem(0 0 10px 0);
   position: relative;
 
   @include media('>tablet') {
     padding: rem(0 40px);
     height: $site-header-height-desktop;
+  }
+
+  @include media('>=desktop') {
+    margin: 0 auto;
+    max-width: $content-max-width;
   }
 
   svg {
@@ -93,7 +97,7 @@ $site-nav-height-mobile: rem(42px);
     .navigation-button {
       cursor: pointer;
 
-      @include media('>tablet') {
+      @include media('>=desktop') {
         display: none;
       }
 
@@ -116,7 +120,7 @@ $site-nav-height-mobile: rem(42px);
     padding: 0;
   }
 
-  @include media('<=tablet') {
+  @include media('<desktop') {
     &__navigation {
       position: fixed;
       right: 0;

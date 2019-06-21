@@ -110,7 +110,7 @@ def aggregate_tags(articles):
             ))
         ))
 
-    fin.sort(key=lambda x: x[0].name)
+    fin.sort(key=lambda x: (x[2], x[0].name), reverse=True)
 
     return fin
 

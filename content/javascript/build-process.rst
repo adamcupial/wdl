@@ -6,7 +6,7 @@ Build process
 :series: How I built my blog
 :series_index: 3
 
-In this episode I explain details about the build process, what were the requirements and why I have chosen webpack to handle them.
+Details about the automated build process, requirements and why I have chosen webpack.
 
 .. PELICAN_END_SUMMARY
 

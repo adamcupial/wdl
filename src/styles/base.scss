@@ -7,11 +7,6 @@ $base-font-family: 'Segoe UI', Tahoma, sans-serif;
 $base-unit: 'rem';
 @include normalize($exclude: (forms embedded interactive scripting hidden));
 
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
 
 html {
   &.font-open-sans-loaded {
@@ -28,75 +23,31 @@ html {
 }
 
 body {
-  min-height: 100%;
   color: $color-text;
   background-color: $color-bg;
+  overscroll-behavior: none;
 }
-
 
 .page-body {
   background-color: $color-bg;
-  display: grid;
-  min-height: 80vh;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    "body"
-    "sidebar";
-  grid-column-gap: rem(10px);
-  max-width: $content-max-width;
-  margin: 0 auto;
-
-  @include media('>=desktop') {
-    grid-template-areas:
-      "body sidebar";
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 320px;
-  }
-}
-
-main {
-  position: relative;
-  grid-area: body;
-  z-index: 1;
-  padding: rem(16px 16px);
-  overflow: hidden;
-
-  @include media('>=tablet') {
-    padding: rem(16px 32px);
-  }
 }
 
 .sidebar {
-  overflow: hidden;
-  grid-area: sidebar;
-  position: relative;
   z-index: 1;
   background: $color-bg;
-  padding: rem(16px 16px);
-
-  @include media('>=tablet') {
-    padding: rem(16px 32px);
-  }
 
   @include media('>=desktop') {
     box-shadow: $shadow-default;
-
-    > * + *:not(:first-child) {
-      margin-top: rem(32px);
-    }
   }
 }
 
 .page-title {
-  font-size: rem(32px);
-  color: $color-text-accent;
-  margin: rem(16px 0 48px 0);
+  font-size: rem(20px);
+  background-color: $color-text-accent;
+  color: #fff;
+  padding: rem(16px 10px);
+  margin: rem(0 0 16px 0);
   line-height: 1.2;
-
-  @include media('>=desktop') {
-    font-size: rem(56px);
-  }
 }
 
 .section-title {

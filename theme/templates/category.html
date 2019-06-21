@@ -1,12 +1,6 @@
 {% extends "list.html" %}
 
 {% block content %}
-    <h1 class="page-title">{{ category.name | title }}</h1>
+    <h1 class="page-title">Category: {{ category.name | title }}</h1>
     {{ super() }}
-{% endblock %}
-
-{% block sidebar %}
-    {% with articlelist=articles %}
-        {% include "widgets/taglist.html" %}
-    {% endwith %}
 {% endblock %}

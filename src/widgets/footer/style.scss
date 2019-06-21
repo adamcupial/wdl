@@ -1,6 +1,6 @@
 @import '~sass-rem/_rem.scss';
 @import 'styles/variables.scss';
-@import 'styles/mixins/link.scss';
+@import '~include-media/dist/_include-media.scss';
 
 .site-footer {
   background-color: $color-text-accent;
@@ -11,7 +11,12 @@
   z-index: 0;
 
   &__logo-area {
+    display: none;
     margin-bottom: rem(16px);
+
+    @include media('>=tablet') {
+      display: block;
+    }
 
     a {
       transition: opacity .2s;

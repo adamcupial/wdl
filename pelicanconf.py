@@ -54,12 +54,12 @@ JINJA_FILTERS = {
   'get_article_image': get_article_image,
 }
 
-DEFAULT_PAGINATION = 9
+DEFAULT_PAGINATION = 8
 
 PAGINATED_TEMPLATES = {
-  'index': 9,
-  'tag': 9,
-  'category': 9,
+  'index': 8,
+  'tag': 8,
+  'category': 8,
 }
 
 

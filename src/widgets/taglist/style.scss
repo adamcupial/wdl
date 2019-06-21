@@ -4,28 +4,26 @@
 @import 'styles/mixins/button.scss';
 
 .taglist {
-
-  .section-title {
-    display: none;
-
-    @include media('>=desktop') {
-      display: block;
-    }
-  }
-
   &__cloud {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
     align-items: center;
-    align-content: space-around;
-    margin-bottom: rem(8px);
+
+    @include media('>=desktop') {
+      overflow-x: hidden;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: space-around;
+      margin-bottom: rem(8px);
+    }
   }
 
   &__tag {
     text-decoration: none;
     color: $color-text;
+    white-space: nowrap;
     display: inline-block;
     margin: rem(6px);
     border-bottom: 1px dotted transparent;

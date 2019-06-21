@@ -12,7 +12,6 @@
 
 {% block content %}
 <article class="article">
-    <h1 class="page-title">{% if article.series %}{{ article.series.name }}: {% endif %}{{ article.title }}</h1>
     <picture>
         <source
             sizes="(min-width: 1024px) 60vw, 100vw"
@@ -37,6 +36,7 @@
             alt=""
         >
     </picture>
+    <h1 class="article__title">{% if article.series %}{{ article.series.name }}: {% endif %}{{ article.title }}</h1>
     <div class="article__body">
         {{ article.content }}
     </div>
