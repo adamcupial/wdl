@@ -1,0 +1,66 @@
+@import '~sass-rem/_rem.scss';
+@import '~include-media/dist/_include-media.scss';
+@import 'styles/variables.scss';
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+.page-body {
+  display: grid;
+  min-height: 80vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "body"
+    "sidebar";
+  grid-column-gap: rem(10px);
+  max-width: $content-max-width;
+  margin: 0 auto;
+
+  @include media('>=desktop') {
+    grid-template-areas:
+    "body sidebar";
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 320px;
+  }
+}
+
+main {
+  position: relative;
+  grid-area: body;
+  z-index: 1;
+  padding: rem(16px 16px);
+  overflow: hidden;
+
+  @include media('>=tablet') {
+    padding: rem(16px 32px);
+  }
+}
+
+.sidebar {
+  overflow: hidden;
+  grid-area: sidebar;
+  position: relative;
+  z-index: 1;
+  background: $color-bg;
+  padding: rem(16px 16px);
+
+  @include media('>=tablet') {
+    padding: rem(16px 32px);
+  }
+
+  @include media('>=desktop') {
+    box-shadow: $shadow-default;
+
+    > * + *:not(:first-child) {
+      margin-top: rem(32px);
+    }
+  }
+}
