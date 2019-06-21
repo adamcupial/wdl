@@ -133,6 +133,7 @@ CSP_HEADERS_DICT = {
         "self",
         "https://webdesign-log.pl",
         "https://www.googletagmanager.com",
+        "https://www.google-analytics.com",
         "data:",
     ],
     "style-src": [
