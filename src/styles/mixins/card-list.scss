@@ -14,7 +14,7 @@
       overflow-x: scroll;
       scroll-snap-type: x mandatory;
       scroll-padding: rem(10px);
-      padding-bottom: vr(0);
+      padding-bottom: vr(-1);
     }
 
     @include media('>=tablet') {
@@ -35,7 +35,7 @@
     min-height: rem(375px);
     flex: 0 0 auto;
     scroll-snap-align: start;
-    margin: 0 vr(1);
+    margin: 0 0 0 vr(-1);
     width: 85vw;
     max-width: rem(300px);
 
@@ -45,7 +45,7 @@
     }
 
     & ~ .article-card {
-      margin-left: vr(1);
+      margin-left: vr(-1);
     }
   }
 

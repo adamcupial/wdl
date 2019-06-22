@@ -24,6 +24,8 @@ body {
   grid-column-gap: 0;
   max-width: $content-max-width;
   margin: -10px auto 0 auto;
+  min-height: calc(100vh - 106px);
+  align-content: start;
 
   @include media('>=desktop') {
     margin: 0 auto;
@@ -39,14 +41,9 @@ main {
   grid-area: body;
   z-index: 1;
   overflow: hidden;
-  padding-top: vr(0);
-
+  padding-top: vr(-1);
 
   @include media('>=tablet') {
-    padding: vr(0);
-  }
-
-  @include media('>=desktop') {
     padding: vr(0);
   }
 }
