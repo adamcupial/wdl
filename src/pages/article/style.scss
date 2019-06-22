@@ -38,14 +38,18 @@
       padding: 0;
 
       & + li {
-        margin-top: vr(-1);
+        margin-top: vr(-2);
       }
     }
 
+
     * + p,
-    * + ul,
     * + .highlight {
       margin-top: vr(0);
+    }
+
+    * + ul {
+      margin-top: vr(-1);
     }
 
     h2 {
@@ -69,10 +73,12 @@
       @include link;
     }
 
-    .footnote-reference {
+    .footnote-reference,
+    .fn-backref {
       vertical-align: super;
       font-size: type-scale(-1);
-      border-bottom: none;
+      border-bottom: 0;
+      line-height: 1;
     }
   }
 
@@ -88,18 +94,7 @@
   }
 
   .footnote {
-    border: none;
-    border-collapse: collapse;
-
-    &:first-of-type {
-      border-top: 1px solid $color-border;
-    }
-
-    .label {
-      a {
-        border-bottom: none;
-      }
-    }
+    display: none;
   }
 }
 

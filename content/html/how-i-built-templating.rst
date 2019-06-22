@@ -22,10 +22,10 @@ While all semantic elements have an implied ARIA role (landmark), it is still va
 
 There is really no excuse not to use semantic elements:
 
- - they have clear meaning, making it easier to understand the HTML - screen readers, read modes etc.
- - it is no more difficult to use then divs
- - typed form elements (email, number, search inputs) come with added benefits - free validation and fancy [#form-fanciness]_ widgets on mobile
- - we got SEO brownie points for this
+- they have clear meaning, making it easier to understand the HTML - screen readers, read modes etc.
+- it is no more difficult to use then divs
+- typed form elements (email, number, search inputs) come with added benefits - free validation and fancy [#form-fanciness]_ widgets on mobile
+- we got SEO brownie points for this
 
 and for a bit of extra credit we may as well make the page a tad more accessible, right?
 

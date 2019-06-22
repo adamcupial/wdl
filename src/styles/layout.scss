@@ -39,13 +39,15 @@ main {
   grid-area: body;
   z-index: 1;
   overflow: hidden;
+  padding-top: vr(0);
+
 
   @include media('>=tablet') {
-    padding: rem(0 vr(1));
+    padding: vr(0);
   }
 
   @include media('>=desktop') {
-    padding: rem(0 vr(1) vr(2) vr(1));
+    padding: vr(0);
   }
 }
 
@@ -58,7 +60,6 @@ main {
   padding: vr(0);
 
   @include media('>=desktop') {
-    padding: vr(0);
     box-shadow: $shadow-default;
 
     > * + *:not(:first-child) {

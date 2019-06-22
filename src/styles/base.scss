@@ -6,6 +6,7 @@
 $base-font-family: 'Segoe UI', Tahoma, sans-serif;
 $base-unit: 'rem';
 @include normalize($exclude: (forms embedded interactive scripting hidden));
+@import 'styles/mixins/vertical-rhytm.scss';
 
 
 html {
@@ -39,15 +40,6 @@ body {
   @include media('>=desktop') {
     box-shadow: $shadow-default;
   }
-}
-
-.page-title {
-  font-size: rem(20px);
-  background-color: $color-text-accent;
-  color: #fff;
-  padding: rem(16px 10px);
-  margin: rem(0 0 16px 0);
-  line-height: 1.2;
 }
 
 .section-title {

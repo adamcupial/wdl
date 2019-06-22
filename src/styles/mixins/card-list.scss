@@ -26,10 +26,6 @@
   }
 }
 
-.page-title + .card-list {
-  padding-top: 0;
-}
-
 .article-card {
   border: 1px solid #ccc;
   box-shadow: 5px 5px 10px $color-shadow;
@@ -55,14 +51,14 @@
 
   &__header,
   &__excerpt {
-    padding: 0 vr(1);
+    padding: 0 vr(0);
   }
 
   picture {
     display: block;
     position: relative;
     padding-bottom: 50%;
-    margin-bottom: vr(1);
+    margin-bottom: vr(0);
 
     img {
       filter: grayscale(.3);
