@@ -1,6 +1,7 @@
 @import '~sass-rem/_rem.scss';
 @import '~include-media/dist/_include-media.scss';
 @import 'styles/variables.scss';
+@import 'styles/mixins/vertical-rhytm.scss';
 
 html,
 body {
@@ -40,11 +41,11 @@ main {
   overflow: hidden;
 
   @include media('>=tablet') {
-    padding: rem(0 16px);
+    padding: rem(0 vr(1));
   }
 
   @include media('>=desktop') {
-    padding: rem(0 16px 32px 16px);
+    padding: rem(0 vr(1) vr(2) vr(1));
   }
 }
 
@@ -54,14 +55,14 @@ main {
   position: relative;
   z-index: 1;
   background: $color-bg;
-  padding: rem(16px);
+  padding: vr(0);
 
   @include media('>=desktop') {
-    padding: rem(32px);
+    padding: vr(0);
     box-shadow: $shadow-default;
 
     > * + *:not(:first-child) {
-      margin-top: rem(32px);
+      margin-top: vr(0);
     }
   }
 }

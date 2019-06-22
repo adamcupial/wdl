@@ -1,9 +1,10 @@
 @import '~sass-rem/_rem.scss';
+@import '~include-media/dist/_include-media.scss';
 @import 'styles/base.scss';
 @import 'styles/layout.scss';
 @import 'styles/variables.scss';
-@import '~include-media/dist/_include-media.scss';
 @import 'styles/mixins/link.scss';
+@import 'styles/mixins/vertical-rhytm.scss';
 
 .article {
   padding: rem(10px);
@@ -12,16 +13,72 @@
     padding: 0;
   }
 
+  // modular scale
   &__title {
-    font-size: rem(28px);
+    @include type-setting(2);
+    margin: 0 0 vr(0) 0;
     color: $color-text-accent;
-    margin: rem(0 0 16px 0);
-    line-height: 1.2;
+  }
+
+  &__body {
+    p {
+      @include type-setting(0);
+      margin: 0;
+
+    }
+
+    ul {
+      margin: 0;
+      padding: 0 0 0 vr(0);
+    }
+
+    li {
+      @include type-setting(0);
+      margin: 0;
+      padding: 0;
+
+      & + li {
+        margin-top: vr(-1);
+      }
+    }
+
+    * + p,
+    * + ul,
+    * + .highlight {
+      margin-top: vr(0);
+    }
+
+    h2 {
+      @include type-setting(1);
+      margin: 0;
+    }
+
+    h2 + p {
+      margin-top: vr(-1);
+    }
+
+    .section {
+      margin: 0;
+    }
+
+    * + .section {
+      margin-top: vr(0);
+    }
+
+    a {
+      @include link;
+    }
+
+    .footnote-reference {
+      vertical-align: super;
+      font-size: type-scale(-1);
+      border-bottom: none;
+    }
   }
 
   picture {
-    margin-bottom: rem(18px);
     display: block;
+    margin: 0 0 vr(1) 0;
     box-shadow: 0 5px 10px $color-shadow;
     border: 1px solid $color-border;
 
@@ -29,49 +86,16 @@
       width: 100%;
     }
   }
-  &__body {
-    p {
-      margin: rem(0 0 16px 0);
-      line-height: 1.6;
-      font-size: rem(18px);
-    }
-
-    a {
-      @include link;
-
-      &.footnote-reference {
-        vertical-align: super;
-        font-size: .75em;
-        border-bottom: none;
-      }
-    }
-
-    .highlight {
-      margin-bottom: rem(16px);
-    }
-  }
-
-  .section {
-    margin: rem(16px 0 32px 0);
-
-    h2 {
-      line-height: 1.2;
-      margin: rem(0 0 16px 0);
-    }
-  }
 
   .footnote {
     border: none;
     border-collapse: collapse;
-    margin-bottom: rem(8px);
 
     &:first-of-type {
       border-top: 1px solid $color-border;
     }
 
     .label {
-      padding-right: rem(10px);
-
       a {
         border-bottom: none;
       }

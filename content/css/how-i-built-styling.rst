@@ -11,11 +11,12 @@ Details of my design process, technologies used and reasons behind the choices.
 .. PELICAN_END_SUMMARY
 
 First the basic requirements / assumptions I had when deciding how the page would look:
- - should be performant and that meant lightweight, which means - simple, clean design [#clean-is-boring]_
- - should be responsive, mobile first and have a high usability
- - easy to maintain
- - should be bleeding edge, technologically bees-knees and css-grids
- - should be not ugly [#not-ugly]_
+
+- should be performant and that meant lightweight, which means - simple, clean design [#clean-is-boring]_
+- should be responsive, mobile first and have a high usability
+- easy to maintain
+- should be bleeding edge, technologically bees-knees and css-grids
+- should be not ugly [#not-ugly]_
 
 Pure css - you can keep it
 --------------------------
@@ -64,9 +65,10 @@ In first iteration I have used their js library to automatically replace the pla
 I have since replaced the script with inlined SVGs, additionally replacing logo with SVG, only to find out that schema.org requires png. I have both now - it works.
 
 As for the post images, there're several nice (free!) options I've toyed with:
- - `canva <https://www.canva.com/>`__ dead easy to use, didn't like the output quality and lack of 'free only' filters
- - `word cloud <https://amueller.github.io/word_cloud/>`__ generate an image based on the words in text, too much hassle to setup but nice idea.
- - `crello <https://crello.com>`__ similar to canva, but a tad easier to use, like the example designs better as well. All the images here are created with crello.
+
+- `canva <https://www.canva.com/>`__ dead easy to use, didn't like the output quality and lack of 'free only' filters
+- `word cloud <https://amueller.github.io/word_cloud/>`__ generate an image based on the words in text, too much hassle to setup but nice idea.
+- `crello <https://crello.com>`__ similar to canva, but a tad easier to use, like the example designs better as well. All the images here are created with crello.
 
 Next steps were relatively easy, I've prepared an image resizer / reformatter / optimize `script <https://github.com/adamcupial/wdl/blob/master/generate-images.js>`__ that resizes the pictures and creates a webp version.
 
@@ -77,13 +79,15 @@ Bring me a font
 
 Ah typography, terra incognita. I know how to use it, I just can't design it - have heard the terms vertical-rhytm and still can't use it for any good effect.
 
-I am using two fonts from google-fonts: Open Sans (for everything) and Fira Mono (for codeblocks), google-fonts is convenient and fast way to deliver fonts, they are serving a stylesheet that has the best font for given browser, as well as preventing some grief of creating your own font face:
- - some fonts a gzippable, some not
- - web servers are notorious of having a bad defaults for font serving (woff2, nginx...)
- - olden browsers support different formats
- - font file names differ based on the system and you always want to use local font first (e.g. `Roboto <https://fonts.googleapis.com/css?family=Roboto&display=swap>`__)
+I am using two fonts from google-fonts: Open Sans (for everything) and Fira Mono (for codeblocks).
+Why google-fonts? it is convenient and fast way to deliver fonts, bypassign some common problems:
 
-First iteration I was loading them using `typekit webfont-loader <https://github.com/typekit/webfontloader>`__ only on faster networks, this prevents fonts being a blocking resource, and allows the site to load faster.
+- font browser support differs
+- some fonts a gzippable, some not
+- web servers are notorious for having a bad defaults for font serving (woff2, nginx...)
+- font file names differ based on the system and you always want to use local font first (e.g. `Roboto <https://fonts.googleapis.com/css?family=Roboto&display=swap>`__)
+
+At First I was loading them using `typekit webfont-loader <https://github.com/typekit/webfontloader>`__ only on faster networks, this prevents fonts being a blocking resource, and allows the site to load faster.
 The downside of it is the visible flicker when font loads, around Google IO's (may) google has finally added support to display: swap to google fonts. I was so excited - right away I have created a `pull request for typekit <https://github.com/typekit/webfontloader/pull/415>`__ to pass that option, as yet to no avail - library doesn't look maintained anymore.
 
 Then it dawned on me that I don't need most of what webfontloader does and have written my `quick loader <https://github.com/adamcupial/wdl/blob/master/src/scripts/font-load.ts>`__, it was better but still the font flickered.
@@ -113,9 +117,10 @@ Lately I went through the hassle of getting the 100 in lighthouse accessibility 
 Good thing I had the separate colors.scss file...
 
 Mine thing I was loosing points were:
- - too small clickable elements, good practice is to have them at least 40x40, mine was a tad smaller - all fixed now.
- - color contrast background / text was not enough, I had a nice orange'ish accent color which was just a hair too light for good contrast, since making it darker just made it brown I went with blue instead. Google chrome developers tools has nice color contrast tool now, so I could check the contast in real time.
- - lack of a text on several icons (search...), too small links in footer. I have removed the links from footer (they are in header anyway) and put aria-labels where needed.
+
+- too small clickable elements, good practice is to have them at least 40x40, mine was a tad smaller - all fixed now.
+- color contrast background / text was not enough, I had a nice orange'ish accent color which was just a hair too light for good contrast, since making it darker just made it brown I went with blue instead. Google chrome developers tools has nice color contrast tool now, so I could check the contast in real time.
+- lack of a text on several icons (search...), too small links in footer. I have removed the links from footer (they are in header anyway) and put aria-labels where needed.
 
  That's all I can say about the style now, Next one will be about the scripts I use on page - hopefully with smaller time gap then these one.
 
