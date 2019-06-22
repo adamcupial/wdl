@@ -1,12 +1,11 @@
 # TODO
 
-## First Release
-- analytics
-- sitemap
-- robots.txt
 
 ## NextUp
+ - better post typography
+ - fix the damn header
+ - size images better
  - sharing
  - commments
- - ads
- - amp
+ - ads?
+ - put something on right rail
