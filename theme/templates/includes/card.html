@@ -5,30 +5,10 @@
     aria-label="permalink for '{{ article.title | striptags }}'"
     rel="bookmark"
     >
-    <picture>
-        <source
-            sizes="(min-width: 1024px) 30vw, (max-width: 1023px) and (min-width: 768px) 45vw, 85vw"
-            data-srcset="{{ SITEURL }}/{{ article | get_article_image('300x150', 'webp') }} 300w,
-                    {{ SITEURL }}/{{ article | get_article_image('600x300', 'webp') }} 600w,
-                    {{ SITEURL }}/{{ article | get_article_image('900x450', 'webp') }} 900w,
-                    {{ SITEURL }}/{{ article | get_article_image('1200x600', 'webp') }} 1200w"
-            type="image/webp"
-        >
-        <source
-            sizes="(min-width: 1024px) 30vw, (max-width: 1023px) and (min-width: 768px) 45vw, 85vw"
-            data-srcset="{{ SITEURL }}/{{ article | get_article_image('300x150', 'png') }} 300w,
-                    {{ SITEURL }}/{{ article | get_article_image('600x300', 'png') }} 600w,
-                    {{ SITEURL }}/{{ article | get_article_image('900x450', 'png') }} 900w,
-                    {{ SITEURL }}/{{ article | get_article_image('1200x600', 'png') }} 1200w"
-            type="image/png"
-        >
-        <img
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            loading="lazy"
-            data-src="{{ SITEURL }}/{{ article | get_article_image('900x450', 'png') }}"
-            alt=""
-        >
-    </picture>
+    {% with %}
+        {% set sizes = "(min-width:1440px) 522px, (min-width:1024px) 314px, (min-width: 768px) 346px, 272px" %}
+        {% include "includes/picture.html" %}
+    {% endwith %}
     </a>
   <header class="article-card__header">
     <time

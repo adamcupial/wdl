@@ -170,3 +170,27 @@ for key, arr in CSP_HEADERS_DICT.items():
     vals = [key] + [x if x.startswith('http') or x.endswith(':') else "'{0}'".format(x) for x in arr]
     CSP_HEADERS.append(' '.join(vals))
 CSP_HEADERS = '; '.join(CSP_HEADERS)
+
+IMAGE_SIZES = [
+    [272, 136],
+    [298, 149],
+    [314, 157],
+    [346, 173],
+    [522, 261],
+    [544, 272],
+    [596, 298],
+    [628, 314],
+    [654, 327],
+    [692, 346],
+    [718, 359],
+    [816, 408],
+    [894, 447],
+    [942, 471],
+    [1044, 522],
+    [1070, 535]
+]
+
+IMAGE_TYPES = [
+    ['webp', 'image/webp'],
+    ['jpg', 'image/jpeg'],
+]

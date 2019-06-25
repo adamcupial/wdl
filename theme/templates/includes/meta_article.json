@@ -13,10 +13,7 @@
         "name": "Adam Cupiał"
     },
     "image": [
-        "{{ SITEURL }}/{{ article | get_article_image('1200x600', 'png') }}",
-        "{{ SITEURL }}/{{ article | get_article_image('900x450', 'png') }}",
-        "{{ SITEURL }}/{{ article | get_article_image('600x300', 'png') }}",
-        "{{ SITEURL }}/{{ article | get_article_image('300x150', 'png') }}"
+        "{{ SITEURL }}/{{ article | get_article_image('1200x600', 'jpg') }}"
     ],
     "publisher": {
         "@type": "Organization",

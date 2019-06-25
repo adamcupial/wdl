@@ -84,9 +84,23 @@
 
   picture {
     display: block;
-    margin: 0 0 vr(1) 0;
+    margin: 0 auto vr(1) auto;
     box-shadow: 0 5px 10px $color-shadow;
     border: 1px solid $color-border;
+
+    max-width: 298px;
+
+    @include media('>=tablet') {
+      max-width: 718px;
+    }
+
+    @include media('>=desktop') {
+      max-width: 654px;
+    }
+
+    @include media('>=l-desktop') {
+      max-width: 1070px;
+    }
 
     img {
       width: 100%;

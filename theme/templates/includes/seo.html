@@ -1,5 +1,5 @@
 {% if article %}
-  <title>{{ article.title }} - {{ TAGLINE }}</title>
+<title>{% if article.series %}{{ article.series.name }}: {% endif %}{{ article.title }} - {{ TAGLINE }}</title>
   <link rel="canonical" href="{{ SITEURL }}/{{ article.url }}"/>
   {% if article.summary %}
     <meta name="description" content="{{ article.summary|striptags }}"/>
@@ -15,7 +15,7 @@
 {% if article %}
   <meta property="og:type" content="article" />
   {% if article.title %}
-    <meta property="og:title" content="{{ article.title }} -- {{ TAGLINE }}" />
+    <meta property="og:title" content="{% if article.series %}{{ article.series.name }}: {% endif %}{{ article.title }} -- {{ TAGLINE }}" />
     <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}" />
   {% endif %}
 {% else %}

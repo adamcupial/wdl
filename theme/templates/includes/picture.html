@@ -1,0 +1,19 @@
+<picture>
+    {% for image_type, meta in IMAGE_TYPES %}
+    <source
+        sizes="{{ sizes }}"
+        data-srcset="
+        {% for width, height in IMAGE_SIZES %}
+        {{ SITEURL }}/{{ article | get_article_image('%sx%s'|format(width, height), image_type) }} {{ width }}w{% if not loop.last %},{% endif %}
+        {% endfor %}
+        "
+        type="{{ meta }}"
+    >
+    {% endfor %}
+    <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        loading="lazy"
+        data-src="{{ SITEURL }}/{{ article | get_article_image('300x150', 'jpg') }}"
+        alt=""
+    >
+</picture>

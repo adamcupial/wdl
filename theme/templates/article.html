@@ -11,31 +11,11 @@
 {% endblock %}
 
 {% block content %}
-<article class="article">
-    <picture>
-        <source
-            sizes="(min-width: 1024px) 60vw, 100vw"
-            data-srcset="{{ SITEURL }}/{{ article | get_article_image('300x150', 'webp') }} 300w,
-                    {{ SITEURL }}/{{ article | get_article_image('600x300', 'webp') }} 600w,
-                    {{ SITEURL }}/{{ article | get_article_image('900x450', 'webp') }} 900w,
-                    {{ SITEURL }}/{{ article | get_article_image('1200x600', 'webp') }} 1200w"
-            type="image/webp"
-        >
-        <source
-            sizes="(min-width: 1024px) 60vw, 100vw"
-            data-srcset="{{ SITEURL }}/{{ article | get_article_image('300x150', 'png') }} 300w,
-                    {{ SITEURL }}/{{ article | get_article_image('600x300', 'png') }} 600w,
-                    {{ SITEURL }}/{{ article | get_article_image('900x450', 'png') }} 900w,
-                    {{ SITEURL }}/{{ article | get_article_image('1200x600', 'png') }} 1200w"
-            type="image/png"
-        >
-        <img
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            loading="lazy"
-            data-src="{{ SITEURL }}/{{ article | get_article_image('900x450', 'png') }}"
-            alt=""
-        >
-    </picture>
+    <article class="article">
+        {% with %}
+        {% set sizes = "(min-width:1440px) 1070px, (min-width:1024px) 654px, (min-width: 768px) 718px, 298px" %}
+        {% include "includes/picture.html" %}
+        {% endwith %}
     <h1 class="article__title">{% if article.series %}{{ article.series.name }}: {% endif %}{{ article.title }}</h1>
     <div class="article__body">
         {{ article.content }}

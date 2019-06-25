@@ -64,9 +64,23 @@
       filter: grayscale(.3);
       transition: filter 250ms;
       position: absolute;
-      left: 0;
-      top: 0;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       width: 100%;
+      max-width: 272px;
+
+      @include media('>=tablet') {
+        max-width: 346px;
+      }
+
+      @include media('>=desktop') {
+        max-width: 314px;
+      }
+
+      @include media('>=l-desktop') {
+        max-width: 522px;
+      }
     }
   }
 
