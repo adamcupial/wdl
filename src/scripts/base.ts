@@ -42,7 +42,7 @@ export default class BaseScripts {
   private loadModule(node: HTMLElement) : void {
     const moduleName = node.dataset.module;
 
-    import(`widgets/${moduleName}/script`)
+    import(/* webpackPrefetch: true */ `widgets/${moduleName}/script`)
       .then((widget) => {
         new widget.default(node);
       });
