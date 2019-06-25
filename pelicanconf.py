@@ -132,6 +132,9 @@ CSP_HEADERS_DICT = {
         "self",
         "https://*.consensu.org",
     ],
+    "prefetch-src": [
+        "self",
+    ],
     "img-src": [
         "self",
         "https://webdesign-log.pl",
