@@ -118,7 +118,7 @@ CSP_HEADERS_DICT = {
         "https://webdesignlogpl.report-uri.com/r/d/csp/wizard",
     ],
     "default-src": [
-        "none"
+        "self",
     ],
     "script-src": [
         "self",
