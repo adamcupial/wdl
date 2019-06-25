@@ -49,6 +49,9 @@
     }
   }
 
+  &__header {
+    margin-top: vr(0);
+  }
   &__header,
   &__excerpt {
     padding: 0 vr(0);
@@ -58,7 +61,6 @@
     display: block;
     position: relative;
     padding-bottom: 50%;
-    margin-bottom: vr(0);
 
     img {
       filter: grayscale(.3);
