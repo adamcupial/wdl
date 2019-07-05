@@ -13,63 +13,69 @@ export default class BaseScripts {
         this.processObserver(entries, observer);
       },
       {
-        rootMargin: "100px 0px",
+        rootMargin: '100px 0px',
         threshold: 0.01,
-      }
+      },
     );
 
-    [...document.querySelectorAll('[data-module]')]
-      .forEach((el) => {
+    Array.from(document.querySelectorAll('[data-module]'))
+    .forEach((el) => {
+      if (el instanceof HTMLElement) {
         if (el.dataset.lazy) {
           this.observer.observe(el);
         } else {
           this.loadModule(el);
         }
+      }
+    });
+
+    Array.from(document.querySelectorAll('[loading="lazy"]'))
+      .forEach((el) => {
+        if (el instanceof HTMLImageElement) {
+          if (nativeLazyLoading) {
+            this.loadImage(el);
+          } else {
+            this.observer.observe(el);
+          }
+        }
       });
 
-      [...document.querySelectorAll('[loading="lazy"]')]
-        .forEach((el) => {
-        if (nativeLazyLoading) {
-          this.loadImage(el);
-        } else {
-          this.observer.observe(el);
-        }
-        });
-
-        new TimeChanger();
+    new TimeChanger();
   }
 
   private loadModule(node: HTMLElement) : void {
     const moduleName = node.dataset.module;
 
-    import(/* webpackPrefetch: true */ `widgets/${moduleName}/script`)
+    import(/* webpackPrefetch: true */ `widgets/${moduleName}/script`) // tslint:disable-line space-in-parens max-line-length
       .then((widget) => {
         new widget.default(node);
       });
   }
 
   private loadImage(node: HTMLImageElement) : void {
-    if (node.parentElement.tagName.toLowerCase() === 'picture') {
-      [...node.parentElement.querySelectorAll('source')]
-      .forEach((source) => {
-        source.srcset = source.dataset.srcset;
-        delete source.dataset.srcset;
-      });
+    if (node.parentElement && node.parentElement instanceof HTMLPictureElement) {
+      Array.from(node.parentElement.querySelectorAll('source'))
+        .forEach((source) => {
+          source.srcset = source.dataset.srcset || '';
+          delete source.dataset.srcset;
+        });
     }
-    node.src = node.dataset.src;
+    node.src = node.dataset.src || '';
     delete node.dataset.src;
   }
 
-  processObserver(entries, observer) {
+  processObserver(entries : IntersectionObserverEntry[], observer : IntersectionObserver) {
     entries
       .filter(entry => entry.isIntersecting)
       .forEach(({ target }) => {
-        if (target.dataset.module) {
-          this.loadModule(target);
-        } else if (target.hasAttribute('loading')) {
-          this.loadImage(target);
-        } else {
-          throw new Error('UnexpectedType: not a module nor image');
+        if (target instanceof HTMLElement) {
+          if (target.dataset.module) {
+            this.loadModule(target);
+          } else if (target instanceof HTMLImageElement) {
+            this.loadImage(target);
+          } else {
+            throw new Error('UnexpectedType: not a module nor image');
+          }
         }
 
         observer.unobserve(target);

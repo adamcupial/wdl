@@ -9,7 +9,7 @@
     ],
     "allowJs": true,
     "noEmit": true,
-    "strict": false,
+    "strict": true,
     "moduleResolution": "node",
     "baseUrl": "./src/",
     "allowSyntheticDefaultImports": true,

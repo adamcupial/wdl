@@ -1,43 +1,39 @@
-import { mark } from './logger';
-
 export default class SearchIndex {
-  __index: object;
-  __data: object;
+  _index: lunr.Index | undefined;
+  _data: object | undefined;
 
-  getIndex() {
-    mark('Search:getIndex').start();
-
-    if (this.__index && this.__data) {
-      return Promise.resolve([this.__index, this.__data]);
-    } else {
-      return Promise.all([
-        fetch('/search_index.json')
-        .then(resp => resp.json()),
-          import(/* webpackChunkName:"lunr" */'lunr')
-        ])
-        .then(([{ index, data }, lunr]) => {
-          this.__index = lunr.Index.load(index);
-          this.__data = data;
-          mark('Search:getIndex').end();
-          return [this.__index, this.__data];
-        });
-    }
+  constructor() {
+    this._index = undefined;
+    this._data = undefined;
   }
 
-  async search(query) {
-    mark('Search:search').start();
+  getIndex() : Promise<any> {
+    if (this._index && this._data) {
+      return Promise.resolve([this._index, this._data]);
+    }
 
-    return this.getIndex()
-      .then(([index, data]) => {
-        const result = index
-          .search(query)
-          .map((res) => {
-            res.data = data[res.ref];
-            return res;
-          });
-
-        mark('Search:search').end();
-        return result;
+    return Promise.all([
+      fetch('/search_index.json')
+        .then(resp => resp.json()),
+      import(/* webpackChunkName:"lunr" */'lunr'), // tslint:disable-line space-in-parens
+    ])
+      .then(([{ index, data }, lunr]) => {
+        this._index = lunr.Index.load(index);
+        this._data = data;
+        return [this._index, this._data];
       });
+  }
+
+  search(query: string) {
+    return this.getIndex()
+    .then(([index, data]) => {
+      if (index && data) {
+        return index.search(query)
+        .map((res: { ref: string, data: string }) => {
+          res.data = data[res.ref];
+          return res;
+        });
+      }
+    });
   }
 }

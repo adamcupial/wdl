@@ -1,7 +1,7 @@
 export default class TimeChanger {
 
-  constructor(root=document.body) {
-    const changes = [...root.querySelectorAll('time[datetime]')]
+  constructor(root = document.body) {
+    const changes = Array.from(root.querySelectorAll('time[datetime]'))
       .map(tag => this.applyTime(tag));
 
     window.requestAnimationFrame(() => {
@@ -9,7 +9,7 @@ export default class TimeChanger {
         .forEach(([element, timestr]) => {
           element.innerHTML = timestr;
         });
-    })
+    });
   }
 
   private applyTime(tag: HTMLTimeElement) : [HTMLTimeElement, string] {
@@ -17,9 +17,8 @@ export default class TimeChanger {
 
     if (tag.dataset.format) {
       return [tag, this[`format_${tag.dataset.format}`](date)];
-    } else {
-      return [tag, this.format_local(date)];
     }
+    return [tag, this.format_local(date)];
   }
 
   public format_local(date: Date) : string {
@@ -30,20 +29,18 @@ export default class TimeChanger {
         month: 'long',
       });
       return formatter.format(date);
-    } else {
-      return date.toLocaleDateString();
     }
+    return date.toLocaleDateString();
   }
 
   private format_rtf(num: number, unit: string) : string {
     if (Intl.RelativeTimeFormat) {
       return new Intl.RelativeTimeFormat('en', {
-          numeric: 'auto',
-        })
-        .format(-1 * num, unit);
-    } else {
-      return `${num} ${unit}${num > 1 ? 's' : ''} ago`;
+        numeric: 'auto',
+      })
+      .format(-1 * num, unit);
     }
+    return `${num} ${unit}${num > 1 ? 's' : ''} ago`;
   }
 
   public format_timeago(date: Date) : string {
@@ -54,10 +51,12 @@ export default class TimeChanger {
 
     if (months > 0) {
       return this.format_local(date);
-    } else if (weeks > 0) {
-      return this.format_rtf(weeks, 'week');
-    } else {
-      return this.format_rtf(days, 'day');
     }
+
+    if (weeks > 0) {
+      return this.format_rtf(weeks, 'week');
+    }
+
+    return this.format_rtf(days, 'day');
   }
 }
