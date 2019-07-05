@@ -2,6 +2,7 @@
 @import '~include-media/dist/_include-media.scss';
 @import 'styles/variables.scss';
 
+
 @mixin large-btn ($bg: color('orient'), $text: color('white')) {
   background-color: $bg;
   border-radius: 2px;
@@ -23,5 +24,17 @@
 
   @include media('>=tablet') {
     font-size: rem(22px);
+  }
+}
+
+
+@mixin small-btn ($bg: color('orient'), $text: color('white')) {
+  @include large-btn;
+
+  font-size: rem(16px);
+  padding: rem(4px 8px);
+
+  @include media('>=tablet') {
+    font-size: rem(18px);
   }
 }

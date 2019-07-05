@@ -3,16 +3,6 @@
 @import 'styles/variables.scss';
 @import 'styles/mixins/vertical-rhytm.scss';
 
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  min-height: 100%;
-  min-width: rem(320px);
-}
 
 .page-body {
   display: grid;

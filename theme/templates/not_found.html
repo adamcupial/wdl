@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style>{{ 'page-404.css' | manifest_asset | fetch }}</style>
+{% endblock %}
+
+{% block js %}
+<script>{{ 'page-404.js' | manifest_asset | fetch }}</script>
+{% endblock %}
+
+{% block head %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+
+{% block body %}
+<main role="main">
+    <div class="intro">
+        <h2 class="intro__title">404</h1>
+        <h3 class="intro__subtitle">Page Not Found</h2>
+        <p class="intro__explanation">Page you are looking for is not here. Either the link was broken or you've misspelled something. Try one of the options below.</p>
+    </div>
+
+    <div class="solutions">
+        <div class="solutions__item">
+            <h3 class="solutions__header">Go to homepage</h3>
+            <div class="solutions__content">
+                <p>Go to the <a href="/">Homepage</a> and find my latests posts</p>
+            </div>
+        </div>
+
+        <div class="solutions__item">
+            <h3 class="solutions__header">Search</h3>
+            <div class="solutions__content">
+                <p>Use the search functionality:</p>
+                <form action="/search" method="get">
+                    <input name="q" type="text" required="required" placeholder="Search for it">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="solutions__item">
+            <h3 class="solutions__header">Choose a topic</h3>
+            <div class="solutions__content">
+                {% with articlelist=articles %}
+                {% include "widgets/taglist.html" %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

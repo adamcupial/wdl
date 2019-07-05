@@ -105,8 +105,9 @@ ARCHIVES_SAVE_AS = ''
 HEADERS_SAVE_AS = '_headers'
 
 
-DIRECT_TEMPLATES = ['index', 'search', 'headers']
+DIRECT_TEMPLATES = ['index', 'search', 'headers', 'not_found']
 SEARCH_SAVE_AS = 'search/index.html'
+NOT_FOUND_SAVE_AS = '404.html'
 MINIFY = {
   'remove_comments': False,
   'remove_all_empty_space': True,

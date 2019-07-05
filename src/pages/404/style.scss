@@ -1,0 +1,121 @@
+@import '~sass-rem/_rem.scss';
+@import '~include-media/dist/_include-media.scss';
+@import 'styles/base.scss';
+@import 'styles/variables.scss';
+@import 'styles/mixins/vertical-rhytm.scss';
+@import 'styles/mixins/link.scss';
+@import 'styles/mixins/button.scss';
+
+main {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: vr(0);
+}
+
+.intro {
+  text-align: center;
+
+  &__explanation {
+    font-size: rem(16px);
+
+    @include media('>=tablet') {
+      font-size: rem(20px);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    color: color('orient');
+    transform: scale(-1, 1);
+    text-shadow: $shadow-default;
+    line-height: 1.4;
+    font-size: rem(80px);
+
+    @include media('>=tablet') {
+      font-size: rem(120px);
+    }
+  }
+
+  &__subtitle {
+    margin: 0;
+    padding: 0;
+    color: color('silver');
+    line-height: 1.4;
+    font-size: rem(30px);
+
+    @include media('>=tablet') {
+      font-size: rem(40px);
+    }
+  }
+}
+
+.solutions {
+
+  &__item {
+    border: 1px solid color('silver');
+    margin-bottom: vr(0);
+    box-shadow: $shadow-default;
+  }
+
+  &__header {
+    padding: rem(6px 16px);
+    margin: rem(0 0 16px 0);
+    background: color('orient');
+    color: color('white');
+  }
+
+  &__content {
+    padding: rem(6px 16px);
+
+    p {
+      margin: 0;
+
+      a {
+        @include link;
+      }
+    }
+
+    form {
+      display: flex;
+
+      input {
+        flex: 1 1 auto;
+        border: 1px solid color('silver');
+      }
+
+      button {
+        flex: 0 0 auto;
+      }
+    }
+
+    button {
+      @include small-btn;
+    }
+
+    .taglist__cloud {
+      display: block;
+      overflow-x: hidden;
+      flex-wrap: wrap;
+    }
+
+  }
+  @include media('>=tablet') {
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: vr(0);
+  }
+
+  @include media('>=tablet', '<desktop') {
+    grid-template-columns: 1fr 1fr;
+
+    &__item:last-child {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+
+  @include media('>=desktop') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
