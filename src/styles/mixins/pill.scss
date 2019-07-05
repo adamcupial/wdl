@@ -2,7 +2,7 @@
 @import '~include-media/dist/_include-media.scss';
 @import 'styles/variables.scss';
 
-@mixin pill ($bg: $color-text-accent, $text: $color-bg) {
+@mixin pill ($bg: color('orient'), $text: color('white')) {
 	perspective: 1000px;
   display: inline-block;
   position: relative;
@@ -27,12 +27,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: darken($bg, 10%);
+      background: darken($bg, 5%);
       content: attr(data-hover);
       transition: background 0.3s;
       transform: rotateX(-90deg);
       transform-origin: 50% 0;
-      box-shadow: 0 0 10px $color-shadow;
+      box-shadow: 0 0 10px color('shadow');
       border-radius: 2px;
     }
   }

@@ -2,7 +2,6 @@
 @import 'styles/variables.scss';
 
 .paginator {
-  $color-hover: darken($color-text-accent, 5%);
   $el-height: rem(48px);
 
   display: flex;
@@ -26,8 +25,8 @@
       text-decoration: none;
       box-shadow: $shadow-default;
       width: rem(100px);
-      background-color: $color-text-accent;
-      color: $color-bg;
+      background-color: color('orient');
+      color: color('white');
 
       &::before {
         content: '';
@@ -35,13 +34,13 @@
         width: 0;
         height: 0;
         top: 0;
-        border: ($el-height / 2) solid $color-bg;
+        border: ($el-height / 2) solid color('white');
       }
     }
 
     a {
       &:hover {
-        background-color: $color-hover;
+        background-color: color('orient-darkened');
       }
     }
 
@@ -57,14 +56,14 @@
     span {
       &::before {
         left: -1 * ($el-height / 2);
-        border-right-color: $color-text-accent;
+        border-right-color: color('orient');
       }
     }
 
     a {
       &:hover {
         &::before {
-          border-right-color: $color-hover;
+          border-right-color: color('orient-darkened');
         }
       }
     }
@@ -77,14 +76,14 @@
     span {
       &::before {
         right: -1 * ($el-height / 2);
-        border-left-color: $color-text-accent;
+        border-left-color: color('orient');
       }
     }
 
     a {
       &:hover {
         &::before {
-          border-left-color: $color-hover;
+          border-left-color: color('orient-darkened');
         }
       }
     }

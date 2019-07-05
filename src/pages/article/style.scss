@@ -17,7 +17,7 @@
   &__title {
     @include type-setting(2);
     margin: 0 0 vr(0) 0;
-    color: $color-text-accent;
+    color: color('orient');
   }
 
   &__body {
@@ -85,8 +85,8 @@
   picture {
     display: block;
     margin: 0 auto vr(1) auto;
-    box-shadow: 0 5px 10px $color-shadow;
-    border: 1px solid $color-border;
+    box-shadow: 0 5px 10px color('shadow');
+    border: 1px solid color('silver');
 
     img {
       width: 100%;

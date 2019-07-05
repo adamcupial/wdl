@@ -1,14 +1,23 @@
-$color-bg: #fff;
-$color-hard-text: #000;
-$color-text: #333;
-$color-text-lighter: #5d5d5d;
-$color-border: #dedede;
-$color-body: #ddd;
-$color-text-accent: #005182;
-$color-shadow: rgba(0, 0, 0, .1);
-$brand-colors: (
-  'python': #306998,
-  'css': #0f94f6,
-  'html': #df4a16,
-  'javascript': #f8c500,
-);
+@import "chroma-sass";
+
+$chroma: define-default-color-scheme('Default Scheme');
+
+$chroma: add-colors((
+    white: #fff,
+    mine-shaft: #323232,
+    scorpion: #695f62,
+    silver: #ccc,
+    orient: #005182,
+    shadow: rgba(#000, .1),
+    orient-darkened: ('orient' darken 5%),
+));
+
+$brands: define-color-scheme('brands', 'Brands colors');
+
+$brands: add-colors((
+    python: #306998,
+    css: #0f94f6,
+    html: #df4a16,
+    javascript: #f8c500,
+));
+

@@ -24,18 +24,13 @@ html {
 }
 
 body {
-  color: $color-text;
-  background-color: $color-bg;
+  color: color('mine-shaft');
+  background-color: color('white');
   overscroll-behavior: none;
-}
-
-.page-body {
-  background-color: $color-bg;
 }
 
 .sidebar {
   z-index: 1;
-  background: $color-bg;
 
   @include media('>=desktop') {
     box-shadow: $shadow-default;
@@ -43,7 +38,7 @@ body {
 }
 
 .section-title {
-  border-bottom: 1px solid $color-border;
+  border-bottom: 1px solid color('silver');
   padding: rem(0 8px);
   margin: rem(0 0 8px 0);
   font-size: rem(18px);
@@ -59,6 +54,6 @@ body {
 }
 
 .as-oil__btn-optin {
-  background-color: $color-text-accent !important;
-  color: #fff !important;
+  background-color: color('orient') !important;
+  color: color('white') !important;
 }

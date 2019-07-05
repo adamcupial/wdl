@@ -27,9 +27,9 @@
 }
 
 .article-card {
-  border: 1px solid #ccc;
-  box-shadow: 5px 5px 10px $color-shadow;
-  background-color: #fff;
+  border: 1px solid color('silver');
+  box-shadow: 5px 5px 10px color('shadow');
+  background-color: color('white');
 
   @include media('<tablet') {
     min-height: rem(375px);
@@ -106,7 +106,7 @@
   &__category {
     margin: rem(0 0 16px 0);
     font-size: rem(14px);
-    color: $color-text-lighter;
+    color: color('scorpion');
 
     @include media('>=tablet') {
       font-size: rem(16px);
@@ -127,7 +127,7 @@
   &__title {
     a {
       text-decoration: none;
-      color: $color-text-accent;
+      color: color('orient');
     }
   }
 

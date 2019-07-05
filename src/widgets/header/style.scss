@@ -7,7 +7,7 @@ $site-header-height-mobile: rem(50px);
 $site-nav-height-desktop: rem(92px);
 $site-nav-height-mobile: rem(42px);
 
-@mixin topline($color: $color-text-accent) {
+@mixin topline($color: color('orient')) {
   &::before {
     background-color: $color;
     content: '';
@@ -21,9 +21,9 @@ $site-nav-height-mobile: rem(42px);
 
 .site-header {
   box-sizing: border-box;
-  background-color: $color-bg;
+  background-color: color('white');
   box-shadow: $shadow-default;
-  color: $color-text-lighter;
+  color: color('scorpion');
   display: flex;
   height: $site-header-height-mobile;
   z-index: 2;
@@ -102,7 +102,7 @@ $site-nav-height-mobile: rem(42px);
       }
 
       &.active {
-        color: $color-text-accent;
+        color: color('orient');
       }
     }
   }
@@ -127,10 +127,9 @@ $site-nav-height-mobile: rem(42px);
       top: $site-header-height-mobile - rem(1px);
       bottom: 0;
       z-index: 2;
-      background-color: $color-bg;
       transform: translateX(110%);
       width: rem(240px);
-      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      box-shadow: $shadow-default;
 
       .navigation-button.active + & {
         transition: transform 350ms ease-in;
@@ -143,22 +142,20 @@ $site-nav-height-mobile: rem(42px);
     }
 
     &__section {
-      border-bottom: 1px solid $color-border;
+      border-bottom: 1px solid color('silver');
       border-left: 5px solid transparent;
 
       &:last-child {
         border-bottom: none;
       }
 
-      @each $section in map-keys($brand-colors) {
-        $color: map-get($brand-colors, $section);
-
+      @each $section in 'python', 'css', 'html', 'javascript'{
         &--#{$section} {
           &.active {
-            border-left: 5px solid $color;
+            border-left: 5px solid color(brands, $section);
 
             a {
-              color: $color;
+              color: color(brands, $section);
             }
           }
         }
@@ -169,7 +166,7 @@ $site-nav-height-mobile: rem(42px);
         line-height: 1.1;
         text-decoration: none;
         padding: rem(10px);
-        color: $color-text-lighter;
+        color: color('scorpion');
         font-size: rem(16px);
       }
     }
@@ -192,13 +189,13 @@ $site-nav-height-mobile: rem(42px);
       }
 
       &:first-child {
-        border-left: 1px solid $color-border;
+        border-left: 1px solid color('silver');
       }
 
       a {
         align-items: center;
-        border-right: 1px solid $color-border;
-        color: $color-text-lighter;
+        border-right: 1px solid color('silver');
+        color: color('scorpion');
         display: flex;
         flex-direction: column;
         font-size: rem(14px);
@@ -214,7 +211,7 @@ $site-nav-height-mobile: rem(42px);
         }
 
         span {
-          color: $color-text;
+          color: color('mine-shaft');
         }
 
         svg {
@@ -222,20 +219,18 @@ $site-nav-height-mobile: rem(42px);
         }
       }
 
-      @each $section in map-keys($brand-colors) {
-        $color: map-get($brand-colors, $section);
-
+      @each $section in 'html', 'css', 'python', 'javascript' {
         &--#{$section} {
           &.active,
           &:focus,
           &:hover {
             a {
-              color: $color;
+              color: color(brands, $section);
             }
           }
 
           &.active {
-            @include topline($color);
+            @include topline(color(brands, $section));
           }
         }
       }
@@ -251,11 +246,11 @@ $site-nav-height-mobile: rem(42px);
     transition: width 200ms ease-in;
 
     a {
-      color: $color-text;
+      color: color('mine-shaft');
 
       &:hover,
       &:focus {
-        color: $color-text-accent;
+        color: color('orient');
       }
     }
 

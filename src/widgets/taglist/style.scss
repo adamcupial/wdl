@@ -22,7 +22,7 @@
 
   &__tag {
     text-decoration: none;
-    color: $color-text;
+    color: color('mine-shaft');
     white-space: nowrap;
     display: inline-block;
     margin: rem(6px);
@@ -30,8 +30,8 @@
     line-height: 1;
 
     &:hover {
-      color: $color-text-accent;
-      border-bottom-color: $color-text-accent;
+      color: color('orient');
+      border-bottom-color: color('orient');
     }
 
     &--group-1 {

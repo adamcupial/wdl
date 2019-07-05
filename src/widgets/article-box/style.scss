@@ -9,11 +9,11 @@
   }
 
   &__item {
-    color: $color-text-accent;
+    color: color('orient');
     margin: rem(8px 0);
 
     a {
-      @include link($color-text-accent);
+      @include link;
     }
 
     &--current {
