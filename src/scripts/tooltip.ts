@@ -66,16 +66,11 @@ export default class Tooltip {
     this.context.addEventListener(
       'mouseover',
       ({ target }) => {
-        if (target instanceof HTMLElement && target.classList.contains('footnote-reference')) {
+        if (target instanceof HTMLElement && target.classList.contains('footnote-ref')) {
           const parent = document.getElementById(target.getAttribute('href').slice(1));
 
-          if (parent && parent.querySelector('td:not(.label)')) {
-            let text = '';
-            const element = parent.querySelector('td:not(.label)');
-            if (element) {
-              text = element.innerHTML;
-            }
-            const tip = new Tip(target, text);
+          if (parent) {
+            const tip = new Tip(target, parent.innerHTML);
 
             target.addEventListener(
               'mouseout',

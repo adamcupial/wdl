@@ -30,7 +30,7 @@ if (codeBlock) {
 
 const articleBody = document.querySelector('.article__body');
 
-if (document.querySelector('a.footnote-reference') && articleBody instanceof HTMLElement) {
+if (document.querySelector('a.footnote-ref') && articleBody instanceof HTMLElement) { // tslint:disable-line max-line-length
   import(/* webpackChunkName "tooltip" */ 'scripts/tooltip') // tslint:disable-line space-in-parens max-line-length
   .then((Tooltip) => {
     new Tooltip.default(articleBody);

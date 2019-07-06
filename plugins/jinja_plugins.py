@@ -127,6 +127,6 @@ def get_asset_sha(name):
 
 
 def get_article_image(article, size, extension):
-    filname = basename(article.get_relative_source_path()).replace('.rst', '')
+    filname = basename(article.get_relative_source_path()).replace('.md', '').replace('.rst', '')
     filename = '{0}-{1}.{2}'.format(filname, size, extension)
     return join('theme', 'content-images', filename)
