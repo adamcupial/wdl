@@ -14,11 +14,21 @@
   box-shadow: $shadow-default;
   transform: translateY(-100%);
 
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
   &--left {
     transform: translateX(-100%);
   }
 
   &--visible {
     display: block;
+  }
+
+  .footnote-backref {
+    display: none;
   }
 }

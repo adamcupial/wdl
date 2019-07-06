@@ -114,6 +114,15 @@ MINIFY = {
   'remove_optional_attribute_quotes': False
 }
 
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        'markdown.extensions.extra': {},
+        'markdown.extensions.meta': {},
+    },
+    'output_format': 'html5',
+}
+
 CSP_HEADERS_DICT = {
     "report-uri": [
         "https://webdesignlogpl.report-uri.com/r/d/csp/wizard",
@@ -187,11 +196,8 @@ IMAGE_SIZES = [
     [654, 327],
     [692, 346],
     [718, 359],
-    [816, 408],
-    [894, 447],
-    [942, 471],
     [1044, 522],
-    [1070, 535]
+    [1070, 535],
 ]
 
 IMAGE_TYPES = [

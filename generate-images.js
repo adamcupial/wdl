@@ -1,6 +1,7 @@
 const sharp = require('sharp');
 const path = require('path');
 const glob = require('fast-glob');
+const fs = require('fs');
 const imageminWebp = require('imagemin-webp');
 const imageminJpg = require('imagemin-mozjpeg');
 const imagemin = require('imagemin');
@@ -10,7 +11,7 @@ const extension = 'png';
 const [maxWidth, maxHeight] = [1200, 600];
 // default: 1200x600
 let sizes =  [];
-const multipliers = [1, 2, 3];
+const multipliers = [1, 2];
 const possibleSizes = [
   [272, 136],
   [346, 173],
@@ -78,15 +79,13 @@ images
           .webp()
           .toFile(`${newFile}.webp`, (err, info) => {
             if (err) {
-              throw new Error(err);
-              process.exit(1);
+              console.error(err);
             }
           })
           .jpeg()
           .toFile(`${newFile}.jpg`, (err, info) => {
             if (err) {
-              throw new Error(err);
-              process.exit(1);
+              console.error(err);
             }
           })
       });
@@ -98,7 +97,7 @@ Promise.all([
   imagemin([`${tmpobj.name}/*.webp`], output, {
     plugins: [
       imageminWebp({
-        method: 6,
+        method: 5,
       }),
     ]
   }),
@@ -109,13 +108,20 @@ Promise.all([
   }),
 ])
   .then(([webp, jpgs]) => {
-    [...webp, ...jpgs]
-      .forEach((obj) => {
-        console.info(`Optimized ${path.basename(obj.path)}`);
+    const webps = glob.sync(`*.webp`, {cwd: tmpobj.name});
+    const jpges = glob.sync(`*.jpg`, {cwd: tmpobj.name});
+
+    [...webps, ...jpges]
+      .forEach((name) => {
+        const from = path.join(tmpobj.name, name);
+        const to = path.join(output, name);
+        if (!fs.existsSync(to)) {
+          console.warn(`missing ${name}, copying`);
+          fs.copyFileSync(from, to);
+        }
       });
     tmpobj.removeCallback();
   })
   .catch((err) => {
-    throw new Error(err);
-    process.exit(1);
+    console.error(err);
   });
