@@ -1,7 +1,3 @@
-import HeaderWidget from 'widgets/header/script';
-import getConnectionType from 'scripts/connection';
-import TimeChanger from 'scripts/timechange';
-
 export default class BaseScripts {
   observer: IntersectionObserver;
 
@@ -40,7 +36,10 @@ export default class BaseScripts {
         }
       });
 
-    new TimeChanger();
+      import(/* webpackChunkName: "timeChange" */ 'scripts/timechange') // tslint:disable-line space-in-parens max-line-length
+      .then((module) => {
+        new module.default();
+      });
   }
 
   private loadModule(node: HTMLElement) : void {

@@ -5,7 +5,8 @@
 {% endblock %}
 
 {% block js %}
-<script>{{ 'page-list.js' | manifest_asset | fetch }}</script>
+<script>{{ 'runtime~page-list.js' | manifest_asset | fetch | trim | safe }}</script>
+<script src="{{ STATIC_URL }}/{{ 'page-list.js' | manifest_asset }}" async="async"></script>
 {% endblock %}
 
 {% block content %}

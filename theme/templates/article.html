@@ -5,9 +5,8 @@
 {% endblock %}
 
 {% block js %}
-{% filter trim %}
-<script>{{ 'page-article.js' | manifest_asset | fetch | trim | safe }}</script>
-{% endfilter %}
+<script>{{ 'runtime~page-article.js' | manifest_asset | fetch | trim | safe }}</script>
+<script src="{{ STATIC_URL }}/{{ 'page-article.js' | manifest_asset }}" async="async"></script>
 {% endblock %}
 
 {% block content %}
