@@ -13,7 +13,8 @@ module.exports = (settings) => ({
     },
     output: {
         path: settings.paths.output,
-        publicPath: settings.urls.public,
+      publicPath: settings.urls.public,
+      hashDigestLength: 8,
     },
     plugins: [
         settings.mode === 'development' ? new WebpackNotifierPlugin({
@@ -33,12 +34,20 @@ module.exports = (settings) => ({
         }),
     ],
     optimization: {
-        minimize: true,
-        moduleIds: 'hashed',
-        flagIncludedChunks: true,
-        providedExports: true,
-        sideEffects: true,
-        usedExports: true,
+      minimize: true,
+      runtimeChunk: "multiple",
+      splitChunks: {
+        chunks: "all",
+      },
+      mangleWasmImports: true,
+      mergeDuplicateChunks: true,
+      removeAvailableModules: true,
+      removeEmptyChunks: true,
+      moduleIds: 'hashed',
+      flagIncludedChunks: true,
+      providedExports: true,
+      sideEffects: true,
+      usedExports: true,
     },
     performance: {
         hints: 'warning',

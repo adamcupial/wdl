@@ -6,8 +6,8 @@ module.exports = (settings) => ({
         extensions: ['.ts', '.js', '.js-next', '.json'],
     },
     output: {
-        filename: path.join(settings.scripts.outputPath, `[name].[chunkhash].js`),
-        chunkFilename: path.join(settings.scripts.outputPath, 'chunks', `[name].[chunkhash].js`),
+        filename: path.join(settings.scripts.outputPath, `[name].[contenthash].js`),
+        chunkFilename: path.join(settings.scripts.outputPath, 'chunks', `[contenthash].js`),
     },
     optimization: {
         minimizer: [
