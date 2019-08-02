@@ -1,15 +1,33 @@
 import './style.scss';
-import { repeat } from 'lit-html/directives/repeat';
 import BaseScripts from 'scripts/base';
 import SearchIndex from 'scripts/search';
 
-const searchForm = document.getElementById('search-form') as HTMLFormElement;
-const queryField = searchForm.elements.q;
-const searchResults = document.querySelector('.search-results__content');
-const searchParams = new URLSearchParams(window.location.search);
 const searchIndex = new SearchIndex();
 
+function init() {
+  const searchForm = document.getElementById('search-form') as HTMLFormElement;
+  const queryField = searchForm.elements['q'] as HTMLInputElement;
+  const searchParams = new URLSearchParams(window.location.search);
+
+  queryField.focus();
+
+  if (searchParams.has('q')) {
+    const query = searchParams.get('q') || '';
+    queryField.value = query;
+    search(query);
+  }
+
+  searchForm.addEventListener('submit', (ev) => {
+    const form = ev.currentTarget as HTMLFormElement;
+    const queryField = form.elements['q'] as HTMLInputElement;
+    ev.preventDefault();
+    search(queryField.value);
+    return false;
+  });
+}
+
 function search(query: string) : void {
+  const searchResults = document.querySelector('.search-results__content');
 
   import('lit-html')
     .then(({ html, render }) => {
@@ -44,19 +62,4 @@ function search(query: string) : void {
 }
 
 new BaseScripts();
-
-queryField.focus();
-
-if (searchParams.has('q')) {
-  const query = searchParams.get('q');
-  queryField.value = query;
-  search(query);
-}
-
-searchForm.addEventListener('submit', (ev) => {
-  const form = ev.currentTarget as HTMLFormElement;
-  const queryField = form.elements.q;
-  ev.preventDefault();
-  search(queryField.value);
-  return false;
-});
+init();
