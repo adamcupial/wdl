@@ -36,16 +36,14 @@ export default class BaseScripts {
         }
       });
 
-      import(/* webpackChunkName: "timeChange" */ 'scripts/timechange') // tslint:disable-line space-in-parens max-line-length
+    import(/* webpackChunkName: "timeChange" */ 'scripts/timechange') // tslint:disable-line space-in-parens max-line-length
       .then((module) => {
         new module.default();
       });
   }
 
   private loadModule(node: HTMLElement) : void {
-    const moduleName = node.dataset.module;
-
-    import(/* webpackPrefetch: true */ `widgets/${moduleName}/script`) // tslint:disable-line space-in-parens max-line-length
+    import(/* webpackPrefetch: true */ `widgets/${node.dataset.module}/script`) // tslint:disable-line space-in-parens max-line-length
       .then((widget) => {
         new widget.default(node);
       });
