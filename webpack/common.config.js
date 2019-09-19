@@ -34,20 +34,19 @@ module.exports = (settings) => ({
             writeToDisk: true,
         }),
         new GenerateSW({
-          importWorkboxFrom: 'local',
           clientsClaim: true,
           skipWaiting: true,
           runtimeCaching: [
             {
-              urlPattern: /\/theme\/css\//,
+              urlPattern: /\/theme\/css\/.*/,
               handler: 'cacheFirst',
             },
             {
-              urlPattern: /\/theme\/js\//,
+              urlPattern: /\/theme\/js\/.*/,
               handler: 'cacheFirst',
             },
             {
-              urlPattern: /\/theme\/content-images\//,
+              urlPattern: /\/theme\/content-images\/.*/,
               handler: 'cacheFirst',
             },
             {

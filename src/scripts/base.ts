@@ -46,7 +46,7 @@ export default class BaseScripts {
   private registerSW() : void {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/theme/service-worker.js').then((registration) => {
+        navigator.serviceWorker.register('/service-worker.js').then((registration) => {
           console.log('SW registered: ', registration);
         }).catch((registrationError) => {
           console.log('SW registration failed: ', registrationError);
