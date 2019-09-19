@@ -151,12 +151,12 @@ $small-breakp: '<tablet';
           &:focus,
           &:hover {
             a {
-              color: color(brands, $section);
+              color: color($section, 'brands');
             }
           }
 
           &.active {
-            @include topline(color(brands, $section));
+            @include topline(color($section, 'brands'));
           }
         }
       }

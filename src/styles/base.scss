@@ -65,3 +65,5 @@ body {
   background-color: color('orient') !important;
   color: color('white') !important;
 }
+
+@include color-vars;

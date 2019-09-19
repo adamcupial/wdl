@@ -27,7 +27,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: darken($bg, 5%);
+      background: color('orient-darkened');
       content: attr(data-hover);
       transition: background 0.3s;
       transform: rotateX(-90deg);
@@ -42,7 +42,7 @@
       transform: rotateX(90deg) translateY(-100%);
 
       &::before {
-        background: lighten($bg, 10%);
+        background: color('orient-lightened');
       }
     }
   }

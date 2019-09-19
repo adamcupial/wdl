@@ -1,23 +1,44 @@
-@import "chroma-sass";
-
-$chroma: define-default-color-scheme('Default Scheme');
-
-$chroma: add-colors((
+$default: (
     white: #fff,
     mine-shaft: #323232,
     scorpion: #695f62,
     silver: #ccc,
     orient: #005182,
     shadow: rgba(#000, .1),
-    orient-darkened: ('orient' darken 5%),
-));
+    orient-darkened: darken(#005182, 5%),
+    orient-lightened: lighten(#005182, 10%),
+);
 
-$brands: define-color-scheme('brands', 'Brands colors');
-
-$brands: add-colors((
+$brands: (
     python: #306998,
     css: #0f94f6,
     html: #df4a16,
     javascript: #f8c500,
-));
+);
 
+$color-maps: (
+  'default': $default,
+  'brands': $brands,
+);
+
+@function varName($colorName, $map: 'default') {
+  @if $map == default {
+    @return --color-#{$colorName};
+  } @else {
+    @return --color-#{$map}-#{$colorName};
+  }
+}
+
+@function color($colorName,$map: 'default') {
+  @return var(varName($colorName, $map));
+}
+
+@mixin color-vars {
+  :root {
+    @each $mapName, $map in $color-maps {
+      @each $colorName, $color in $map {
+        #{varName($colorName, $mapName)}: $color;
+      }
+    }
+  }
+}
