@@ -254,3 +254,6 @@ tags
 /theme/static/js
 /theme/static/manifest.json
 /_headers
+/theme/static/precache-manifest.*
+/theme/static/service-worker.js
+/theme/static/workbox-*
