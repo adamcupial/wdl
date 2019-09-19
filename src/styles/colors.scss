@@ -1,19 +1,19 @@
 $default: (
-    white: #fff,
-    mine-shaft: #323232,
-    scorpion: #695f62,
-    silver: #ccc,
-    orient: #005182,
-    shadow: rgba(#000, .1),
-    orient-darkened: darken(#005182, 5%),
-    orient-lightened: lighten(#005182, 10%),
+  'white': #fff,
+  'mine-shaft': #323232,
+  'scorpion': #695f62,
+  'silver': #ccc,
+  'orient': #005182,
+  'shadow': rgba(#000, .1),
+  'orient-darkened': darken(#005182, 5%),
+  'orient-lightened': lighten(#005182, 10%),
 );
 
 $brands: (
-    python: #306998,
-    css: #0f94f6,
-    html: #df4a16,
-    javascript: #f8c500,
+  'python': #306998,
+  'css': #0f94f6,
+  'html': #df4a16,
+  'javascript': #f8c500,
 );
 
 $color-maps: (
