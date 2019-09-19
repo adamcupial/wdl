@@ -71,7 +71,8 @@
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.2.2",
     "webpack-notifier": "^1.7.0",
-    "webpack-remove-empty-js-chunks-plugin": "^0.2.3"
+    "webpack-remove-empty-js-chunks-plugin": "^0.2.3",
+    "workbox-webpack-plugin": "^4.3.1"
   },
   "engines": {
     "node": ">=6.11.5"
