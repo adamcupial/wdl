@@ -147,6 +147,8 @@ CSP_HEADERS_DICT = {
         "https://www.googletagmanager.com",
         "https://www.google-analytics.com",
         "https://storage.googleapis.com",
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com",
     ],
     "prefetch-src": [
         "self",
