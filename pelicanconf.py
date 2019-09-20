@@ -138,6 +138,7 @@ CSP_HEADERS_DICT = {
         "https://unpkg.com",
         "https://www.googletagmanager.com",
         "https://www.google-analytics.com",
+        "https://storage.googleapis.com",
     ],
     "connect-src": [
         "self",
