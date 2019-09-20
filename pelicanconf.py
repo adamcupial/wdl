@@ -143,6 +143,10 @@ CSP_HEADERS_DICT = {
     "connect-src": [
         "self",
         "https://*.consensu.org",
+        "https://unpkg.com",
+        "https://www.googletagmanager.com",
+        "https://www.google-analytics.com",
+        "https://storage.googleapis.com",
     ],
     "prefetch-src": [
         "self",
