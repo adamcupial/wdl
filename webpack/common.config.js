@@ -36,6 +36,7 @@ module.exports = (settings) => ({
         new GenerateSW({
           clientsClaim: true,
           skipWaiting: true,
+          offlineGoogleAnalytics: true,
           runtimeCaching: [
             {
               urlPattern: /\/theme\/css\/.*/,

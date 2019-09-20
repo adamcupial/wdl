@@ -79,7 +79,6 @@ publish: build-static
 
 build-static:
 	npm run build
-	cp ${BASEDIR}/theme/static/service-worker.js ${OUTPUTDIR}/service-worker.js
 
 github: publish
 	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
