@@ -3,6 +3,7 @@ export default class BaseScripts {
 
   constructor() {
     const nativeLazyLoading = ('loading' in HTMLImageElement.prototype);
+    this.registerSW();
 
     this.observer = new IntersectionObserver(
       (entries, observer) => {
@@ -40,6 +41,20 @@ export default class BaseScripts {
       .then((module) => {
         new module.default();
       });
+  }
+
+  private registerSW() : void {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/theme/service-worker.js', {
+          scope: '/',
+        }).then((registration) => {
+          console.log('SW registered: ', registration);
+        }).catch((registrationError) => {
+          console.log('SW registration failed: ', registrationError);
+        });
+      });
+    }
   }
 
   private loadModule(node: HTMLElement) : void {
