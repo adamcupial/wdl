@@ -133,6 +133,7 @@ CSP_HEADERS_DICT = {
     ],
     "script-src": [
         "self",
+        "https://webdesign-log.pl",
         "unsafe-inline",
         "https://*.consensu.org",
         "https://unpkg.com",
@@ -142,6 +143,7 @@ CSP_HEADERS_DICT = {
     ],
     "connect-src": [
         "self",
+        "https://webdesign-log.pl",
         "https://*.consensu.org",
         "https://unpkg.com",
         "https://www.googletagmanager.com",
