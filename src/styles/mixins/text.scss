@@ -90,4 +90,19 @@
   a {
     @include link;
   }
+
+  .footnote-ref {
+    vertical-align: super;
+    font-size: type-scale(-1);
+    border-bottom: 0;
+    line-height: 1;
+
+    &::before {
+      content: '[';
+    }
+
+    &::after {
+      content: ']';
+    }
+  }
 }
