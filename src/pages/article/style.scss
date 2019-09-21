@@ -3,8 +3,7 @@
 @import 'styles/base.scss';
 @import 'styles/layout.scss';
 @import 'styles/variables.scss';
-@import 'styles/mixins/link.scss';
-@import 'styles/mixins/vertical-rhytm.scss';
+@import 'styles/mixins/text.scss';
 
 .article {
   padding: rem(10px);
@@ -15,103 +14,25 @@
 
   // modular scale
   &__title {
-    @include type-setting(2);
-    margin: 0 0 vr(0) 0;
+    font-size: rem(28px);
+    line-height: 1.4;
+    margin: 0 0 rem(24px) 0;
     color: color('orient');
   }
 
   &__body {
-    p {
-      @include type-setting(0);
-      margin: 0;
-
-    }
-
-    dl {
-      margin: vr(-1) 0 vr(0) 0;
-    }
-
-    dt {
-      font-weight: 700;
-    }
-
-    dd {
-      font-style: italic;
-      padding-left: vr(-1);
-      margin-bottom: vr(-1);
-    }
-
-    ul {
-      margin: 0;
-      padding: 0 0 0 vr(0);
-    }
-
-    li {
-      @include type-setting(0);
-      margin: 0;
-      padding: 0;
-
-      & + li {
-        margin-top: vr(-2);
-      }
-    }
-
-
-    * + p,
-    * + .highlight {
-      margin-top: vr(0);
-    }
-
-    * + ul {
-      margin-top: vr(-1);
-    }
-
-    h2 {
-      @include type-setting(1);
-      margin: 0;
-      margin-top: vr(0);
-    }
-
-    h2 + p {
-      margin-top: vr(-1);
-    }
-
-    .section {
-      margin: 0;
-    }
-
-    * + .section {
-      margin-top: vr(0);
-    }
-
-    a {
-      @include link;
-    }
-
-    .footnote-ref {
-      vertical-align: super;
-      font-size: type-scale(-1);
-      border-bottom: 0;
-      line-height: 1;
-
-      &::before {
-        content: '[';
-      }
-
-      &::after {
-        content: ']';
-      }
-    }
+    @include text-body;
   }
 
   picture {
     display: block;
-    margin: 0 auto vr(1) auto;
+    margin: 0 auto rem(48px) auto;
     box-shadow: 0 5px 10px color('shadow');
     border: 1px solid color('silver');
 
     img {
       width: 100%;
+      height: auto;
     }
   }
 

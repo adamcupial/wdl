@@ -6,6 +6,9 @@
   font-family: monospace;
   padding: rem(24px);
   overflow-x: auto;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 80ch;
 
   pre {
     margin: 0;
