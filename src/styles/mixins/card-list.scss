@@ -2,7 +2,6 @@
 @import 'styles/mixins/pill.scss';
 @import '~sass-rem/_rem.scss';
 @import '~include-media/dist/_include-media.scss';
-@import 'styles/mixins/vertical-rhytm.scss';
 
 .card-list {
   padding-top: rem(10px);
@@ -14,13 +13,13 @@
       overflow-x: scroll;
       scroll-snap-type: x mandatory;
       scroll-padding: rem(10px);
-      padding-bottom: vr(-1);
+      padding-bottom: rem(12px);
     }
 
     @include media('>=tablet') {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: vr(0);
+      grid-gap: rem(24px);
       grid-template-rows: auto;
     }
   }
@@ -35,7 +34,7 @@
     min-height: rem(375px);
     flex: 0 0 auto;
     scroll-snap-align: start;
-    margin: 0 0 0 vr(-1);
+    margin: 0 0 0 rem(12px);
     width: 85vw;
     max-width: rem(300px);
 
@@ -45,16 +44,16 @@
     }
 
     & ~ .article-card {
-      margin-left: vr(-1);
+      margin-left: rem(12px);
     }
   }
 
   &__header {
-    margin-top: vr(0);
+    margin-top: rem(24px);
   }
   &__header,
   &__excerpt {
-    padding: 0 vr(0);
+    padding: 0 rem(24px);
   }
 
   picture {

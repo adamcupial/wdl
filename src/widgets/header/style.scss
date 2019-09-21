@@ -1,7 +1,6 @@
 @import '~sass-rem/_rem.scss';
 @import '~include-media/dist/_include-media.scss';
 @import 'styles/variables.scss';
-@import 'styles/mixins/vertical-rhytm.scss';
 
 $site-header-height-desktop: rem(100px);
 $site-header-height-mobile: rem(50px);
@@ -39,10 +38,10 @@ $small-breakp: '<tablet';
 
   &__logo-area,
   &__search-area {
-    padding: 0 vr(-1);
+    padding: 0 rem(10px);
 
     @include media($big-breakp) {
-      padding: 0 vr(0);
+      padding: 0 rem(24px);
     }
   }
 
@@ -66,7 +65,7 @@ $small-breakp: '<tablet';
 
     @include media($small-breakp) {
       order: 2;
-      padding: 0 vr(-1) 0 0;
+      padding: 0 rem(12px) 0 0;
       flex: 0 0 auto;
     }
   }
@@ -128,7 +127,7 @@ $small-breakp: '<tablet';
 
       a {
         text-align: left;
-        padding: vr(-1);
+        padding: rem(12px);
       }
     }
 
