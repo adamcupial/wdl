@@ -2,6 +2,9 @@ name: Lighthouse
 on:
   schedule:
   - cron: "0 2 * * 1-5"
+  push:
+    branches:
+    - master
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
