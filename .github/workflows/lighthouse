@@ -1,0 +1,17 @@
+name: Lighthouse
+on:
+  schedule:
+  - cron: "0 2 * * 1-5"
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v2
+        with:
+          urls: |
+            https://webdesign-log.pl/
+            https://webdesign-log.pl/css/styling/
+            https://webdesign-log.pl/search/?q=javascript
+          temporaryPublicStorage: true
