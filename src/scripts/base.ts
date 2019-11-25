@@ -16,15 +16,15 @@ export default class BaseScripts {
     );
 
     Array.from(document.querySelectorAll('[data-module]'))
-    .forEach((el) => {
-      if (el instanceof HTMLElement) {
-        if (el.dataset.lazy) {
-          this.observer.observe(el);
-        } else {
-          this.loadModule(el);
+      .forEach((el) => {
+        if (el instanceof HTMLElement) {
+          if (el.dataset.lazy) {
+            this.observer.observe(el);
+          } else {
+            this.loadModule(el);
+          }
         }
-      }
-    });
+      });
 
     Array.from(document.querySelectorAll('[loading="lazy"]'))
       .forEach((el) => {
@@ -80,14 +80,12 @@ export default class BaseScripts {
     entries
       .filter(entry => entry.isIntersecting)
       .forEach(({ target }) => {
-        if (target instanceof HTMLElement) {
-          if (target.dataset.module) {
-            this.loadModule(target);
-          } else if (target instanceof HTMLImageElement) {
-            this.loadImage(target);
-          } else {
-            throw new Error('UnexpectedType: not a module nor image');
-          }
+        if (target instanceof HTMLImageElement) {
+          this.loadImage(target);
+        } else if (target instanceof HTMLElement) {
+          this.loadModule(target);
+        } else {
+          throw new Error('UnexpectedType: not a module nor image');
         }
 
         observer.unobserve(target);
