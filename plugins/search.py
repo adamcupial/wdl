@@ -6,13 +6,21 @@ from __future__ import unicode_literals
 # Python Standard Library
 import json
 import os
+import re
 from hashlib import sha1
 
 # Own
 from bs4 import BeautifulSoup
-from lunr import lunr
+from lunr.builder import Builder
+from lunr.pipeline import Pipeline
+from lunr.stemmer import stemmer
+from lunr.trimmer import trimmer
+from lunr.stop_word_filter import stop_word_filter
 from pelican import signals
 
+def special_chars_remover(token, i=None, tokens=None):
+    if re.match(r'^[a-zA-Z]*$', token.string):
+        return token
 
 class SearchIndexGenerator(object):
 
@@ -36,8 +44,7 @@ class SearchIndexGenerator(object):
 
         soup_title = BeautifulSoup(
             page.title.replace('&nbsp;', ' '),
-            'html.parser'
-        )
+            'html.parser')
         page_title = soup_title\
             .get_text(' ', strip=True)\
             .replace('Ò', '"')\
@@ -87,17 +94,18 @@ class SearchIndexGenerator(object):
             } for x in pages
         }
 
-        idx = lunr(
-            ref='id',
-            fields=[
-                {
-                    'field_name': 'title',
-                    'boost': 10,
-                },
-                'text'
-            ],
-            documents=pages_to_index
-        ).serialize()
+        Pipeline.register_function(special_chars_remover, 'specialCharsRemover')
+
+        bldr = Builder()
+        bldr.pipeline.add(trimmer, stop_word_filter, stemmer, special_chars_remover)
+        bldr.search_pipeline.add(stemmer)
+        bldr.ref('id')
+        bldr.field('title', 10)
+        bldr.field('text')
+
+        for page in pages_to_index:
+            bldr.add(page)
+        idx = bldr.build().serialize()
 
         with open(path, 'w') as idxfile:
             json.dump({
