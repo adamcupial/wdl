@@ -45,6 +45,9 @@ function search(query: string) : void {
               <div class="search-results__item-excerpt">
                 <p> ${result.data.summary} </p>
               </div>
+              <div class="search-results__item-terms">
+                <strong>matches found:</strong> <em>${Object.keys(result.matchData.metadata).slice(0, 20).join(', ')}</em>
+              </div>
             </div>
           `);
         } else {

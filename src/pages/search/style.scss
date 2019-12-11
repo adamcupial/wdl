@@ -45,11 +45,16 @@
   }
 
   &__item-excerpt {
-    margin-bottom: rem(16px);
+    margin-bottom: rem(8px);
 
     p {
       margin: 0;
     }
+  }
+
+  &__item-terms {
+    margin-bottom: rem(16px);
+    font-size: rem(14px);
   }
 
   &__item-title {
