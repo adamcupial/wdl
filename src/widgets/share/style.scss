@@ -1,0 +1,31 @@
+@import '~sass-rem/_rem.scss';
+@import 'styles/variables.scss';
+
+.widget-share {
+  text-align: center;
+  border-top: 1px solid color('silver');
+  margin-top: rem(12px);
+
+  &__button {
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: rem(6px);
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    img {
+      transform: scale(1);
+      transition: transform 50ms ease-out;
+    }
+
+    &:hover,
+    &:focus {
+      img {
+        transform: scale(1.25);
+      }
+    }
+  }
+}

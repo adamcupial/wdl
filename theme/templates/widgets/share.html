@@ -1,0 +1,85 @@
+<section class="widget-share" data-module="share" data-lazy="true">
+    {% set share_url = "".join([SITEURL, '/', article.url]) %}
+    {% set share_text = "Found something that may be of interest to you" %}
+
+    <p class="widget-share__intro">If you liked this article, share it:</p>
+
+    <a class="widget-share__button widget-share__button--facebook" href="https://facebook.com/sharer/sharer.php?u={{ share_url }}" target="_blank" rel="noopener" aria-label="Share on Facebook" title="Share on Facebook">
+        <img
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="{{ SITEURL }}{{ STATIC_URL }}/images/facebook.svg"
+            alt=""
+            width="32"
+            height="32"
+            loading="lazy"
+            />
+    </a>
+
+    <a class="widget-share__button widget-share__button--twitter" href="https://twitter.com/intent/tweet/?text={{ share_text }}&url={{ share_url }}" target="_blank" rel="noopener" aria-label="Share on Twitter" title="Share on Twitter">
+        <img
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="{{ SITEURL }}{{ STATIC_URL }}/images/twitter.svg"
+            alt=""
+            width="32"
+            height="32"
+            loading="lazy"
+            />
+    </a>
+
+    <a class="widget-share__button widget-share__button--tumblr" href="https://www.tumblr.com/widgets/share/tool?posttype=link&title={{ share_text }}&caption={{ article.title }}&content={{ share_url }}&canonicalUrl={{ share_url }}&shareSource=tumblr_share_button" target="_blank" rel="noopener" aria-label="Share on Tumblr" title="Share on Tumblr">
+        <img
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="{{ SITEURL }}{{ STATIC_URL }}/images/tumblr.svg"
+            alt=""
+            width="32"
+            height="32"
+            loading="lazy"
+            />
+    </a>
+
+
+    <a class="widget-share__button widget-share__button--mail" href="mailto:?subject={{ share_text }}&body={{ share_url }}" target="_self" rel="noopener" aria-label="Share by E-Mail" title="Share by E-Mail">
+        <img
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="{{ SITEURL }}{{ STATIC_URL }}/images/envelope.svg"
+            alt=""
+            width="32"
+            height="32"
+            loading="lazy"
+            />
+    </a>
+
+
+    <a class="widget-share__button widget-share__button--linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{ share_url }}&title={{ share_text }}&summary={{ share_text }}&source={{ SITEURL }}" target="_blank" rel="noopener" aria-label="Share on LinkedIn" title="Share on LinkedIn">
+
+        <img
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="{{ SITEURL }}{{ STATIC_URL }}/images/linkedin.svg"
+            alt=""
+            width="32"
+            height="32"
+            loading="lazy"
+            />
+    </a>
+
+    <a class="widget-share__button widget-share__button--reddit" href="https://reddit.com/submit/?url={{ share_url }}&resubmit=true&title={{ share_text }}" target="_blank" rel="noopener" aria-label="Share on Reddit" title="Share on Reddit">
+        <img
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="{{ SITEURL }}{{ STATIC_URL }}/images/reddit.svg"
+            alt=""
+            width="32"
+            height="32"
+            loading="lazy"
+            />
+    </a>
+    <a class="widget-share__button widget-share__button--mix" href="https://mix.com/add?url={{ share_url }}" target="_blank" rel="noopener" aria-label="Share on mix" title="Share on mix">
+ <img
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="{{ SITEURL }}{{ STATIC_URL }}/images/mix.svg"
+            alt=""
+            width="32"
+            height="32"
+            loading="lazy"
+            />
+    </a>
+</section>
