@@ -143,6 +143,7 @@ CSP_HEADERS_DICT = {
     ],
     "connect-src": [
         "self",
+        "data:",
         "https://webdesign-log.pl",
         "https://*.consensu.org",
         "https://unpkg.com",
