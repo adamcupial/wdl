@@ -153,9 +153,6 @@ CSP_HEADERS_DICT = {
         "https://fonts.googleapis.com",
         "https://fonts.gstatic.com",
     ],
-    "prefetch-src": [
-        "self",
-    ],
     "img-src": [
         "self",
         "https://webdesign-log.pl",
