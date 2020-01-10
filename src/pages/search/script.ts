@@ -1,4 +1,5 @@
 import './style.scss';
+import 'scripts/base';
 import SearchIndex from 'scripts/search';
 
 const searchIndex = new SearchIndex();

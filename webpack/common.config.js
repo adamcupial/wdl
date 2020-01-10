@@ -40,15 +40,15 @@ module.exports = (settings) => ({
           runtimeCaching: [
             {
               urlPattern: /\/theme\/css\/.*/,
-              handler: 'cacheFirst',
+              handler: 'StaleWhileRevalidate',
             },
             {
               urlPattern: /\/theme\/js\/.*/,
-              handler: 'cacheFirst',
+              handler: 'StaleWhileRevalidate',
             },
             {
               urlPattern: /\/theme\/content-images\/.*/,
-              handler: 'cacheFirst',
+              handler: 'CacheFirst',
             },
             {
               urlPattern: /^((?!(\/theme)).)*/,
@@ -59,7 +59,6 @@ module.exports = (settings) => ({
     ],
     optimization: {
       minimize: true,
-      runtimeChunk: "multiple",
       splitChunks: {
         chunks: "all",
       },
@@ -78,34 +77,5 @@ module.exports = (settings) => ({
     },
     stats: {
         all: true,
-        assets: true,
-        builtAt: true,
-        cached: true,
-        cachedAssets: true,
-        children: false,
-        chunks: false,
-        chunkGroups: false,
-        chunkModules: false,
-        chunkOrigins: true,
-        chunksSort: 'field',
-        depth: true,
-        entrypoints: false,
-        env: true,
-        errors: true,
-        errorDetails: true,
-        hash: true,
-        maxModules: 100,
-        modules: false,
-        modulesSort: 'field',
-        moduleTrace: true,
-        performance: true,
-        providedExports: false,
-        publicPath: true,
-        reasons: false,
-        source: false,
-        timings: true,
-        usedExports: true,
-        version: true,
-        warnings: true,
     },
 });

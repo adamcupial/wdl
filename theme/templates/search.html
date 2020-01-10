@@ -5,8 +5,7 @@
 {% endblock %}
 
 {% block js %}
-<script>{{ 'runtime~page-search.js' | manifest_asset | fetch | trim | safe }}</script>
-<script src="{{ STATIC_URL }}/{{ 'page-search.js' | manifest_asset }}" async="async"></script>
+<script>{{ 'page-search.js' | manifest_asset | fetch | trim | safe }}</script>
 {% endblock %}
 
 {% block content %}

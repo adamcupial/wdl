@@ -1,4 +1,5 @@
 import './style.scss';
+import 'scripts/base';
 import getConnectionType from 'scripts/connection';
 
 const codeBlock = document.querySelector('.article .highlight');

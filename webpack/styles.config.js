@@ -34,7 +34,12 @@ module.exports = (settings) => {
           test: settings.styles.extensionPattern,
           sideEffects: true,
           use: [
-            MiniCssExtractPlugin.loader,
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                esModule: true,
+              },
+            },
             {
               loader: 'css-loader',
               options: {
