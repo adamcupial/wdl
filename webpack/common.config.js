@@ -39,14 +39,6 @@ module.exports = (settings) => ({
           offlineGoogleAnalytics: true,
           runtimeCaching: [
             {
-              urlPattern: /\/theme\/css\/.*/,
-              handler: 'StaleWhileRevalidate',
-            },
-            {
-              urlPattern: /\/theme\/js\/.*/,
-              handler: 'StaleWhileRevalidate',
-            },
-            {
               urlPattern: /\/theme\/content-images\/.*/,
               handler: 'CacheFirst',
             },
