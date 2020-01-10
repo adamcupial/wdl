@@ -12,6 +12,7 @@ const merge = require('webpack-merge');
 
 const basePath = path.resolve(__dirname);
 const pagePath = path.join(basePath, 'src', 'pages');
+const baseScript = path.join(basePath, 'src', 'scripts', 'base.ts')
 
 const entries = {};
 (glob.sync('**/script.ts', { cwd: pagePath }) || [])
@@ -20,7 +21,7 @@ const entries = {};
         const dirName = `page-${path.dirname(file).split(path.sep).join('-')}`;
 
         if (!entries[dirName]) {
-            entries[dirName] = path.join(pagePath, file);
+            entries[dirName] = [baseScript, path.join(pagePath, file)];
         }
     });
 

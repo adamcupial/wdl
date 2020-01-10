@@ -12,6 +12,7 @@
     "dev": "webpack --config webpack.config.js --env.development --watch --color",
     "lint": "tslint src/**/*.ts",
     "analyze": "webpack --config webpack.config.js --env.production --env.analyze --color",
+    "generate-stats": "webpack --config webpack.config.js --env.production --profile --json > stats.json",
     "generate-images": "node generate-images.js"
   },
   "author": "Adam Cupiał <adam.cupial@dazn.com>",

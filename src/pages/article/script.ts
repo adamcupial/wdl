@@ -1,8 +1,6 @@
 import './style.scss';
-import BaseScripts from 'scripts/base';
 import getConnectionType from 'scripts/connection';
 
-new BaseScripts();
 const codeBlock = document.querySelector('.article .highlight');
 
 if (codeBlock) {
