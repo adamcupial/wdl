@@ -1,6 +1,6 @@
 import './style.scss';
-import 'scripts/base';
-import getConnectionType from 'scripts/connection';
+import 'scripts/main';
+import getConnectionType from 'scripts/utils/connection';
 
 const codeBlock = document.querySelector('.article .highlight');
 
@@ -12,7 +12,7 @@ if (codeBlock) {
       import(/* webpackChunkName: "pygments-css" */ 'styles/pygment.scss'); // tslint:disable-line space-in-parens max-line-length
 
       if (getConnectionType() === '4g') {
-        import('scripts/font-load')
+        import('scripts/utils/font-loader')
           .then((loader) => {
             new loader.default('Fira Mono:400');
           });
@@ -30,7 +30,7 @@ if (codeBlock) {
 const articleBody = document.querySelector('.article__body');
 
 if (document.querySelector('a.footnote-ref') && articleBody instanceof HTMLElement) { // tslint:disable-line max-line-length
-  import(/* webpackChunkName "tooltip" */ 'scripts/tooltip') // tslint:disable-line space-in-parens max-line-length
+  import(/* webpackChunkName "tooltip" */ 'scripts/components/tooltip') // tslint:disable-line space-in-parens max-line-length
   .then((Tooltip) => {
     new Tooltip.default(articleBody);
   });

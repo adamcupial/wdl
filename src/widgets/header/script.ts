@@ -1,5 +1,5 @@
 import './style.scss';
-import BaseWidget from 'scripts/base-widget';
+import BaseWidget from 'scripts/components/widget';
 
 
 export default class HeaderWidget extends BaseWidget {

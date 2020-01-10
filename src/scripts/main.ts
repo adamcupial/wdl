@@ -1,4 +1,4 @@
-import TimeChanger from 'scripts/timechange';
+import TimeChanger from 'scripts/components/timechange';
 
 const nativeLazyLoading = ('loading' in HTMLImageElement.prototype);
 const observer = new IntersectionObserver(

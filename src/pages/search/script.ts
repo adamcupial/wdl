@@ -1,6 +1,6 @@
 import './style.scss';
-import 'scripts/base';
-import SearchIndex from 'scripts/search';
+import 'scripts/main';
+import SearchIndex from 'scripts/components/search';
 
 const searchIndex = new SearchIndex();
 
