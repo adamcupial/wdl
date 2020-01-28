@@ -3,8 +3,6 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 const webpack = require('webpack');
 const noop = require('noop-webpack-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
-const {GenerateSW} = require('workbox-webpack-plugin');
-
 
 module.exports = (settings) => ({
     mode: settings.mode,
@@ -32,21 +30,6 @@ module.exports = (settings) => ({
             integrity: true,
             integrityHashes: ['sha256'],
             writeToDisk: true,
-        }),
-        new GenerateSW({
-          clientsClaim: true,
-          skipWaiting: true,
-          offlineGoogleAnalytics: true,
-          runtimeCaching: [
-            {
-              urlPattern: /\/theme\/content-images\/.*/,
-              handler: 'CacheFirst',
-            },
-            {
-              urlPattern: /^((?!(\/theme)).)*/,
-              handler: 'StaleWhileRevalidate',
-            },
-          ],
         }),
     ],
     optimization: {
