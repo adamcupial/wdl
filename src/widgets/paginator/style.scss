@@ -2,90 +2,69 @@
 @import 'styles/variables.scss';
 
 .paginator {
-  $el-height: rem(48px);
+  $icon-size: 16px;
+  $gap-size: 10px;
 
   display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
+  clear: both;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 20px;
 
   &__previous,
   &__next {
-    display: inline-block;
     position: relative;
+    display: inline-block;
+    padding: $gap-size / 2 $gap-size;
+    color: color('white');
+    background-color: color('orient');
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    box-shadow: $shadow-default;
 
-    span,
-    a {
-      box-sizing: border-box;
-      padding: rem(5px);
-      height: $el-height;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-shadow: $shadow-default;
-      width: rem(100px);
-      background-color: color('orient');
-      color: color('white');
-
-      &::before {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 0;
-        top: 0;
-        border: ($el-height / 2) solid color('white');
-      }
+    &:hover {
+      background-color: color('orient-darkened');
     }
 
-    a {
+    &--disabled {
+      background-color: color('silver');
+      color: color('silver-darkened');
+
       &:hover {
-        background-color: color('orient-darkened');
+        background-color: color('silver');
+        color: color('silver-darkened');
       }
     }
 
-    span {
-      opacity: .2;
+    svg {
+      color: inherit;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: $icon-size;
+      height: $icon-size;
     }
   }
 
   &__previous {
-    padding-left: $el-height / 2;
+    align-self: flex-start;
+    padding-left: $icon-size + 2 * $gap-size;
 
-    a,
-    span {
-      &::before {
-        left: -1 * ($el-height / 2);
-        border-right-color: color('orient');
-      }
-    }
-
-    a {
-      &:hover {
-        &::before {
-          border-right-color: color('orient-darkened');
-        }
-      }
+    svg {
+      left: $gap-size;
     }
   }
 
   &__next {
-    padding-right: $el-height / 2;
+    align-self: flex-end;
+    padding-right: $icon-size + 2 * $gap-size;
 
-    a,
-    span {
-      &::before {
-        right: -1 * ($el-height / 2);
-        border-left-color: color('orient');
-      }
-    }
-
-    a {
-      &:hover {
-        &::before {
-          border-left-color: color('orient-darkened');
-        }
-      }
+    svg {
+      right: $gap-size;
     }
   }
 }

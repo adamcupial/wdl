@@ -1,23 +1,19 @@
 {% if articles_page.has_previous() or articles_page.has_next() %}
-<ul class="paginator" data-module="paginator" data-lazy="true">
+<div class="paginator" data-module="paginator" data-lazy="true">
     {% if articles_page.has_previous() %}
         {% if articles_page.previous_page_number() == 1 %}
-            <li class="paginator__previous">
-                <a rel="prev" href="{{ SITEURL }}/">Newer</a>
-            </li>
+            <a class="paginator__previous" rel="prev" href="{{ SITEURL }}/">{{ 'images/arrow-left.svg' | fetch | safe }}Newer</a>
         {% else %}
-            <li class="paginator__previous"><a rel="prev" href="{{ SITEURL }}/{{ articles_page.previous_page_number() }}/">Newer</a></li>
+            <a class="paginator__previous" rel="prev" href="{{ SITEURL }}/{{ articles_page.previous_page_number() }}/">{{ 'images/arrow-left.svg' | fetch | safe }}Newer</a>
         {% endif %}
     {% else %}
-    <li class="paginator__previous paginator__previous--disabled"><span>Newer</span></li>
+        <span class="paginator__previous paginator__previous--disabled">{{ 'images/arrow-left.svg' | fetch | safe }}Newer</span>
     {% endif %}
 
     {% if articles_page.has_next() %}
-    <li class="paginator__next">
-        <a rel="next" href="{{ SITEURL }}/{{ articles_page.next_page_number() }}/">Older</a>
-    </li>
+        <a class="paginator__next" rel="next" href="{{ SITEURL }}/{{ articles_page.next_page_number() }}/">{{ 'images/arrow-right.svg' | fetch | safe }}Older</a>
     {% else %}
-        <li class="paginator__next paginator__next--disabled"><span>Older</span></li>
+        <span class="paginator__next paginator__next--disabled">{{ 'images/arrow-right.svg' | fetch | safe }}Older</span>
     {% endif %}
-</ul>
+</div>
 {% endif %}

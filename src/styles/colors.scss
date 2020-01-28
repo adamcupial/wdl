@@ -6,6 +6,7 @@ $default: (
   'orient': #005182,
   'shadow': rgba(#000, .1),
   'orient-darkened': darken(#005182, 5%),
+  'silver-darkened': darken(#ccc, 20%),
   'orient-lightened': lighten(#005182, 10%),
 );
 

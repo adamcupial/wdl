@@ -1,15 +1,15 @@
 {% if article.series and article.series.all|length > 1 %}
-<ul class="paginator" data-module="paginator" data-lazy="true">
+<div class="paginator" data-module="paginator" data-lazy="true">
   {% if article.series.previous %}
-    <li class="paginator__previous"><a href="{{ SITEURL }}/{{ article.series.previous.url }}/">Previous</a></li>
+    <a class="paginator__previous" href="{{ SITEURL }}/{{ article.series.previous.url }}/">{{ 'images/arrow-left.svg' | fetch | safe }}Previous</a>
   {% else %}
-  <li class="paginator__previous paginator__previous--disabled"><span>Previous</span></li>
+  <span class="paginator__previous paginator__previous--disabled">{{ 'images/arrow-left.svg' | fetch | safe }}Previous</span>
   {% endif %}
 
   {% if article.series.next %}
-  <li class="paginator__next"><a href="{{ SITEURL }}/{{ article.series.next.url }}/">Next</a></li>
+  <a class="paginator__next" href="{{ SITEURL }}/{{ article.series.next.url }}/">{{ 'images/arrow-right.svg' | fetch | safe }}Next</a>
   {% else %}
-  <li class="paginator__next paginator__next--disabled"><span>Next</span></li>
+  <span class="paginator__next paginator__next--disabled">{{ 'images/arrow-right.svg' | fetch | safe }}Next</span>
   {% endif %}
-</ul>
+</div>
 {% endif %}
