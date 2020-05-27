@@ -137,8 +137,7 @@ CSP_HEADERS_DICT = {
         "self",
         "https://webdesign-log.pl",
         "unsafe-inline",
-        "https://*.consensu.org",
-        "https://unpkg.com",
+        "https://wpcc.io",
         "https://www.googletagmanager.com",
         "https://www.google-analytics.com",
         "https://storage.googleapis.com",
@@ -147,8 +146,6 @@ CSP_HEADERS_DICT = {
         "self",
         "data:",
         "https://webdesign-log.pl",
-        "https://*.consensu.org",
-        "https://unpkg.com",
         "https://www.googletagmanager.com",
         "https://www.google-analytics.com",
         "https://storage.googleapis.com",
@@ -184,7 +181,6 @@ CSP_HEADERS_DICT = {
     ],
     "frame-src": [
         "self",
-        "https://*.consensu.org",
     ],
 }
 
