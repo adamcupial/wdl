@@ -1,12 +1,14 @@
 <script>
     (function () {
-        const script = document.createElement('script');
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-10090520-2';
-        script.async = true;
-        document.head.insertBefore( script, document.head.childNodes[ document.head.childNodes.length - 1 ].nextSibling );
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-10090520-2');
+        if (!navigator.doNotTrack && !window.doNotTrack) {
+            const script = document.createElement('script');
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-10090520-2';
+            script.async = true;
+            document.head.insertBefore( script, document.head.childNodes[ document.head.childNodes.length - 1 ].nextSibling );
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-10090520-2');
+        }
     }());
 </script>
