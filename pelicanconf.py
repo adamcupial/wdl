@@ -104,7 +104,9 @@ AUTHOR_SAVE_AS = ''
 TAGS_SAVE_AS = ''
 ARCHIVES_SAVE_AS = ''
 HEADERS_SAVE_AS = '_headers'
-
+PRIVACY_POLICY_URL = 'https://www.websitepolicies.com/policies/view/TNf3ZbcR'
+COOKIE_POLICY_URL = 'https://www.websitepolicies.com/policies/view/9z3EcX5l'
+TERMS_AND_CONDITIONS_URL = 'https://www.websitepolicies.com/policies/view/VCfpUmy4'
 
 DIRECT_TEMPLATES = ['index', 'search', 'headers', 'not_found']
 SEARCH_SAVE_AS = 'search/index.html'

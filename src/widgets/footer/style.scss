@@ -26,4 +26,15 @@
       }
     }
   }
+
+  &__menu {
+    clear: both;
+
+    a {
+      color: color('white');
+      text-decoration: underline;
+      display: inline-block;
+      margin: rem(0 5px);
+    }
+  }
 }
