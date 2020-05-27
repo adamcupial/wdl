@@ -183,9 +183,9 @@ CSP_HEADERS_DICT = {
     "frame-src": [
         "self",
     ],
-    "require-trusted-types-for": [
-        "script",
-    ],
+    # "require-trusted-types-for": [
+    #     "script",
+    # ],
 }
 
 CSP_HEADERS = []
