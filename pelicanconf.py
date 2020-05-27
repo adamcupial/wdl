@@ -145,6 +145,7 @@ CSP_HEADERS_DICT = {
     "connect-src": [
         "self",
         "data:",
+        "https://wpcc.io",
         "https://webdesign-log.pl",
         "https://www.googletagmanager.com",
         "https://www.google-analytics.com",
