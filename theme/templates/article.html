@@ -11,7 +11,7 @@
 {% block content %}
     <article class="article">
         {% with %}
-        {% set sizes = "(min-width:1440px) 1070px, (min-width:1024px) 654px, (min-width: 768px) 718px, 298px" %}
+        {% set sizes = "(min-width: 1520px) 1070px, (min-width: 1040px) calc(86.96vw - 234px), (min-width: 380px) 95.63vw, calc(66.67vw + 98px)" %}
         {% include "includes/picture.html" %}
         {% endwith %}
     <h1 class="article__title">{% if article.series %}{{ article.series.name }}: {% endif %}{{ article.title }}</h1>
