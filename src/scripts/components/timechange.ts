@@ -9,7 +9,7 @@ export default class TimeChanger {
     window.requestAnimationFrame(() => {
       changes
         .forEach(([element, timestr]) => {
-          element.innerHTML = sanitize(timestr);
+          element.innerText = timestr;
         });
     });
   }

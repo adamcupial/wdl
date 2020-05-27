@@ -29,7 +29,7 @@ class Tip {
       const { x, y, left, top } = this.target.getBoundingClientRect();
 
       if (this.tipContainer) {
-        this.tipContainer.innerHTML = sanitize(this.text);
+        this.tipContainer.innerHTML = sanitize(this.text, true);
         this.tipContainer.style.left = `${left + window.scrollX}px`;
         this.tipContainer.style.top = `${top + window.scrollY}px`;
         this.tipContainer.style.maxWidth = `${window.innerWidth - x - 100}px`;
