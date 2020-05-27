@@ -162,6 +162,7 @@ CSP_HEADERS_DICT = {
     "style-src": [
         "self",
         "unsafe-inline",
+        "https://wpcc.io",
         "https://fonts.googleapis.com",
     ],
     "font-src": [
