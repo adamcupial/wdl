@@ -1,3 +1,5 @@
+import { sanitize } from './sanitize';
+
 import 'styles/tooltip.scss';
 
 class Tip {
@@ -27,7 +29,7 @@ class Tip {
       const { x, y, left, top } = this.target.getBoundingClientRect();
 
       if (this.tipContainer) {
-        this.tipContainer.innerHTML = this.text;
+        this.tipContainer.innerHTML = sanitize(this.text);
         this.tipContainer.style.left = `${left + window.scrollX}px`;
         this.tipContainer.style.top = `${top + window.scrollY}px`;
         this.tipContainer.style.maxWidth = `${window.innerWidth - x - 100}px`;
@@ -51,7 +53,7 @@ class Tip {
       if (this.tipContainer) {
         this.tipContainer.classList.remove('tooltip--visible');
         this.tipContainer.classList.remove('tooltip--left');
-        this.tipContainer.innerHTML = '';
+        this.tipContainer.innerHTML = sanitize('');
       }
     });
   }
