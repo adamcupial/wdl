@@ -1,3 +1,5 @@
+import { sanitize } from './sanitize';
+
 export default class TimeChanger {
 
   constructor(root = document.body) {
@@ -7,7 +9,7 @@ export default class TimeChanger {
     window.requestAnimationFrame(() => {
       changes
         .forEach(([element, timestr]) => {
-          element.innerHTML = timestr;
+          element.innerText = timestr;
         });
     });
   }
