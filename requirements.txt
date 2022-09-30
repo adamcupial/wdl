@@ -6,7 +6,7 @@ feedgenerator==1.9
 future==0.17.1
 htmlmin==0.1.12
 Jinja2==2.10.1
-joblib==0.13.1
+joblib==1.2.0
 lunr==0.5.4
 Markdown==3.0.1
 MarkupSafe==1.1.0
