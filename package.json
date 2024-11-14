@@ -15,7 +15,7 @@
     "generate-stats": "webpack --config webpack.config.js --env.production --profile --json > stats.json",
     "generate-images": "node generate-images.js"
   },
-  "author": "Adam Cupiał <adam.cupial@dazn.com>",
+  "author": "Adam Cupiał",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.8.3",
